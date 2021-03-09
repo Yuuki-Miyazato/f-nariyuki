@@ -236,8 +236,8 @@ MonoBehaviour:
   max: 21
   wall: {fileID: 6763341174120626922, guid: eb55549bc3949e34bb09481aababe6e3, type: 3}
   floor: {fileID: 4165895387474667860, guid: 9c90e62406a14214fb9c68608e1fecc6, type: 3}
-  start: {fileID: 6663416029443324745, guid: 9b3aac7a7a5e0844b94b95a11cbd6743, type: 3}
-  goal: {fileID: 274376937453710908, guid: cca06344e5e8df942a2e48d8ef6a8f09, type: 3}
+  start: {fileID: 3611528950549102924, guid: 9b3aac7a7a5e0844b94b95a11cbd6743, type: 3}
+  goal: {fileID: 4647531418426890672, guid: cca06344e5e8df942a2e48d8ef6a8f09, type: 3}
 --- !u!4 &1270067040
 Transform:
   m_ObjectHideFlags: 0

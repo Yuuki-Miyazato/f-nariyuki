@@ -21,10 +21,10 @@ MonoBehaviour:
     y: 30
     width: 1536
     height: 731
-  m_MinSize: {x: 881, y: 492}
-  m_MaxSize: {x: 16006, y: 14042}
+  m_MinSize: {x: 880, y: 492}
+  m_MaxSize: {x: 16005, y: 14042}
   vertical: 0
-  controlID: 2145
+  controlID: 2109
 --- !u!114 &2
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -141,7 +141,7 @@ MonoBehaviour:
   m_MinSize: {x: 605, y: 492}
   m_MaxSize: {x: 12005, y: 14042}
   vertical: 1
-  controlID: 2146
+  controlID: 2110
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -167,7 +167,7 @@ MonoBehaviour:
   m_MinSize: {x: 605, y: 221}
   m_MaxSize: {x: 12005, y: 4021}
   vertical: 0
-  controlID: 2125
+  controlID: 2085
 --- !u!114 &5
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -225,7 +225,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: 28caffff64fbffff
+      m_ExpandedIDs: 64fbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -364,9 +364,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 10
+    m_Target: 0.15099669
     speed: 2
-    m_Value: 10
+    m_Value: 0.15099669
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -509,19 +509,19 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/images
+    - Assets/Prefab
   m_ViewMode: 1
   m_StartGridSize: 53
   m_LastFolders:
-  - Assets/images
+  - Assets/Prefab
   m_LastFoldersGridSize: 53
-  m_LastProjectPath: C:\Users\massi\Downloads\f-nariyuki-main\RandomTower
+  m_LastProjectPath: "C:\\Users\\massi\\OneDrive\\\u30C9\u30AD\u30E5\u30E1\u30F3\u30C8\\f-nariyuki"
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 82390000
-    m_LastClickedID: 14722
+    m_SelectedIDs: 84390000
+    m_LastClickedID: 14724
     m_ExpandedIDs: 000000007c39000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -575,10 +575,10 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: 003b0000
-    m_LastClickedInstanceID: 15104
+    m_SelectedInstanceIDs: 1a390000
+    m_LastClickedInstanceID: 14618
     m_HadKeyboardFocusLastEvent: 1
-    m_ExpandedInstanceIDs: c62300004444000058440000f03d00009e3d000000000000
+    m_ExpandedInstanceIDs: c62300004444000058440000f03d00009e3d0000000000004c390000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -695,7 +695,7 @@ MonoBehaviour:
     m_ControlHash: -371814159
     m_PrefName: Preview_InspectorPreview
   m_PreviewWindow: {fileID: 0}
-  m_LastInspectedObjectInstanceID: 15104
+  m_LastInspectedObjectInstanceID: 14618
   m_LastVerticalScrollValue: 0
 --- !u!114 &16
 MonoBehaviour:
