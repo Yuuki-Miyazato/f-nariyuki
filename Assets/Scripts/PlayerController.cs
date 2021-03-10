@@ -3,64 +3,96 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
-[RequireComponent(typeof(Animator))]
 public class PlayerController : MonoBehaviour
 {
+    private Rigidbody2D rd2d;
+    public float moveTime = 0.1f;
+    public bool isMoveing = false;
 
-    public Vector2 lastMove;
-
-    [SerializeField]
-    private float moveSpeed;
-
-    private Rigidbody2D rb;
-    private Animator animator;
-    private Vector2 movement;
-
+    public LayerMask blockingLayer;
+    private BoxCollider2D boxCollider;
+    
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
-        animator = GetComponent<Animator>();
+        rd2d = GetComponent<Rigidbody2D>();
+        boxCollider = GetComponent<BoxCollider2D>();
     }
 
     void Update()
     {
-        movement = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-
-        Animate();
-    }
-
-
-
-    private void FixedUpdate()
-    {
-        MovePlayer();
-    }
-
-
-
-    private void MovePlayer()
-    {
-        rb.AddForce(movement.normalized * moveSpeed * 1.5f);
-    }
-
-    public void Animate()
-    {
-        if (Mathf.Abs(movement.x) > 0.5f)
+        int horizontal = (int)Input.GetAxisRaw("Horizontal");
+        int vertical = (int)Input.GetAxisRaw("Vertical");
+        
+        if(horizontal != 0)
         {
-            lastMove.x = movement.x;
-            lastMove.y = 0;
+            vertical = 0;
+            if(horizontal == 1)
+            {
+                transform.localScale = new Vector2((float)1.5, (float)1.5);
+            }
+            else if(horizontal == -1)
+            {
+                transform.localScale = new Vector2((float)1.5, (float)1.5);
+            }
         }
-        if (Mathf.Abs(movement.y) > 0.5f)
+        else if(vertical != 0)
         {
-            lastMove.y = movement.y;
-            lastMove.x = 0;
+            horizontal = 0;
         }
 
-        animator.SetFloat("Dir_X", movement.x);
-        animator.SetFloat("Dir_Y", movement.y);
-        animator.SetFloat("LastMove_X", lastMove.x);
-        animator.SetFloat("LastMove_Y", lastMove.y);
-        animator.SetFloat("Input", movement.magnitude);
+        if(horizontal != 0 || vertical != 0)
+        {
+            ATMove(horizontal,vertical);
+        }
     }
 
+    public void ATMove(int horizontal,int vertical)
+    {
+        RaycastHit2D hit;
+
+        bool canMove = Move(horizontal, vertical,out hit);
+
+        if (hit.transform == null)
+        {
+            return;
+        }
+
+    }
+    public bool Move(int horizontal,int vertical,out RaycastHit2D hit)
+    {
+        Vector2 start = transform.position;
+
+        Vector2 end = start + new Vector2(horizontal, vertical);
+
+        hit = Physics2D.Linecast(start, end, blockingLayer);
+
+        boxCollider.enabled = true;
+
+        if (!isMoveing && hit.transform == null)
+        {
+            StartCoroutine(Movement(end));
+
+            return true;
+        }
+        return false;
+    }
+
+    IEnumerator Movement(Vector3 end)
+    {
+        isMoveing = true;
+
+        float remainingDistance = (transform.position - end).sqrMagnitude;
+        
+        while(remainingDistance > float.Epsilon)
+        {
+            transform.position = Vector3.MoveTowards(transform.position, end, 1f / moveTime * Time.deltaTime);
+
+            remainingDistance = (transform.position - end).sqrMagnitude;
+
+            yield return null;
+        }
+        transform.position = end;
+
+        isMoveing = false;
+    }
 }

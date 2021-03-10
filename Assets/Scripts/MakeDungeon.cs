@@ -12,7 +12,6 @@ public class MakeDungeon : MonoBehaviour
     public GameObject floor;    //床用オブジェクト
     public GameObject start;   //スタート地点に配置するオブジェクト
     public GameObject goal;    //ゴール地点に配置するオブジェクト
-
     /*
     *内部パラメータ
     */
@@ -31,6 +30,7 @@ public class MakeDungeon : MonoBehaviour
         //通路の生成
         //初回はゴール地点を設定する
         goalPos = MakeDungeonMap(startPos);
+
         //通路生成を繰り返して袋小路を減らす
         int[] tmpStart = goalPos;
         for (int i = 0; i < max * 5; i++)
@@ -45,9 +45,9 @@ public class MakeDungeon : MonoBehaviour
         //スタート地点とゴール地点にオブジェクトを配置する
         //初回で取得したスタート地点とゴール地点は必ずつながっているので破綻しない
         GameObject startObj = Instantiate(start, new Vector2(startPos[0], startPos[1]), Quaternion.identity) as GameObject;//startPos[0],startPos[1]
-        startObj.transform.parent = transform;
         GameObject goalObj = Instantiate(goal, new Vector2(goalPos[0], goalPos[1]), Quaternion.identity) as GameObject;//goalPos[0],goalPos[1]
-        goalObj.transform.parent = transform;
+        startObj.transform.parent = transform;
+        goalObj.transform.parent = transform; 
     }
     /*
     *スタート地点の取得
@@ -64,7 +64,6 @@ public class MakeDungeon : MonoBehaviour
             randx = Mathf.RoundToInt(Random.Range(0, max));
             randy = Mathf.RoundToInt(Random.Range(0, max));
         }
-
         return new int[] { randx, randy };
     }
 
@@ -146,7 +145,7 @@ public class MakeDungeon : MonoBehaviour
                     GameObject wallObj = Instantiate(wall, new Vector2(i, j), Quaternion.identity) as GameObject;
                     wallObj.transform.parent = transform;
                 }
-                else
+                else if (isOutOfRange(i, j) || walls[i, j] == 1)
                 {
                     //全ての場所に床オブジェクトを生成
                     GameObject floorObj = Instantiate(floor, new Vector2(i, j), Quaternion.identity) as GameObject;
@@ -154,6 +153,5 @@ public class MakeDungeon : MonoBehaviour
                 }
             }
         }
-
     }
 }

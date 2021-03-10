@@ -21,10 +21,10 @@ MonoBehaviour:
     y: 30
     width: 1536
     height: 731
-  m_MinSize: {x: 880, y: 492}
-  m_MaxSize: {x: 16005, y: 14042}
+  m_MinSize: {x: 881, y: 492}
+  m_MaxSize: {x: 16006, y: 14042}
   vertical: 0
-  controlID: 2109
+  controlID: 23282
 --- !u!114 &2
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -141,7 +141,7 @@ MonoBehaviour:
   m_MinSize: {x: 605, y: 492}
   m_MaxSize: {x: 12005, y: 14042}
   vertical: 1
-  controlID: 2110
+  controlID: 23283
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -167,7 +167,7 @@ MonoBehaviour:
   m_MinSize: {x: 605, y: 221}
   m_MaxSize: {x: 12005, y: 4021}
   vertical: 0
-  controlID: 2085
+  controlID: 23284
 --- !u!114 &5
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -312,9 +312,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 0, y: 0, z: 0}
+    m_Target: {x: -0.45362478, y: -1.1129401, z: -9.582966}
     speed: 2
-    m_Value: {x: 0, y: 0, z: 0}
+    m_Value: {x: -0.45362478, y: -1.1129401, z: -9.582966}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -364,9 +364,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 0.15099669
+    m_Target: 15.640336
     speed: 2
-    m_Value: 0.15099669
+    m_Value: 15.640336
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -515,7 +515,7 @@ MonoBehaviour:
   m_LastFolders:
   - Assets/Prefab
   m_LastFoldersGridSize: 53
-  m_LastProjectPath: "C:\\Users\\massi\\OneDrive\\\u30C9\u30AD\u30E5\u30E1\u30F3\u30C8\\f-nariyuki"
+  m_LastProjectPath: C:\Users\massi\Downloads\f-nariyuki-main\f-nariyuki-main
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
@@ -575,9 +575,9 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: 1a390000
-    m_LastClickedInstanceID: 14618
-    m_HadKeyboardFocusLastEvent: 1
+    m_SelectedInstanceIDs: a04d0000
+    m_LastClickedInstanceID: 19872
+    m_HadKeyboardFocusLastEvent: 0
     m_ExpandedInstanceIDs: c62300004444000058440000f03d00009e3d0000000000004c390000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -695,8 +695,8 @@ MonoBehaviour:
     m_ControlHash: -371814159
     m_PrefName: Preview_InspectorPreview
   m_PreviewWindow: {fileID: 0}
-  m_LastInspectedObjectInstanceID: 14618
-  m_LastVerticalScrollValue: 0
+  m_LastInspectedObjectInstanceID: 19872
+  m_LastVerticalScrollValue: 100
 --- !u!114 &16
 MonoBehaviour:
   m_ObjectHideFlags: 52
