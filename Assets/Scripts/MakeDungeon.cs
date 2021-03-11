@@ -12,15 +12,21 @@ public class MakeDungeon : MonoBehaviour
     public GameObject floor;    //床用オブジェクト
     public GameObject start;   //スタート地点に配置するオブジェクト
     public GameObject goal;    //ゴール地点に配置するオブジェクト
+    public GameObject player;
+
+    public int posx;
+    public int posy;
+
+    public PlayerController Script;
     /*
     *内部パラメータ
     */
     private int[,] walls;      //マップの状態 0：壁 1：通路
     private int[] startPos;    //スタートの座標
     private int[] goalPos;     //ゴールの座標
-
     void Start()
     {
+
         //マップ状態初期化
         walls = new int[max, max];
 
@@ -42,16 +48,28 @@ public class MakeDungeon : MonoBehaviour
         //マップの状態に応じて壁と通路を生成する
         BuildDungeon();
 
+
         //スタート地点とゴール地点にオブジェクトを配置する
         //初回で取得したスタート地点とゴール地点は必ずつながっているので破綻しない
         GameObject startObj = Instantiate(start, new Vector2(startPos[0], startPos[1]), Quaternion.identity) as GameObject;//startPos[0],startPos[1]
         GameObject goalObj = Instantiate(goal, new Vector2(goalPos[0], goalPos[1]), Quaternion.identity) as GameObject;//goalPos[0],goalPos[1]
+        GameObject playerObj = Instantiate(player, new Vector2(startPos[0], startPos[1]), Quaternion.identity) as GameObject;//goalPos[0],goalPos[1]
+        playerObj.transform.parent = transform;
         startObj.transform.parent = transform;
-        goalObj.transform.parent = transform; 
+        goalObj.transform.parent = transform;
     }
     /*
     *スタート地点の取得
     */
+    void Update()
+    {
+        if (Input.GetKeyDown("joystick button 1"))
+        {
+            Debug.Log("a");
+            GameObject floorObj = Instantiate(floor, new Vector2(5, 5), Quaternion.identity) as GameObject;
+            floorObj.transform.parent = transform;
+        }
+    }
     int[] GetStartPosition()
     {
         //ランダムでx,yを設定
@@ -139,13 +157,12 @@ public class MakeDungeon : MonoBehaviour
             for (int j = -1; j <= max; j++)
             {
                 //範囲外、または壁の場合に壁オブジェクトを生成する
-                if (isOutOfRange(i, j)
-                    || walls[i, j] == 0)
+                if (isOutOfRange(i, j) || walls[i, j] == 0)
                 {
                     GameObject wallObj = Instantiate(wall, new Vector2(i, j), Quaternion.identity) as GameObject;
                     wallObj.transform.parent = transform;
                 }
-                else if (isOutOfRange(i, j) || walls[i, j] == 1)
+                if (isOutOfRange(i, j) || walls[i, j] == 1 || walls[i,j] == 0)
                 {
                     //全ての場所に床オブジェクトを生成
                     GameObject floorObj = Instantiate(floor, new Vector2(i, j), Quaternion.identity) as GameObject;

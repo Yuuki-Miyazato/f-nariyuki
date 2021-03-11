@@ -66,6 +66,7 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\MakeDungeon.cs" />
     <Compile Include="Assets\Scripts\PlayerController.cs" />
+    <Compile Include="Assets\Scripts\WallBreak.cs" />
     <Reference Include="UnityEngine">
       <HintPath>D:/unity/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>
