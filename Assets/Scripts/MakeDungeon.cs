@@ -13,15 +13,9 @@ public class MakeDungeon : MonoBehaviour
     public GameObject start;   //スタート地点に配置するオブジェクト
     public GameObject goal;    //ゴール地点に配置するオブジェクト
     public GameObject player;
-
-    public int posx;
-    public int posy;
-
-    public PlayerController Script;
-    /*
-    *内部パラメータ
-    */
-    private int[,] walls;      //マップの状態 0：壁 1：通路
+    public GameObject enemy;
+    
+    public int[,] walls;      //マップの状態 0：壁 1：通路
     private int[] startPos;    //スタートの座標
     private int[] goalPos;     //ゴールの座標
     void Start()
@@ -54,13 +48,15 @@ public class MakeDungeon : MonoBehaviour
         GameObject startObj = Instantiate(start, new Vector2(startPos[0], startPos[1]), Quaternion.identity) as GameObject;//startPos[0],startPos[1]
         GameObject goalObj = Instantiate(goal, new Vector2(goalPos[0], goalPos[1]), Quaternion.identity) as GameObject;//goalPos[0],goalPos[1]
         GameObject playerObj = Instantiate(player, new Vector2(startPos[0], startPos[1]), Quaternion.identity) as GameObject;//goalPos[0],goalPos[1]
+        GameObject enemyObj = Instantiate(enemy, new Vector2(0, 0), Quaternion.identity) as GameObject;
+        enemyObj.transform.parent = transform;
         playerObj.transform.parent = transform;
         startObj.transform.parent = transform;
         goalObj.transform.parent = transform;
+
+        playerObj.name = "Player";
+
     }
-    /*
-    *スタート地点の取得
-    */
     void Update()
     {
         if (Input.GetKeyDown("joystick button 1"))

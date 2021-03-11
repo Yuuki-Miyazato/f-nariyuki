@@ -17,25 +17,32 @@ public class PlayerController : MonoBehaviour
     public Sprite hidari;
     public Sprite usiro;
 
+
+    public int px;
+    public int py;
+        
     public int BP = 0;
     public int AP = 4;
 
     public int attackDamage = 1;
-
-
+    
+    
     public LayerMask blockingLayer;
     private BoxCollider2D boxCollider;
     private Animator animator;
-
     void Start()
     {
         rd2d = GetComponent<Rigidbody2D>();
         boxCollider = GetComponent<BoxCollider2D>();
         animator = GetComponent<Animator>();
     }
-
     void Update()
     {
+        float pos_x = this.gameObject.transform.position.x;
+        float pos_y = this.gameObject.transform.position.y;
+        px = (int)pos_x;
+        py = (int)pos_y;
+
         int horizontal = (int)Input.GetAxisRaw("Horizontal");
         int vertical = (int)Input.GetAxisRaw("Vertical");
 
@@ -50,11 +57,17 @@ public class PlayerController : MonoBehaviour
             if (horizontal == 1)
             {
                 R = 1;
+                U = 0;
+                L = 0;
+                D = 0;
                 player.sprite = migi;
             }
             else if (horizontal == -1)
             {
                 L = 1;
+                R = 0;
+                U = 0;
+                D = 0;
                 player.sprite = hidari;
             }
         }
@@ -64,11 +77,17 @@ public class PlayerController : MonoBehaviour
             if (vertical == 1)
             {
                 D = 1;
+                R = 0;
+                U = 0;
+                L = 0;
                 player.sprite = usiro;
             }
             else if (vertical == -1)
             {
                 U = 1;
+                R = 0;
+                L = 0;
+                D = 0;
                 player.sprite = mae;
             }
         }
@@ -119,6 +138,7 @@ public class PlayerController : MonoBehaviour
 
     IEnumerator Movement(Vector3 end)
     {
+        
         isMoveing = true;
 
         float remainingDistance = (transform.position - end).sqrMagnitude;
@@ -126,6 +146,10 @@ public class PlayerController : MonoBehaviour
         while (remainingDistance > float.Epsilon)
         {
             transform.position = Vector3.MoveTowards(transform.position, end, 1f / moveTime * Time.deltaTime);
+            float pos_x = this.gameObject.transform.position.x;
+            float pos_y = this.gameObject.transform.position.y;
+            px = (int)pos_x;
+            py = (int)pos_y;
 
             remainingDistance = (transform.position - end).sqrMagnitude;
 
@@ -135,7 +159,6 @@ public class PlayerController : MonoBehaviour
 
         isMoveing = false;
     }
-
     public void OncantMove(WallBreak hit)
     {
         if (BP == 1 && AP > 0)
