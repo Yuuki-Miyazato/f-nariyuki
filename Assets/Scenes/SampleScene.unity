@@ -235,11 +235,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   max: 21
   wall: {fileID: 4134305087115784723, guid: eb55549bc3949e34bb09481aababe6e3, type: 3}
+  wall2: {fileID: 4134305087115784723, guid: eb55549bc3949e34bb09481aababe6e3, type: 3}
   floor: {fileID: 131840870577863376, guid: 9c90e62406a14214fb9c68608e1fecc6, type: 3}
   start: {fileID: 5911598386532400483, guid: 9b3aac7a7a5e0844b94b95a11cbd6743, type: 3}
   goal: {fileID: 7306056265064252982, guid: 0958d75ea644a0147b5137e0ce7ce7b2, type: 3}
   player: {fileID: 6943914118578256669, guid: cabea83061ec54e4190919a859cc9ad9, type: 3}
-  enemy: {fileID: 1532072022709860668, guid: 2691c3cd3a720e64eb40f0b9bcfed5c8, type: 3}
+  enemy: {fileID: 4267380004830016481, guid: fd3d1472cb8d4f640b9133df37ffab91, type: 3}
 --- !u!4 &1270067040
 Transform:
   m_ObjectHideFlags: 0

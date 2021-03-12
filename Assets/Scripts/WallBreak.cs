@@ -10,7 +10,6 @@ public class WallBreak : MonoBehaviour
     void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
-
     }
 
     public void DamageWall(int loss)

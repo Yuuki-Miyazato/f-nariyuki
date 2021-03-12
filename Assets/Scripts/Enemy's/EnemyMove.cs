@@ -5,10 +5,9 @@ using UnityEngine;
 public class EnemyMove : MonoBehaviour
 {
     private BoxCollider2D boxCollider;
-    public float moveTime = 0.1f;
+    private float moveTime = 0.1f;
     public PlayerController script;
     public GameObject Player;
-
     public int x;
     public int y;
     void Start()
@@ -16,41 +15,38 @@ public class EnemyMove : MonoBehaviour
         Player = GameObject.Find("Player");
         script = Player.GetComponent<PlayerController>();
     }
-    void Update()
+    private void FixedUpdate()
     {
-    }
-    void moving()
-    {
-        Transform myTransform = this.transform;
-        Vector2 pos = myTransform.position;
-        x = script.px;
-        y = script.py;
-        if (x >= pos.x)
-        {
-            pos.x += 1f / moveTime * Time.deltaTime;
-            myTransform.position = pos;
-        }
-        else if (x <= pos.x)
-        {
-            pos.x -= 1f / moveTime * Time.deltaTime;
-            myTransform.position = pos;
-        }
-        if(y >= pos.y)
-        {
-            pos.y += 1f / moveTime * Time.deltaTime;
-            myTransform.position = pos;
-        }
-        else if (y <= pos.y)
-        {
-            pos.y -= 1f / moveTime * Time.deltaTime;
-            myTransform.position = pos;
-        }
     }
     void OnTriggerStay2D(Collider2D collider)
     {
         if (collider.gameObject.tag == "Player")
         {
-            moving();
+            
+            Transform myTransform = this.transform;
+            Vector2 pos = myTransform.position;
+            x = script.px;
+            y = script.py;
+            if (x >= pos.x)
+            {
+                pos.x += moveTime;
+                myTransform.position = pos;
+            }
+            else if (x <= pos.x)
+            {
+                pos.x -= moveTime;
+                myTransform.position = pos;
+            }
+            if (y >= pos.y)
+            {
+                pos.y += moveTime;
+                myTransform.position = pos;
+            }
+            else if (y <= pos.y)
+            {
+                pos.y -= moveTime;
+                myTransform.position = pos;
+            }
         }
     }
 }

@@ -38,15 +38,15 @@ public class PlayerController : MonoBehaviour
     }
     void Update()
     {
+        int horizontal = (int)Input.GetAxisRaw("Horizontal");
+        int vertical = (int)Input.GetAxisRaw("Vertical");
+
         float pos_x = this.gameObject.transform.position.x;
         float pos_y = this.gameObject.transform.position.y;
         px = (int)pos_x;
         py = (int)pos_y;
 
-        int horizontal = (int)Input.GetAxisRaw("Horizontal");
-        int vertical = (int)Input.GetAxisRaw("Vertical");
-
-        if (Input.GetKeyDown("joystick button 2"))
+        if (Input.GetKeyDown("joystick button 1"))
         {
             BP = 1;
         }
@@ -138,7 +138,6 @@ public class PlayerController : MonoBehaviour
 
     IEnumerator Movement(Vector3 end)
     {
-        
         isMoveing = true;
 
         float remainingDistance = (transform.position - end).sqrMagnitude;
@@ -146,10 +145,6 @@ public class PlayerController : MonoBehaviour
         while (remainingDistance > float.Epsilon)
         {
             transform.position = Vector3.MoveTowards(transform.position, end, 1f / moveTime * Time.deltaTime);
-            float pos_x = this.gameObject.transform.position.x;
-            float pos_y = this.gameObject.transform.position.y;
-            px = (int)pos_x;
-            py = (int)pos_y;
 
             remainingDistance = (transform.position - end).sqrMagnitude;
 

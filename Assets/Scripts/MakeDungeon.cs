@@ -48,23 +48,20 @@ public class MakeDungeon : MonoBehaviour
         GameObject startObj = Instantiate(start, new Vector2(startPos[0], startPos[1]), Quaternion.identity) as GameObject;//startPos[0],startPos[1]
         GameObject goalObj = Instantiate(goal, new Vector2(goalPos[0], goalPos[1]), Quaternion.identity) as GameObject;//goalPos[0],goalPos[1]
         GameObject playerObj = Instantiate(player, new Vector2(startPos[0], startPos[1]), Quaternion.identity) as GameObject;//goalPos[0],goalPos[1]
-        GameObject enemyObj = Instantiate(enemy, new Vector2(0, 0), Quaternion.identity) as GameObject;
+        GameObject enemyObj = Instantiate(enemy, new Vector2(0, 20), Quaternion.identity) as GameObject;
+        GameObject enemyObj2 = Instantiate(enemy, new Vector2(20, 0), Quaternion.identity) as GameObject;
+        GameObject enemyObj3 = Instantiate(enemy, new Vector2(0, 0), Quaternion.identity) as GameObject;
+        GameObject enemyObj4 = Instantiate(enemy, new Vector2(20, 20), Quaternion.identity) as GameObject;
+
         enemyObj.transform.parent = transform;
         playerObj.transform.parent = transform;
         startObj.transform.parent = transform;
         goalObj.transform.parent = transform;
 
         playerObj.name = "Player";
-
     }
     void Update()
     {
-        if (Input.GetKeyDown("joystick button 1"))
-        {
-            Debug.Log("a");
-            GameObject floorObj = Instantiate(floor, new Vector2(5, 5), Quaternion.identity) as GameObject;
-            floorObj.transform.parent = transform;
-        }
     }
     int[] GetStartPosition()
     {

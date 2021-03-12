@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 8b15060a0a736c1469f7093f82664407, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.9032574, g: 0.9061578, b: 0.9622642, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -92,17 +92,17 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6943914118578256669}
-  m_BodyType: 1
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 0.0001
   m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_AngularDrag: 0
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
-  m_SleepingMode: 1
+  m_SleepingMode: 0
   m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!114 &8344647150987714793
@@ -128,6 +128,8 @@ MonoBehaviour:
   migi: {fileID: 21300000, guid: 65f803510cc624a47be1b3c815cb7a29, type: 3}
   hidari: {fileID: 21300000, guid: f7cf4ec2a1a424f479d2740cb744ab6a, type: 3}
   usiro: {fileID: 21300000, guid: 3151ef7c9874fa648986bbd22bfe8e1f, type: 3}
+  px: 0
+  py: 0
   BP: 0
   AP: 4
   attackDamage: 1
