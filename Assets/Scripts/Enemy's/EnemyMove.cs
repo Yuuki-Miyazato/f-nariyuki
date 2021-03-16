@@ -5,48 +5,43 @@ using UnityEngine;
 public class EnemyMove : MonoBehaviour
 {
     private BoxCollider2D boxCollider;
-    private float moveTime = 0.1f;
+    public float moveTime = 0.1f;
     public PlayerController script;
     public GameObject Player;
-    public int x;
-    public int y;
+    public int t;
     void Start()
     {
         Player = GameObject.Find("Player");
         script = Player.GetComponent<PlayerController>();
     }
-    private void FixedUpdate()
+    void Update()
     {
     }
-    void OnTriggerStay2D(Collider2D collider)
+    void OnTriggerStay2D(Collider2D collision)
     {
-        if (collider.gameObject.tag == "Player")
+        Transform myTransform = this.transform;
+        Vector2 pos = myTransform.position;
+        t = 0;
+        if (script.px >= pos.x && pos.y == script.py && t == 0)
         {
-            
-            Transform myTransform = this.transform;
-            Vector2 pos = myTransform.position;
-            x = script.px;
-            y = script.py;
-            if (x >= pos.x)
-            {
-                pos.x += moveTime;
-                myTransform.position = pos;
-            }
-            else if (x <= pos.x)
-            {
-                pos.x -= moveTime;
-                myTransform.position = pos;
-            }
-            if (y >= pos.y)
-            {
-                pos.y += moveTime;
-                myTransform.position = pos;
-            }
-            else if (y <= pos.y)
-            {
-                pos.y -= moveTime;
-                myTransform.position = pos;
-            }
+            pos.x += moveTime * Time.deltaTime;
         }
+        else if (script.px <= pos.x && pos.y == script.py && t == 0)
+        {
+            pos.x -= moveTime * Time.deltaTime;
+        }
+        if (script.py >= pos.y && pos.x == script.px && t == 0)
+        {
+            pos.y += moveTime * Time.deltaTime;
+        }
+        else if (script.py <= pos.y && pos.x == script.px && t == 0)
+        {
+            pos.y -= moveTime * Time.deltaTime;
+        }
+        myTransform.position = pos;
+    }
+    void OnTriggerExit2D(Collider2D collision)
+    {
+        
     }
 }
