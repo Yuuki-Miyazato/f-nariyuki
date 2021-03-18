@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4267380004830016485}
   - component: {fileID: 4267380004830016482}
-  - component: {fileID: 4267380004830016480}
   - component: {fileID: 2525101455627347236}
   - component: {fileID: 5758677648495425878}
+  - component: {fileID: 1246659069698426357}
   m_Layer: 10
   m_Name: Enemy
   m_TagString: Enemy
@@ -70,8 +70,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1757319041
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 8b15060a0a736c1469f7093f82664407, type: 3}
   m_Color: {r: 0.9433962, g: 0.06674972, b: 0.06674972, a: 1}
@@ -84,27 +84,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!50 &4267380004830016480
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4267380004830016481}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 0.0001
-  m_LinearDrag: 0
-  m_AngularDrag: 0
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 0
-  m_CollisionDetection: 1
-  m_Constraints: 4
 --- !u!61 &2525101455627347236
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -143,6 +122,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21553bd4e088c37419358e0844e18f5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveTime: 0.2
+  moveTime: 3
   script: {fileID: 0}
   Player: {fileID: 6943914118578256669, guid: cabea83061ec54e4190919a859cc9ad9, type: 3}
+  rb: {fileID: 0}
+--- !u!50 &1246659069698426357
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4267380004830016481}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 0.0001
+  m_LinearDrag: 0
+  m_AngularDrag: 0
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4

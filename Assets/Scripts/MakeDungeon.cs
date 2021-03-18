@@ -14,7 +14,9 @@ public class MakeDungeon : MonoBehaviour
     public GameObject goal;    //ゴール地点に配置するオブジェクト
     public GameObject player;
     public GameObject enemy;
-    
+    public GameObject enemy2;
+
+
     public int[,] walls;      //マップの状態 0：壁 1：通路
     private int[] startPos;    //スタートの座標
     private int[] goalPos;     //ゴールの座標
@@ -50,9 +52,10 @@ public class MakeDungeon : MonoBehaviour
         GameObject playerObj = Instantiate(player, new Vector2(startPos[0], startPos[1]), Quaternion.identity) as GameObject;//goalPos[0],goalPos[1]
         GameObject enemyObj = Instantiate(enemy, new Vector2(0, 20), Quaternion.identity) as GameObject;
         GameObject enemyObj2 = Instantiate(enemy, new Vector2(20, 0), Quaternion.identity) as GameObject;
-        GameObject enemyObj3 = Instantiate(enemy, new Vector2(0, 0), Quaternion.identity) as GameObject;
-        GameObject enemyObj4 = Instantiate(enemy, new Vector2(20, 20), Quaternion.identity) as GameObject;
+        GameObject enemyObj3 = Instantiate(enemy2, new Vector2(0, 0), Quaternion.identity) as GameObject;
+        GameObject enemyObj4 = Instantiate(enemy2, new Vector2(20, 20), Quaternion.identity) as GameObject;
 
+        enemyObj2.transform.parent = transform;
         enemyObj.transform.parent = transform;
         playerObj.transform.parent = transform;
         startObj.transform.parent = transform;
@@ -155,7 +158,7 @@ public class MakeDungeon : MonoBehaviour
                     GameObject wallObj = Instantiate(wall, new Vector2(i, j), Quaternion.identity) as GameObject;
                     wallObj.transform.parent = transform;
                 }
-                if (isOutOfRange(i, j) || walls[i, j] == 1 || walls[i,j] == 0)
+                if (isOutOfRange(i, j) || walls[i, j] == 1 || walls[i, j] == 0)
                 {
                     //全ての場所に床オブジェクトを生成
                     GameObject floorObj = Instantiate(floor, new Vector2(i, j), Quaternion.identity) as GameObject;

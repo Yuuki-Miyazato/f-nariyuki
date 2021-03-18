@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 [RequireComponent(typeof(Rigidbody2D))]
@@ -20,13 +21,13 @@ public class PlayerController : MonoBehaviour
 
     public int px;
     public int py;
-        
+
     public int BP = 0;
     public int AP = 4;
 
     public int attackDamage = 1;
-    
-    
+    public int HP = 3;
+
     public LayerMask blockingLayer;
     private BoxCollider2D boxCollider;
     private Animator animator;
@@ -38,7 +39,7 @@ public class PlayerController : MonoBehaviour
     }
     void Update()
     {
-        int horizontal = (int)Input.GetAxisRaw("Horizontal");
+        int horizontal = (int)Input.GetAxisRaw("Horizontal"); 
         int vertical = (int)Input.GetAxisRaw("Vertical");
 
         float pos_x = this.gameObject.transform.position.x;
@@ -50,7 +51,10 @@ public class PlayerController : MonoBehaviour
         {
             BP = 1;
         }
-
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            BP = 1;
+        }
         if (horizontal != 0)
         {
             vertical = 0;
@@ -96,7 +100,17 @@ public class PlayerController : MonoBehaviour
             ATMove(horizontal, vertical);
         }
     }
-
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Enemy")
+        {
+            HP -= 1;
+        }
+        if(HP == 0)
+        {
+            SceneManager.LoadScene("GameOver");
+        }
+    }
     public void ATMove(int horizontal, int vertical)
     {
         RaycastHit2D hit;
