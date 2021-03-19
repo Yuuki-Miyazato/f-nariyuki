@@ -15,6 +15,7 @@ public class MakeDungeon : MonoBehaviour
     public GameObject player;
     public GameObject enemy;
     public GameObject enemy2;
+    public GameObject enemy3;
 
 
     public int[,] walls;      //マップの状態 0：壁 1：通路
@@ -44,6 +45,7 @@ public class MakeDungeon : MonoBehaviour
         //マップの状態に応じて壁と通路を生成する
         BuildDungeon();
 
+        walls[10, 10] = -2;
 
         //スタート地点とゴール地点にオブジェクトを配置する
         //初回で取得したスタート地点とゴール地点は必ずつながっているので破綻しない
@@ -60,6 +62,13 @@ public class MakeDungeon : MonoBehaviour
         playerObj.transform.parent = transform;
         startObj.transform.parent = transform;
         goalObj.transform.parent = transform;
+
+        if (walls[10, 10] == -2)
+        {
+            enemy3 = Instantiate(enemy3, new Vector2(10, 10), Quaternion.identity);
+            enemy3.transform.parent = transform;
+            enemy3.name = "Enemy3";
+        }
 
         playerObj.name = "Player";
     }
