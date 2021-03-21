@@ -9,6 +9,7 @@ public class MakeDungeon : MonoBehaviour
     */
     public int max = 21;        //縦横のサイズ ※必ず奇数にすること
     public GameObject wall;    //壁用オブジェクト
+    public GameObject wall2;    //外壁用オブジェクト
     public GameObject floor;    //床用オブジェクト
     public GameObject start;   //スタート地点に配置するオブジェクト
     public GameObject goal;    //ゴール地点に配置するオブジェクト
@@ -16,7 +17,7 @@ public class MakeDungeon : MonoBehaviour
     public GameObject enemy;
     public GameObject enemy2;
     public GameObject enemy3;
-
+    public GameObject item;
 
     public int[,] walls;      //マップの状態 0：壁 1：通路
     private int[] startPos;    //スタートの座標
@@ -52,11 +53,16 @@ public class MakeDungeon : MonoBehaviour
         GameObject startObj = Instantiate(start, new Vector2(startPos[0], startPos[1]), Quaternion.identity) as GameObject;//startPos[0],startPos[1]
         GameObject goalObj = Instantiate(goal, new Vector2(goalPos[0], goalPos[1]), Quaternion.identity) as GameObject;//goalPos[0],goalPos[1]
         GameObject playerObj = Instantiate(player, new Vector2(startPos[0], startPos[1]), Quaternion.identity) as GameObject;//goalPos[0],goalPos[1]
-        GameObject enemyObj = Instantiate(enemy, new Vector2(0, 20), Quaternion.identity) as GameObject;
-        GameObject enemyObj2 = Instantiate(enemy, new Vector2(20, 0), Quaternion.identity) as GameObject;
-        GameObject enemyObj3 = Instantiate(enemy2, new Vector2(0, 0), Quaternion.identity) as GameObject;
-        GameObject enemyObj4 = Instantiate(enemy2, new Vector2(20, 20), Quaternion.identity) as GameObject;
+        GameObject enemyObj = Instantiate(enemy, new Vector2(4, 16), Quaternion.identity) as GameObject;
+        GameObject enemyObj2 = Instantiate(enemy, new Vector2(16, 4), Quaternion.identity) as GameObject;
+        GameObject enemyObj3 = Instantiate(enemy2, new Vector2(4, 4), Quaternion.identity) as GameObject;
+        GameObject enemyObj4 = Instantiate(enemy2, new Vector2(16, 16), Quaternion.identity) as GameObject;
+        GameObject itemObj = Instantiate(item, new Vector2(6, 6), Quaternion.identity) as GameObject;
+        GameObject itemObj2 = Instantiate(item, new Vector2(6, 14), Quaternion.identity) as GameObject;
+        GameObject itemObj3 = Instantiate(item, new Vector2(14, 14), Quaternion.identity) as GameObject;
+        GameObject itemObj4 = Instantiate(item, new Vector2(14, 6), Quaternion.identity) as GameObject;
 
+        itemObj.transform.parent = transform;
         enemyObj2.transform.parent = transform;
         enemyObj.transform.parent = transform;
         playerObj.transform.parent = transform;
@@ -71,6 +77,7 @@ public class MakeDungeon : MonoBehaviour
         }
 
         playerObj.name = "Player";
+
     }
     void Update()
     {
@@ -156,6 +163,18 @@ public class MakeDungeon : MonoBehaviour
     //パラメータに応じてオブジェクトを生成する
     void BuildDungeon()
     {
+
+        for (int i = -1; i <= max; i++)
+        {
+            for (int j = -1; j <= max; j++)
+            {
+                if (isOutOfRange(i, j) || walls[i, j] != 0 && walls[i, j] != 1)
+                {
+                    GameObject wallObj2 = Instantiate(wall2, new Vector2(i, j), Quaternion.identity) as GameObject;
+                    wallObj2.transform.parent = transform;
+                }
+            }
+        }
         //縦横1マスずつ大きくループを回し、壁とする
         for (int i = -1; i <= max; i++)
         {

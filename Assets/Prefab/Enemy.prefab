@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 4267380004830016481}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 3, y: 3, z: 3}
+  m_LocalScale: {x: 3, y: 3, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -108,7 +108,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.32, y: 0.32}
+  m_Size: {x: 0.3, y: 0.3}
   m_EdgeRadius: 0
 --- !u!114 &5758677648495425878
 MonoBehaviour:
@@ -122,10 +122,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21553bd4e088c37419358e0844e18f5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveTime: 3
-  script: {fileID: 0}
-  Player: {fileID: 6943914118578256669, guid: cabea83061ec54e4190919a859cc9ad9, type: 3}
+  moveTime: 0.3
   rb: {fileID: 0}
+  mp: 0
+  x: 0.1
+  y: 0.1
+  blockingLayer:
+    serializedVersion: 2
+    m_Bits: 256
+  isMoveing: 0
 --- !u!50 &1246659069698426357
 Rigidbody2D:
   serializedVersion: 4

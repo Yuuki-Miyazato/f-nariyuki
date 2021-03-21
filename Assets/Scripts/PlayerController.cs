@@ -22,7 +22,7 @@ public class PlayerController : MonoBehaviour
     public int px;
     public int py;
 
-    public int BP = 0;
+    private int BP = 0;
     public int AP = 4;
 
     public int attackDamage = 1;
@@ -46,7 +46,12 @@ public class PlayerController : MonoBehaviour
         float pos_y = this.gameObject.transform.position.y;
         px = (int)pos_x;
         py = (int)pos_y;
+        Debug.Log(horizontal);
 
+        if (HP == 0)
+        {
+            SceneManager.LoadScene("GameOver");
+        }
         if (Input.GetKeyDown("joystick button 1"))
         {
             BP = 1;
@@ -100,15 +105,11 @@ public class PlayerController : MonoBehaviour
             ATMove(horizontal, vertical);
         }
     }
-    void OnTriggerEnter2D(Collider2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Enemy")
         {
             HP -= 1;
-        }
-        if(HP == 0)
-        {
-            SceneManager.LoadScene("GameOver");
         }
     }
     public void ATMove(int horizontal, int vertical)

@@ -19,8 +19,8 @@ TagManager:
   - BlockingLayer
   - floor
   - enemy
-  - 
-  - 
+  - wall
+  - item
   - 
   - 
   - 
@@ -49,4 +49,7 @@ TagManager:
     locked: 0
   - name: wall
     uniqueID: 1471255327
+    locked: 0
+  - name: BlockingLayer
+    uniqueID: 177053877
     locked: 0

@@ -19,6 +19,8 @@ public class junnkaiEnemymove2 : MonoBehaviour
     public Sprite usiro;
 
     public float timemove;      //動かす時間
+    private int startX;
+    private int startY;
 
     private void Start()
     {
@@ -28,6 +30,12 @@ public class junnkaiEnemymove2 : MonoBehaviour
         pos = my.position;
         timemove = 0.0f;
         moveflg = false;
+
+        Transform startTransform = this.transform;             //このスクリプトをアタッチしているオブジェクトのトランスフォームを読み込む
+        Vector2 startpos = startTransform.position;                 //読み込んだトランスフォームのポジションをVector2 posに入れる
+        startX = (int)startpos.x;
+        startY = (int)startpos.y;
+
     }
 
     private void FixedUpdate()
@@ -97,4 +105,12 @@ public class junnkaiEnemymove2 : MonoBehaviour
         }
 
     }
+
+    //private void OnTriggerEnter2D(Collider2D collision)
+    //{
+    //    if (collision.gameObject.tag == "Player")
+    //    {
+    //        this.transform.position = new Vector2(startX, startY);            //プレイヤーに当たればvoid startで読み込んだ最初の位置に戻る
+    //    }
+    //}
 }
