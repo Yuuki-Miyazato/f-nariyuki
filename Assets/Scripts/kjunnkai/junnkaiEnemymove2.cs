@@ -31,8 +31,7 @@ public class junnkaiEnemymove2 : MonoBehaviour
         timemove = 0.0f;
         moveflg = false;
 
-        Transform startTransform = this.transform;             //このスクリプトをアタッチしているオブジェクトのトランスフォームを読み込む
-        Vector2 startpos = startTransform.position;                 //読み込んだトランスフォームのポジションをVector2 posに入れる
+        Vector2 startpos = my.position;                 //読み込んだトランスフォームのポジションをVector2 posに入れる
         startX = (int)startpos.x;
         startY = (int)startpos.y;
 
@@ -106,6 +105,26 @@ public class junnkaiEnemymove2 : MonoBehaviour
 
     }
 
+     public void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            timemove = 0.0f;
+            moveflg = false;
+            Debug.Log("ぶつかった");
+            pos.x = startX;
+            pos.y = startY;
+            my.transform.position = new Vector2(startX, startY);
+        }
+    }
+
+    //private void OnTriggerEnter2D(Collider2D collision)
+    //{
+    //    if (collision.gameObject.tag == "Player")
+    //    {
+    //        Debug.Log("kkkkk");
+    //    }
+    //}
     //private void OnTriggerEnter2D(Collider2D collision)
     //{
     //    if (collision.gameObject.tag == "Player")

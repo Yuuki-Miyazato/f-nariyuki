@@ -33,6 +33,10 @@ public class junnkaiEnemyroot : MonoBehaviour
 
     public Rigidbody2D rb;
 
+    private int startX;
+    private int startY;
+
+
     private void Start()
     {
         Enemyobj = GameObject.Find("Enemy3");
@@ -64,6 +68,11 @@ public class junnkaiEnemyroot : MonoBehaviour
         root = 0;
         timerg = 0.0f;
         timeroot = 0.0f;
+
+        //Transform startTransform = this.transform;             //このスクリプトをアタッチしているオブジェクトのトランスフォームを読み込む
+        //Vector2 startpos = startTransform.position;                 //読み込んだトランスフォームのポジションをVector2 posに入れる
+        //startX = (int)startpos.x;
+        //startY = (int)startpos.y;
     }
 
     private void FixedUpdate()
@@ -185,6 +194,28 @@ public class junnkaiEnemyroot : MonoBehaviour
         if (collision.CompareTag("Wall"))
         {
             wallflg = true;
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            Debug.Log("ぶつかったroot");
+            leftBox.enabled = false;
+            upBox.enabled = false;
+            downBox.enabled = false;
+
+            lefts.enabled = false;
+            ups.enabled = false;
+            downs.enabled = false;
+
+            wallflg = false;
+            searchflg = false;
+
+            root = 0;
+            timerg = 0.0f;
+            timeroot = 0.0f;
         }
     }
 }
