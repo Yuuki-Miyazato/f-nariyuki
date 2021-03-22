@@ -183,6 +183,7 @@ public class MakeDungeon : MonoBehaviour
                 //範囲外、または壁の場合に壁オブジェクトを生成する
                 if (isOutOfRange(i, j) || walls[i, j] == 0)
                 {
+                    Debug.Log(i);
                     GameObject wallObj = Instantiate(wall, new Vector2(i, j), Quaternion.identity) as GameObject;
                     wallObj.transform.parent = transform;
                 }

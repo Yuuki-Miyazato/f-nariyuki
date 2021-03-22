@@ -104,7 +104,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 0
   m_CollisionDetection: 0
-  m_Constraints: 4
+  m_Constraints: 7
 --- !u!114 &8344647150987714793
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -130,8 +130,7 @@ MonoBehaviour:
   usiro: {fileID: 21300000, guid: 3151ef7c9874fa648986bbd22bfe8e1f, type: 3}
   px: 0
   py: 0
-  BP: 0
-  AP: 0
+  AP: 2
   attackDamage: 1
   HP: 3
   blockingLayer:

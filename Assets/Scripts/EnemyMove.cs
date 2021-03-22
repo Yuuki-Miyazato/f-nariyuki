@@ -27,7 +27,6 @@ public class EnemyMove : MonoBehaviour
         Vector2 startpos = startTransform.position;                 //読み込んだトランスフォームのポジションをVector2 posに入れる
         startX = (int)startpos.x;
         startY = (int)startpos.y;
-
     }
     void Update()
     {
