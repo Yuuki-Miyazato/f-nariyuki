@@ -75,7 +75,7 @@ public class junnkaiEnemymove2 : MonoBehaviour
         {
             //enemy.sprite = hidari;
             Enemy.sprite = migi;
-            pos.x += 1f / 1f * Time.deltaTime;
+            pos.x += 1f / 0.5f * Time.deltaTime;
             my.transform.position = pos;
         }
         //上向いてたら
@@ -83,7 +83,7 @@ public class junnkaiEnemymove2 : MonoBehaviour
         {
             //enemy.sprite = usiro;
             Enemy.sprite = usiro;
-            pos.y += 1f / 1f * Time.deltaTime;
+            pos.y += 1f / 0.5f * Time.deltaTime;
             my.transform.position = pos;
         }
         //左向いてたら
@@ -91,7 +91,7 @@ public class junnkaiEnemymove2 : MonoBehaviour
         {
             //enemy.sprite = hidari;
             Enemy.sprite = hidari;
-            pos.x -= 1f / 1f * Time.deltaTime;
+            pos.x -= 1f / 0.5f * Time.deltaTime;
             my.transform.position = pos;
         }
         //下向いてたら
@@ -99,13 +99,13 @@ public class junnkaiEnemymove2 : MonoBehaviour
         {
             //enemy.sprite = mae;
             Enemy.sprite = mae;
-            pos.y -= 1f / 1f * Time.deltaTime;
+            pos.y -= 1f / 0.5f * Time.deltaTime;
             my.transform.position = pos;
         }
 
     }
 
-     public void OnCollisionEnter2D(Collision2D collision)
+    public void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Player")
         {
@@ -117,14 +117,6 @@ public class junnkaiEnemymove2 : MonoBehaviour
             my.transform.position = new Vector2(startX, startY);
         }
     }
-
-    //private void OnTriggerEnter2D(Collider2D collision)
-    //{
-    //    if (collision.gameObject.tag == "Player")
-    //    {
-    //        Debug.Log("kkkkk");
-    //    }
-    //}
     //private void OnTriggerEnter2D(Collider2D collision)
     //{
     //    if (collision.gameObject.tag == "Player")
