@@ -44,7 +44,7 @@ public class junnkaiEnemymove2 : MonoBehaviour
             {
                 timemove += Time.deltaTime;
             }
-            if (timemove >= 1f)
+            if (timemove >= 0.3f)
             {
                 jer.rights.enabled = true;
                 jer.rightBox.enabled = true;
@@ -75,7 +75,7 @@ public class junnkaiEnemymove2 : MonoBehaviour
         {
             //enemy.sprite = hidari;
             Enemy.sprite = migi;
-            pos.x += 1f / 0.5f * Time.deltaTime;
+            pos.x += 3f / 1f * Time.deltaTime;
             my.transform.position = pos;
         }
         //上向いてたら
@@ -83,7 +83,7 @@ public class junnkaiEnemymove2 : MonoBehaviour
         {
             //enemy.sprite = usiro;
             Enemy.sprite = usiro;
-            pos.y += 1f / 0.5f * Time.deltaTime;
+            pos.y += 3f / 1f * Time.deltaTime;
             my.transform.position = pos;
         }
         //左向いてたら
@@ -91,7 +91,7 @@ public class junnkaiEnemymove2 : MonoBehaviour
         {
             //enemy.sprite = hidari;
             Enemy.sprite = hidari;
-            pos.x -= 1f / 0.5f * Time.deltaTime;
+            pos.x -= 3f / 1f * Time.deltaTime;
             my.transform.position = pos;
         }
         //下向いてたら
@@ -99,7 +99,7 @@ public class junnkaiEnemymove2 : MonoBehaviour
         {
             //enemy.sprite = mae;
             Enemy.sprite = mae;
-            pos.y -= 1f / 0.5f * Time.deltaTime;
+            pos.y -= 3f / 1f * Time.deltaTime;
             my.transform.position = pos;
         }
 
