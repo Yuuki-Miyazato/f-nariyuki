@@ -17,13 +17,14 @@ public class itemlost : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            script.AP += 1;
+            script.moveTime = 0.1f;
             Destroy(this.gameObject);
         }
     }
-    // Update is called once per frame
+    void normalS()
+    {
+    }
     void Update()
     {
-        
     }
 }

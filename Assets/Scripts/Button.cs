@@ -5,13 +5,19 @@ using UnityEngine.SceneManagement;
 
 public class Button : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    int count = GameManager.GC;
+
+    public void OnStartButtonClicked()
     {
-        
-    }
-    public void OnClick()
-    {
-        SceneManager.LoadScene("SampleScene");
+        int count = GameManager.GC;
+
+        if (count == 1)
+        {
+            SceneManager.LoadScene("MainScene");
+        }
+        else if (count == 2)
+        {
+            SceneManager.LoadScene("Stage");
+        }
     }
 }

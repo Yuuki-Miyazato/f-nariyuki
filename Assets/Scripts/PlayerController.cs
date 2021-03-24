@@ -39,7 +39,7 @@ public class PlayerController : MonoBehaviour
     }
     void Update()
     {
-        int horizontal = (int)Input.GetAxisRaw("Horizontal"); 
+        int horizontal = (int)Input.GetAxisRaw("Horizontal");
         int vertical = (int)Input.GetAxisRaw("Vertical");
 
         float pos_x = this.gameObject.transform.position.x;
@@ -47,6 +47,12 @@ public class PlayerController : MonoBehaviour
         px = (int)pos_x;
         py = (int)pos_y;
         Debug.Log(horizontal);
+
+
+        if (moveTime == 0.1f)
+        {
+            Invoke("speedTime", 5);
+        }
 
         if (HP == 0)
         {
@@ -177,5 +183,9 @@ public class PlayerController : MonoBehaviour
             BP = 0;
             AP -= 1;
         }
+    }
+    void speedTime()
+    {
+        moveTime = 0.3f;
     }
 }

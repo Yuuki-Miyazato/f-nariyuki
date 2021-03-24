@@ -12,7 +12,6 @@ public class stage : MonoBehaviour
     public GameObject player;
     public GameObject enemy;
     public GameObject enemy2;
-    public GameObject enemy3;
     public GameObject item;
 
     public int[,] stageArray = new int[5, 5]
@@ -49,29 +48,30 @@ public class stage : MonoBehaviour
 };
     public int[,] stageArray5 = new int[,]
     {
-        { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
-        { 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1},
-        { 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1},
-        { 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1},
-        { 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1},
-        { 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1},
-        { 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1},
-        { 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1},
-        { 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1},
-        { 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1},
-        { 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1},
-        { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+        { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+        { 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1},
+        { 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1},
+        { 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1},
+        { 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1},
+        { 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1},
+        { 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1},
+        { 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1},
+        { 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1},
+        { 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1},
+        { 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1},
+        { 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1},
+        { 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1},
+        { 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1},
+        { 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1},
+        { 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1},
+        { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
 
     };
     private void Start()
     {
-        makestage1();
-        makestage2();
-        makestage3();
-        makestage4();
-        makestage5();
+        makestage();
     }
-    void makestage1()
+    void makestage()
     {
         for (int i = 0; i < stageArray.GetLength(0); i++)
         {
@@ -82,21 +82,40 @@ public class stage : MonoBehaviour
                 {
                     Instantiate(wall, new Vector2(i, j), Quaternion.identity);
                 }
-                if (stageArray[i, j] != 10)
-                {
-                    //全ての場所に床オブジェクトを生成
-                    Instantiate(floor, new Vector2(i, j), Quaternion.identity);
-                }
                 if (stageArray[i, j] == 2)
                 {
-                    GameObject enemyObj = Instantiate(enemy, new Vector2(i , j), Quaternion.identity) as GameObject;
+                    GameObject enemyObj = Instantiate(enemy, new Vector2(i, j), Quaternion.identity) as GameObject;
                     enemyObj.transform.parent = transform;
                 }
             }
         }
-    }
-    void makestage2()
-    {
+        for (int i = 0; i < stageArray.GetLength(0); i++)
+        {
+            for (int j = 0; j < stageArray.GetLength(1); j++)
+            {
+                //範囲外、または壁の場合に壁オブジェクトを生成する
+                if (stageArray[i, j] == 1)
+                {
+                    Instantiate(wall, new Vector2(i + 10, j), Quaternion.identity);
+                }
+            }
+        }
+        for (int i = 0; i < stageArray.GetLength(0); i++)
+        {
+            for (int j = 0; j < stageArray.GetLength(1); j++)
+            {
+                //範囲外、または壁の場合に壁オブジェクトを生成する
+                if (stageArray[i, j] == 1)
+                {
+                    Instantiate(wall, new Vector2(i + 10, j + 5), Quaternion.identity);
+                }
+                if (stageArray[i, j] == 2)
+                {
+                    GameObject enemyObj = Instantiate(enemy, new Vector2(i + 10, j), Quaternion.identity) as GameObject;
+                    enemyObj.transform.parent = transform;
+                }
+            }
+        }
         for (int i = 0; i < stageArray2.GetLength(0); i++)
         {
             for (int j = 0; j < stageArray2.GetLength(1); j++)
@@ -106,21 +125,24 @@ public class stage : MonoBehaviour
                 {
                     Instantiate(wall, new Vector2(i + 5, j + 5), Quaternion.identity);
                 }
-                if (stageArray2[i, j] != 10)
+            }
+        }
+        for (int i = 0; i < stageArray2.GetLength(0); i++)
+        {
+            for (int j = 0; j < stageArray2.GetLength(1); j++)
+            {
+                //範囲外、または壁の場合に壁オブジェクトを生成する
+                if (stageArray2[i, j] == 1)
                 {
-                    //全ての場所に床オブジェクトを生成
-                    Instantiate(floor, new Vector2(i + 5, j + 5), Quaternion.identity);
+                    Instantiate(wall, new Vector2(i + 10, j + 10), Quaternion.identity);
                 }
                 if (stageArray2[i, j] == 3)
                 {
-                    GameObject enemyObj2 = Instantiate(enemy2, new Vector2(i + 5, j + 5), Quaternion.identity) as GameObject;
+                    GameObject enemyObj2 = Instantiate(enemy2, new Vector2(i + 10, j + 10), Quaternion.identity) as GameObject;
                     enemyObj2.transform.parent = transform;
                 }
             }
         }
-    }
-    void makestage3()
-    {
         for (int i = 0; i < stageArray3.GetLength(0); i++)
         {
             for (int j = 0; j < stageArray3.GetLength(1); j++)
@@ -130,16 +152,20 @@ public class stage : MonoBehaviour
                 {
                     Instantiate(wall, new Vector2(i, j + 5), Quaternion.identity);
                 }
-                if (stageArray3[i, j] != 10)
+            }
+        }
+        for (int i = 0; i < stageArray3.GetLength(0); i++)
+        {
+            for (int j = 0; j < stageArray3.GetLength(1); j++)
+            {
+                //範囲外、または壁の場合に壁オブジェクトを生成する
+                if (stageArray3[i, j] == 1)
                 {
-                    //全ての場所に床オブジェクトを生成
-                    Instantiate(floor, new Vector2(i, j + 5), Quaternion.identity);
+                    Instantiate(wall, new Vector2(i, j + 10), Quaternion.identity);
                 }
             }
         }
-    }
-    void makestage4()
-    {
+
         for (int i = 0; i < stageArray4.GetLength(0); i++)
         {
             for (int j = 0; j < stageArray4.GetLength(1); j++)
@@ -149,22 +175,25 @@ public class stage : MonoBehaviour
                 {
                     Instantiate(wall, new Vector2(i + 5, j), Quaternion.identity);
                 }
-                if (stageArray4[i, j] != 10)
+            }
+        }
+        for (int i = 0; i < stageArray4.GetLength(0); i++)
+        {
+            for (int j = 0; j < stageArray4.GetLength(1); j++)
+            {
+                //範囲外、または壁の場合に壁オブジェクトを生成する
+                if (stageArray4[i, j] == 1)
                 {
-                    //全ての場所に床オブジェクトを生成
-                    Instantiate(floor, new Vector2(i + 5, j), Quaternion.identity);
+                    Instantiate(wall, new Vector2(i + 5, j + 10), Quaternion.identity);
                 }
                 if (stageArray4[i, j] == 5)
                 {
-                    GameObject playerObj = Instantiate(player, new Vector2(i + 5, j), Quaternion.identity) as GameObject;
+                    GameObject playerObj = Instantiate(player, new Vector2(i + 5, j + 10), Quaternion.identity) as GameObject;
                     playerObj.transform.parent = transform;
                     playerObj.name = "Player";
                 }
             }
         }
-    }
-    void makestage5()
-    {
         for (int i = 0; i < stageArray5.GetLength(0); i++)
         {
             for (int j = 0; j < stageArray5.GetLength(1); j++)
@@ -173,6 +202,11 @@ public class stage : MonoBehaviour
                 if (stageArray5[i, j] == 1)
                 {
                     Instantiate(wall2, new Vector2(i - 1, j - 1), Quaternion.identity);
+                }
+                if (stageArray5[i, j] == 0)
+                {
+                    //全ての場所に床オブジェクトを生成
+                    Instantiate(floor, new Vector2(i - 1, j - 1), Quaternion.identity);
                 }
             }
         }
