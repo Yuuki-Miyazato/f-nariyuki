@@ -102,7 +102,7 @@ public class junnkaiEnemyroot : MonoBehaviour
                 jem.timemove = 0.0f;
                 timeroot += Time.deltaTime;
             }
-            if (timeroot >= 1f)
+            if (timeroot >= 0.3f)
             {
 
                 EnemyRote();
