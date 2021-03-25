@@ -46,9 +46,7 @@ public class PlayerController : MonoBehaviour
         float pos_y = this.gameObject.transform.position.y;
         px = (int)pos_x;
         py = (int)pos_y;
-        Debug.Log(horizontal);
-
-
+        
         if (moveTime == 0.1f)
         {
             Invoke("speedTime", 5);
