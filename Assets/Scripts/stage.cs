@@ -27,7 +27,7 @@ public class stage : MonoBehaviour
 {
         { 0, 0, 0, 0, 0},
         { 0, 1, 0, 1, 0},
-        { 0, 0, 0, 2, 0},
+        { 0, 0, 0, 0, 0},
         { 0, 1, 6, 1, 0},
         { 0, 0, 0, 0, 0},
 };
@@ -585,7 +585,7 @@ public class stage : MonoBehaviour
                 }
                 if (stageArray2[i, j] == 3)
                 {
-                    GameObject enemyObj = Instantiate(enemy2, new Vector2(i+9, j+9), Quaternion.identity) as GameObject;
+                    GameObject enemyObj = Instantiate(enemy2, new Vector2(i+8, j+8), Quaternion.identity) as GameObject;
                     enemyObj.transform.parent = transform;
                 }
             }

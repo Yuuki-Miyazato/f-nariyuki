@@ -13,9 +13,15 @@ public class reset : MonoBehaviour
     }
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Player")
+        int count = GameManager.GC;
+
+        if (collision.gameObject.tag == "Player" && count == 1)
         {
-            SceneManager.LoadScene("SampleScene");
+            SceneManager.LoadScene("MainScene");
+        }
+        else if (collision.gameObject.tag == "Player" && count == 2)
+        {
+            SceneManager.LoadScene("stage");
         }
     }
 }
