@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 2525101455627347236}
   - component: {fileID: 5758677648495425878}
   - component: {fileID: 1246659069698426357}
-  - component: {fileID: 6419991451669497925}
   m_Layer: 10
   m_Name: Enemy
   m_TagString: Enemy
@@ -74,8 +73,8 @@ SpriteRenderer:
   m_SortingLayerID: -1757319041
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 8b15060a0a736c1469f7093f82664407, type: 3}
-  m_Color: {r: 0.9433962, g: 0.06674972, b: 0.06674972, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 25357b8714981b94798db53fde2a30c5, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -95,7 +94,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -124,6 +123,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveTime: 0.3
+  Enemy: {fileID: 4267380004830016482}
+  Smae: {fileID: 21300000, guid: 25357b8714981b94798db53fde2a30c5, type: 3}
+  Smigi: {fileID: 21300000, guid: fae253b057dbd0f48abf888bc06b42c6, type: 3}
+  Shidari: {fileID: 21300000, guid: cf0ddc2bf198dd048b6d0d1df720bafc, type: 3}
+  Susiro: {fileID: 21300000, guid: d53a152fb08e90347aed08bfd17148dc, type: 3}
 --- !u!50 &1246659069698426357
 Rigidbody2D:
   serializedVersion: 4
@@ -145,29 +149,3 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!61 &6419991451669497925
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4267380004830016481}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.32, y: 0.32}
-    newSize: {x: 0.32, y: 0.32}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.15, y: 0.15}
-  m_EdgeRadius: 0
