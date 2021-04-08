@@ -19,7 +19,14 @@ public class EnemyMove : MonoBehaviour
     private int mae = 0;
     private int ushiro = 0;
 
-    private float step_time = 0;
+
+    public SpriteRenderer Enemy;
+    public Sprite Smae;
+    public Sprite Smigi;
+    public Sprite Shidari;
+    public Sprite Susiro;
+
+
     void Start()
     {
         Player = GameObject.Find("Player");                     //Playerという名前のオブジェクトを探しPlayerに入れる
@@ -34,71 +41,50 @@ public class EnemyMove : MonoBehaviour
         Transform myTransform = this.transform;             //このスクリプトをアタッチしているオブジェクトのトランスフォームを読み込む
         Vector2 pos = myTransform.position;                 //読み込んだトランスフォームのポジションをVector2 posに入れる
 
-
         //script.px(プレイヤーのx座標)よりpos.x(敵のx座標)が小さい場合、尚且つ敵のy座標とプレイヤーのy座標が同じ場合敵を右に進める
         if (script.px > pos.x && pos.y == script.py && mae == 0 && migi == 0 && ushiro == 0 && hidari == 0)
         {
-            step_time += Time.deltaTime;
-
-            if (step_time >= 1.0f)
-            {
-                migi = 1;
-            }
+            migi = 1;
         }
         else if (script.px < pos.x && pos.y == script.py && migi == 0 && ushiro == 0 && mae == 0 && hidari == 0)
         {
-            step_time += Time.deltaTime;
-
-            if (step_time >= 1.0f)
-            {
-                hidari = 1;
-            }
+            hidari = 1;
         }
         else if (script.py > pos.y && pos.x == script.px && migi == 0 && ushiro == 0 && hidari == 0 && mae == 0)
         {
-            step_time += Time.deltaTime;
-
-            if (step_time >= 1.0f)
-            {
-                mae = 1;
-            }
+            mae = 1;
         }
         else if (script.py < pos.y && pos.x == script.px && migi == 0 && hidari == 0 && mae == 0 && ushiro == 0)
         {
-            step_time += Time.deltaTime;
-
-            if (step_time >= 1.0f)
-            {
-                ushiro = 1;
-            }
+            ushiro = 1;
         }
-
         if (migi == 1)
         {
-            step_time = 0;
-            pos.x += 1f / moveTime * Time.deltaTime;
+            Enemy.sprite = Smigi;
+            pos.x += 1f/moveTime * Time.deltaTime;
             myTransform.position = pos;
         }
         else if (hidari == 1)
         {
-            step_time = 0;
-            pos.x -= 1f / moveTime * Time.deltaTime;
+            Enemy.sprite = Shidari;
+            pos.x -= 1f/moveTime * Time.deltaTime;
             myTransform.position = pos;
         }
         else if (mae == 1)
         {
-            step_time = 0;
-            pos.y += 1f / moveTime * Time.deltaTime;
+            Enemy.sprite = Susiro;
+            pos.y += 1f/moveTime * Time.deltaTime;
             myTransform.position = pos;
         }
         else if (ushiro == 1)
         {
-            step_time = 0;
-            pos.y -= 1f / moveTime * Time.deltaTime;
+            Enemy.sprite = Smae;
+           
+            pos.y -= 1f/moveTime * Time.deltaTime;
             myTransform.position = pos;
         }
     }
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnCollisionStay2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Player")
         {
@@ -109,18 +95,14 @@ public class EnemyMove : MonoBehaviour
 
             this.transform.position = new Vector2(startX, startY);            //プレイヤーに当たればvoid startで読み込んだ最初の位置に戻る
         }
-    }
-
-    private void OnTriggerStay2D(Collider2D collision)
-    {   
-        if (collision.gameObject.tag != "Player")
+        if (collision.gameObject.tag == "Wall")
         {
             Transform myTransform = this.transform;             //このスクリプトをアタッチしているオブジェクトのトランスフォームを読み込む
             Vector2 pos = myTransform.position;                 //読み込んだトランスフォームのポジションをVector2 posに入れる
 
             if (migi == 1)
             {
-                this.transform.position = new Vector2(Mathf.Floor(pos.x), pos.y);
+                this.transform.position = new Vector2(Mathf.Floor(pos.x),pos.y);
                 migi = 0;
                 hidari = 0;
                 mae = 0;

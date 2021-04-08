@@ -11,6 +11,13 @@ public class tuibi : MonoBehaviour
     private int startX;
     private int startY;
 
+
+    public SpriteRenderer Enemy;
+    public Sprite Smae;
+    public Sprite Smigi;
+    public Sprite Shidari;
+    public Sprite Susiro;
+
     void Start()
     {
         Player = GameObject.Find("Player");                     //Playerという名前のオブジェクトを探しPlayerに入れる
@@ -27,21 +34,25 @@ public class tuibi : MonoBehaviour
 
         if (script.px + 0.1 >= pos.x || script.px - 0.1 > pos.x)
         {
+            Enemy.sprite = Smigi;
             pos.x += moveTime * Time.deltaTime;
             myTransform.position = pos;
         }
         if (script.px + 0.1 <= pos.x || script.px - 0.1 < pos.x)
         {
+            Enemy.sprite = Shidari;
             pos.x -= moveTime * Time.deltaTime;
             myTransform.position = pos;
         }
         if (script.py + 0.1 >= pos.y || script.py - 0.1 > pos.y)
         {
+            Enemy.sprite = Susiro;
             pos.y += moveTime * Time.deltaTime;
             myTransform.position = pos;
         }
         if (script.py + 0.1 <= pos.y || script.py - 0.1 < pos.y)
         {
+            Enemy.sprite = Smae;
             pos.y -= moveTime * Time.deltaTime;
             myTransform.position = pos;
         }
