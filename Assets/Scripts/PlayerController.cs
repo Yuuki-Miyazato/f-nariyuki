@@ -28,6 +28,8 @@ public class PlayerController : MonoBehaviour
     public int attackDamage = 1;
     public int HP = 3;
 
+    int vertical, horizontal;
+
     public LayerMask blockingLayer;
     private BoxCollider2D boxCollider;
     private Animator animator;
@@ -39,74 +41,82 @@ public class PlayerController : MonoBehaviour
     }
     void Update()
     {
-        int horizontal = (int)Input.GetAxisRaw("Horizontal");
-        int vertical = (int)Input.GetAxisRaw("Vertical");
+        if (Time.deltaTime > 0)
+        {
+            if (GetComponent<PlayerController>().enabled == true)
+            {
+                horizontal = (int)Input.GetAxisRaw("Horizontal");
+                vertical = (int)Input.GetAxisRaw("Vertical");
+            }
+            //int horizontal = (int)Input.GetAxisRaw("Horizontal");
+            //int vertical = (int)Input.GetAxisRaw("Vertical");
+            Debug.Log("aaaaa");
+            float pos_x = this.gameObject.transform.position.x;
+            float pos_y = this.gameObject.transform.position.y;
+            px = (int)pos_x;
+            py = (int)pos_y;
 
-        float pos_x = this.gameObject.transform.position.x;
-        float pos_y = this.gameObject.transform.position.y;
-        px = (int)pos_x;
-        py = (int)pos_y;
-        
-        if (moveTime == 0.1f)
-        {
-            Invoke("speedTime", 5);
-        }
+            if (moveTime == 0.1f)
+            {
+                Invoke("speedTime", 5);
+            }
 
-        if (HP == 0)
-        {
-            SceneManager.LoadScene("GameOver");
-        }
-        if (Input.GetKeyDown("joystick button 1"))
-        {
-            BP = 1;
-        }
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            BP = 1;
-        }
-        if (horizontal != 0)
-        {
-            vertical = 0;
-            if (horizontal == 1)
+            if (HP == 0)
             {
-                R = 1;
-                U = 0;
-                L = 0;
-                D = 0;
-                player.sprite = migi;
+                SceneManager.LoadScene("GameOver");
             }
-            else if (horizontal == -1)
+            if (Input.GetKeyDown("joystick button 1"))
             {
-                L = 1;
-                R = 0;
-                U = 0;
-                D = 0;
-                player.sprite = hidari;
+                BP = 1;
             }
-        }
-        else if (vertical != 0)
-        {
-            horizontal = 0;
-            if (vertical == 1)
+            if (Input.GetKeyDown(KeyCode.Space))
             {
-                D = 1;
-                R = 0;
-                U = 0;
-                L = 0;
-                player.sprite = usiro;
+                BP = 1;
             }
-            else if (vertical == -1)
+            if (horizontal != 0)
             {
-                U = 1;
-                R = 0;
-                L = 0;
-                D = 0;
-                player.sprite = mae;
+                vertical = 0;
+                if (horizontal == 1)
+                {
+                    R = 1;
+                    U = 0;
+                    L = 0;
+                    D = 0;
+                    player.sprite = migi;
+                }
+                else if (horizontal == -1)
+                {
+                    L = 1;
+                    R = 0;
+                    U = 0;
+                    D = 0;
+                    player.sprite = hidari;
+                }
             }
-        }
-        if (horizontal != 0 || vertical != 0)
-        {
-            ATMove(horizontal, vertical);
+            else if (vertical != 0)
+            {
+                horizontal = 0;
+                if (vertical == 1)
+                {
+                    D = 1;
+                    R = 0;
+                    U = 0;
+                    L = 0;
+                    player.sprite = usiro;
+                }
+                else if (vertical == -1)
+                {
+                    U = 1;
+                    R = 0;
+                    L = 0;
+                    D = 0;
+                    player.sprite = mae;
+                }
+            }
+            if (horizontal != 0 || vertical != 0)
+            {
+                ATMove(horizontal, vertical);
+            }
         }
     }
     private void OnCollisionEnter2D(Collision2D collision)
