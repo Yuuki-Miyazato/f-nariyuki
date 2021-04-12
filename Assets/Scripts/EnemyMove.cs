@@ -19,6 +19,7 @@ public class EnemyMove : MonoBehaviour
     private int mae = 0;
     private int ushiro = 0;
 
+    private float step_time = 0;
 
     public SpriteRenderer Enemy;
     public Sprite Smae;
@@ -44,43 +45,62 @@ public class EnemyMove : MonoBehaviour
         //script.px(プレイヤーのx座標)よりpos.x(敵のx座標)が小さい場合、尚且つ敵のy座標とプレイヤーのy座標が同じ場合敵を右に進める
         if (script.px > pos.x && pos.y == script.py && mae == 0 && migi == 0 && ushiro == 0 && hidari == 0)
         {
-            migi = 1;
+            step_time += Time.deltaTime;
+            if (step_time >= 1.0f)
+            {
+                migi = 1;
+            }
         }
         else if (script.px < pos.x && pos.y == script.py && migi == 0 && ushiro == 0 && mae == 0 && hidari == 0)
         {
-            hidari = 1;
+            step_time += Time.deltaTime;
+            if (step_time >= 1.0f)
+            {
+                hidari = 1;
+            }
         }
         else if (script.py > pos.y && pos.x == script.px && migi == 0 && ushiro == 0 && hidari == 0 && mae == 0)
         {
-            mae = 1;
+            step_time += Time.deltaTime;
+            if (step_time >= 1.0f)
+            {
+                mae = 1;
+            }
         }
         else if (script.py < pos.y && pos.x == script.px && migi == 0 && hidari == 0 && mae == 0 && ushiro == 0)
         {
-            ushiro = 1;
+            step_time += Time.deltaTime;
+            if (step_time >= 1.0f)
+            {
+                ushiro = 1;
+            }
         }
         if (migi == 1)
         {
+            step_time = 0;
             Enemy.sprite = Smigi;
-            pos.x += 1f/moveTime * Time.deltaTime;
+            pos.x += 1f / moveTime * Time.deltaTime;
             myTransform.position = pos;
         }
         else if (hidari == 1)
         {
+            step_time = 0;
             Enemy.sprite = Shidari;
-            pos.x -= 1f/moveTime * Time.deltaTime;
+            pos.x -= 1f / moveTime * Time.deltaTime;
             myTransform.position = pos;
         }
         else if (mae == 1)
         {
+            step_time = 0;
             Enemy.sprite = Susiro;
-            pos.y += 1f/moveTime * Time.deltaTime;
+            pos.y += 1f / moveTime * Time.deltaTime;
             myTransform.position = pos;
         }
         else if (ushiro == 1)
         {
+            step_time = 0;
             Enemy.sprite = Smae;
-           
-            pos.y -= 1f/moveTime * Time.deltaTime;
+            pos.y -= 1f / moveTime * Time.deltaTime;
             myTransform.position = pos;
         }
     }
@@ -102,7 +122,7 @@ public class EnemyMove : MonoBehaviour
 
             if (migi == 1)
             {
-                this.transform.position = new Vector2(Mathf.Floor(pos.x),pos.y);
+                this.transform.position = new Vector2(Mathf.Floor(pos.x), pos.y);
                 migi = 0;
                 hidari = 0;
                 mae = 0;

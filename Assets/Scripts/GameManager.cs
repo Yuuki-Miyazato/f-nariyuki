@@ -12,7 +12,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (SceneManager.GetActiveScene().name == "MainScene")
+        if (SceneManager.GetActiveScene().name == "Enemymap")
         {
             GC = 1;
         }

@@ -145,3 +145,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Key: {fileID: 0}
   k: {fileID: 0}
+  clear: {fileID: 1938273880899689617, guid: 6d99a6639fe0aa54a8c66fe31339d5a1, type: 3}

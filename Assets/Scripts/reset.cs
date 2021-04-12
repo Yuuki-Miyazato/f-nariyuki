@@ -17,7 +17,7 @@ public class reset : MonoBehaviour
 
         if (collision.gameObject.tag == "Player" && count == 1)
         {
-            SceneManager.LoadScene("MainScene");
+            SceneManager.LoadScene("Title");
         }
         else if (collision.gameObject.tag == "Player" && count == 2)
         {

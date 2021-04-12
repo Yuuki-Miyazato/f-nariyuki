@@ -13,7 +13,7 @@ public class Button : MonoBehaviour
 
         if (count == 1)
         {
-            SceneManager.LoadScene("MainScene");
+            SceneManager.LoadScene("Enemymap");
         }
         else if (count == 2)
         {
