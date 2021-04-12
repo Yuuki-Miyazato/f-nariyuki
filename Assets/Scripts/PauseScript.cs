@@ -14,7 +14,7 @@ public class PauseScript : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
-		if (Input.GetKeyDown("q"))
+		if (Input.GetKeyDown("q") || Input.GetKeyDown("joystick button 7")) 
 		{
 			player.GetComponent<PlayerController>().enabled = false;
 			
@@ -34,5 +34,6 @@ public class PauseScript : MonoBehaviour
 			}
 		}
 		Debug.Log(player.GetComponent<PlayerController>().enabled);
+
     }
 }
