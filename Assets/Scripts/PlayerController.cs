@@ -28,6 +28,9 @@ public class PlayerController : MonoBehaviour
     public int attackDamage = 1;
     public int HP = 3;
 
+    AudioSource audioSource;        //se用変数
+
+
     int vertical, horizontal;
 
     public LayerMask blockingLayer;
@@ -38,6 +41,9 @@ public class PlayerController : MonoBehaviour
         rd2d = GetComponent<Rigidbody2D>();
         boxCollider = GetComponent<BoxCollider2D>();
         animator = GetComponent<Animator>();
+        //Component取得
+        audioSource = GetComponent<AudioSource>();
+
     }
     void Update()
     {
@@ -159,6 +165,8 @@ public class PlayerController : MonoBehaviour
         if (!isMoveing && hit.transform == null)
         {
             StartCoroutine(Movement(end));
+
+            audioSource.Play();
 
             return true;
         }
