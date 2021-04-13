@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Keyh : MonoBehaviour
 {
+    public AudioClip sound01;
 
     public bool keyflg;
     void Start()
@@ -16,6 +17,7 @@ public class Keyh : MonoBehaviour
 
         if (collision.gameObject.tag == "Player")
         {
+            AudioSource.PlayClipAtPoint(sound01, transform.position);
             Destroy(gameObject);
             keyflg = true;
         }
