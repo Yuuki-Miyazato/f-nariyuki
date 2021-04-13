@@ -108,6 +108,7 @@ MonoBehaviour:
   hidari: {fileID: 21300000, guid: cf0ddc2bf198dd048b6d0d1df720bafc, type: 3}
   usiro: {fileID: 21300000, guid: d53a152fb08e90347aed08bfd17148dc, type: 3}
   timemove: 0
+  sound01: {fileID: 8300000, guid: d070ccea562579342b73981bd630c6f0, type: 3}
 --- !u!61 &6343160611722941915
 BoxCollider2D:
   m_ObjectHideFlags: 0
