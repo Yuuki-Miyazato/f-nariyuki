@@ -22,6 +22,8 @@ public class junnkaiEnemymove2 : MonoBehaviour
     private int startX;
     private int startY;
 
+    public AudioClip sound01;      //SE用変数
+
     private void Start()
     {
         Enemyobj = GameObject.Find("hanntei");
@@ -109,6 +111,8 @@ public class junnkaiEnemymove2 : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
+            AudioSource.PlayClipAtPoint(sound01, transform.position);           //SE再生
+            Debug.Log("音");
             timemove = 0.0f;
             moveflg = false;
             Debug.Log("ぶつかった");
