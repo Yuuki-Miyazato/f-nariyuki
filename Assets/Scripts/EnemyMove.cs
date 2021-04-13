@@ -27,6 +27,8 @@ public class EnemyMove : MonoBehaviour
     public Sprite Shidari;
     public Sprite Susiro;
 
+    public AudioClip sound01;      //SE用変数
+
 
     void Start()
     {
@@ -108,6 +110,7 @@ public class EnemyMove : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
+            AudioSource.PlayClipAtPoint(sound01, transform.position);
             migi = 0;
             hidari = 0;
             mae = 0;
