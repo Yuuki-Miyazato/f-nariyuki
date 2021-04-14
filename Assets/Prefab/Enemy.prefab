@@ -128,7 +128,7 @@ MonoBehaviour:
   Smigi: {fileID: 21300000, guid: fae253b057dbd0f48abf888bc06b42c6, type: 3}
   Shidari: {fileID: 21300000, guid: cf0ddc2bf198dd048b6d0d1df720bafc, type: 3}
   Susiro: {fileID: 21300000, guid: d53a152fb08e90347aed08bfd17148dc, type: 3}
-  sound01: {fileID: 8300000, guid: d070ccea562579342b73981bd630c6f0, type: 3}
+  sound01: {fileID: 8300000, guid: b31c24193aadf1f41bba86d638f36e0b, type: 3}
 --- !u!50 &1246659069698426357
 Rigidbody2D:
   serializedVersion: 4
