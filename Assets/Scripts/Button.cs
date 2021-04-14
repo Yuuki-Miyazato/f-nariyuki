@@ -17,7 +17,7 @@ public class Button : MonoBehaviour
         }
         else if (count == 2)
         {
-            SceneManager.LoadScene("Stage");
+            SceneManager.LoadScene("Enemymap2");
         }
     }
 }
