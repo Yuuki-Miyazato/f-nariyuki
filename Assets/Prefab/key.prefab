@@ -123,3 +123,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sound01: {fileID: 8300000, guid: f3f40eb5db6ea9245a1d7b8a5a90fc23, type: 3}
   keyflg: 0
+  chest: {fileID: 21300000, guid: 2edd9e4bd7de9844f9c8352db915259a, type: 3}

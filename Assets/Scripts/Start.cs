@@ -5,6 +5,6 @@ public class Start : MonoBehaviour
 {
 	public void OnStartButtonClicked()
 	{
-		SceneManager.LoadScene("Enemymap2");
+		SceneManager.LoadScene("Enemymap");
 	}
 }

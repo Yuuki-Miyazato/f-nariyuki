@@ -9,6 +9,7 @@ public class YuukiMap : MonoBehaviour
     public GameObject floor;
     public GameObject start;
     public GameObject goal;
+    public GameObject goal2;
     public GameObject player;
     public GameObject enemy;
     public GameObject enemy2;
@@ -53,6 +54,11 @@ public class YuukiMap : MonoBehaviour
                     GameObject playerobj=Instantiate(player, new Vector2(i - 1, j - 1), Quaternion.identity);
                     playerobj.transform.parent = transform;
                     playerobj.name = "Player";
+                }
+                if (map[i, j] == 98)
+                {
+                    Instantiate(floor, new Vector2(j - 1, -i - 1), Quaternion.identity);
+                    Instantiate(goal2, new Vector2(j - 1, -i - 1), Quaternion.identity);
                 }
                 if (map[j, i] == 99)
                 {

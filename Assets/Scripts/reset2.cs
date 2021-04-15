@@ -9,14 +9,12 @@ public class reset2 : MonoBehaviour
     [SerializeField] GameObject Key;
     [SerializeField] Keyh k;
 
-    [SerializeField] 
+    [SerializeField]
     private GameObject clear;
 
     string sceneName;
 
-    private float waitTime = 0;
-
-     public AudioClip sound01;   //SE用変数
+    public AudioClip sound01;   //SE用変数
 
     //１回入るよう
     private bool abc = true;
@@ -26,33 +24,28 @@ public class reset2 : MonoBehaviour
         Key = GameObject.Find("Key");
         k = Key.GetComponent<Keyh>();
         sceneName = SceneManager.GetActiveScene().name;
-
-        
     }
-
-   
-
     void OnTriggerStay2D(Collider2D collision)
     {
-        waitTime += Time.deltaTime;
-
         if (collision.gameObject.tag == "Player")
         {
-            Instantiate(clear);
-            clear.SetActive(true);
             if (k.keyflg == true)
             {
+                Instantiate(clear);
+                clear.SetActive(true);
+
                 if (abc)
                 {
                     //ゴール音を１度だけ鳴らす
                     abc = false;
                     AudioSource.PlayClipAtPoint(sound01, transform.position);
                 }
-                if (waitTime >= 10f)
-                {
-                    SceneManager.LoadScene("Title");
-                }
+                Invoke("Return",3);
             }
         }
+    }
+    void Return()
+    {
+        SceneManager.LoadScene("Enemymap2");
     }
 }

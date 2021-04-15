@@ -9,6 +9,7 @@ public class Yutamap : MonoBehaviour
     public GameObject floor;
     public GameObject start;
     public GameObject goal;
+    public GameObject goal2;
     public GameObject player;
     public GameObject Key;
     public GameObject enemy;
@@ -30,7 +31,7 @@ public class Yutamap : MonoBehaviour
         {-99, 0, -1, -1, -1,  0,  0,  0,  0, -1,  0,  0,  0,  0,  0,  0,-99 },
         {-99, 0,  0,  0, -1,  0, -1, -1,  0, -1, -1,  0, -1, -1, -1,  0,-99 },
         {-99, 0, -1,  0,  0,  0, -1, -1,  0, -1, -1,  0,  0,  0, -1,  0,-99 },
-        {-99, 0, -1, -1, -1,  0, -1,  0,  0,  0,  0,  0, -1,  0, -1,  0,-99 },
+        {-99,98, -1, -1, -1,  0, -1,  0,  0,  0,  0,  0, -1,  0, -1,  0,-99 },
         {-99,99,  0,  0,  0,  0,  0,  0,  0, -1, -1, -1, -1,  0,  0,  0,-99 },
         {-99,-99,-99,-99,-99,-99,-99,-99,-99,-99,-99,-99,-99,-99,-99,-99,-99 },
     };
@@ -41,7 +42,7 @@ public class Yutamap : MonoBehaviour
         {
             for (int j = 0; j < map.GetLength(1); j++)
             {
-                if (map[i,j] == -99)
+                if (map[i, j] == -99)
                 {
                     Instantiate(wall2, new Vector2(j - 1, -i - 1), Quaternion.identity);
                 }
@@ -61,9 +62,13 @@ public class Yutamap : MonoBehaviour
                     playerobj.transform.parent = transform;
                     playerobj.name = "Player";
                 }
+                if (map[i, j] == 98)
+                {
+                    Instantiate(floor, new Vector2(j - 1, -i - 1), Quaternion.identity);
+                    Instantiate(goal2, new Vector2(j - 1, -i - 1), Quaternion.identity);
+                }
                 if (map[i, j] == 99)
                 {
-
                     Instantiate(goal, new Vector2(j - 1, -i - 1), Quaternion.identity);
                 }
                 if (map[i, j] == 3)

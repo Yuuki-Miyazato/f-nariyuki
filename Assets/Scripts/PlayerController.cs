@@ -12,17 +12,12 @@ public class PlayerController : MonoBehaviour
     public bool isMoveing = false;
 
     public int R, L, U, D = 0;
-    public SpriteRenderer player;
-    public Sprite mae;
-    public Sprite migi;
-    public Sprite hidari;
-    public Sprite usiro;
-
 
     public int px;
     public int py;
 
     private int BP = 0;
+    private Animator anim = null;
     public int AP = 4;
 
     public int attackDamage = 1;
@@ -43,10 +38,11 @@ public class PlayerController : MonoBehaviour
         animator = GetComponent<Animator>();
         //Component取得
         audioSource = GetComponent<AudioSource>();
-
+        anim = GetComponent<Animator>();
     }
     void Update()
     {
+        Debug.Log(HP);
         if (Time.deltaTime > 0)
         {
             if (GetComponent<PlayerController>().enabled == true)
@@ -54,30 +50,19 @@ public class PlayerController : MonoBehaviour
                 horizontal = (int)Input.GetAxisRaw("Horizontal");
                 vertical = (int)Input.GetAxisRaw("Vertical");
             }
-            //int horizontal = (int)Input.GetAxisRaw("Horizontal");
-            //int vertical = (int)Input.GetAxisRaw("Vertical");
-            Debug.Log("aaaaa");
             float pos_x = this.gameObject.transform.position.x;
             float pos_y = this.gameObject.transform.position.y;
             px = (int)pos_x;
             py = (int)pos_y;
 
-            if (moveTime == 0.1f)
-            {
-                Invoke("speedTime", 5);
-            }
+            //if (moveTime == 0.1f)
+            //{
+            //    Invoke("speedTime", 5);
+            //}
 
             if (HP == 0)
             {
                 SceneManager.LoadScene("GameOver");
-            }
-            if (Input.GetKeyDown("joystick button 1"))
-            {
-                BP = 1;
-            }
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-                BP = 1;
             }
             if (horizontal != 0)
             {
@@ -88,7 +73,10 @@ public class PlayerController : MonoBehaviour
                     U = 0;
                     L = 0;
                     D = 0;
-                    player.sprite = migi;
+                    anim.SetBool("walkR", true);
+                    anim.SetBool("walkL", false);
+                    anim.SetBool("walkB", false);
+                    anim.SetBool("walkF", false);
                 }
                 else if (horizontal == -1)
                 {
@@ -96,7 +84,10 @@ public class PlayerController : MonoBehaviour
                     R = 0;
                     U = 0;
                     D = 0;
-                    player.sprite = hidari;
+                    anim.SetBool("walkL", true);
+                    anim.SetBool("walkR", false);
+                    anim.SetBool("walkB", false);
+                    anim.SetBool("walkF", false);
                 }
             }
             else if (vertical != 0)
@@ -108,7 +99,10 @@ public class PlayerController : MonoBehaviour
                     R = 0;
                     U = 0;
                     L = 0;
-                    player.sprite = usiro;
+                    anim.SetBool("walkF", true);
+                    anim.SetBool("walkL", false);
+                    anim.SetBool("walkB", false);
+                    anim.SetBool("walkR", false);
                 }
                 else if (vertical == -1)
                 {
@@ -116,7 +110,29 @@ public class PlayerController : MonoBehaviour
                     R = 0;
                     L = 0;
                     D = 0;
-                    player.sprite = mae;
+                    anim.SetBool("walkB", true);
+                    anim.SetBool("walkL", false);
+                    anim.SetBool("walkR", false);
+                    anim.SetBool("walkF", false);
+                }
+            }
+            else if (horizontal == 0 && vertical == 0)
+            {
+                if (R == 1)
+                {
+                    anim.SetBool("walkR", false);
+                }
+                else if (L == 1)
+                {
+                    anim.SetBool("walkL", false);
+                }
+                if (D == 1)
+                {
+                    anim.SetBool("walkF", false);
+                }
+                else if (U == 1)
+                {
+                    anim.SetBool("walkB", false);
                 }
             }
             if (horizontal != 0 || vertical != 0)
@@ -186,10 +202,14 @@ public class PlayerController : MonoBehaviour
             remainingDistance = (transform.position - end).sqrMagnitude;
 
             yield return null;
+
         }
         transform.position = end;
 
         isMoveing = false;
+        //this.transform.position = new Vector2(px, Mathf.Ceil(py));
+        //this.transform.position = new Vector2(Mathf.Floor(px), py);
+
     }
     public void OncantMove(WallBreak hit)
     {
