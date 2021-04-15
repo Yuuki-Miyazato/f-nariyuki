@@ -160,6 +160,7 @@ MonoBehaviour:
   Key: {fileID: 5726892383310684746, guid: 66eb4b1abe7c6cf45b93903b412a6f0c, type: 3}
   enemy: {fileID: 4267380004830016481, guid: fd3d1472cb8d4f640b9133df37ffab91, type: 3}
   enemy2: {fileID: 2450102261844140766, guid: b1f8d62113e5fac49b01de9210b4646c, type: 3}
+  enemy3: {fileID: 4503931465914940028, guid: b32214d77a6c80941a039cdde2f4981e, type: 3}
 --- !u!4 &905286911
 Transform:
   m_ObjectHideFlags: 0

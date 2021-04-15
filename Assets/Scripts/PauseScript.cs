@@ -33,7 +33,7 @@ public class PauseScript : MonoBehaviour
 				player.GetComponent<PlayerController>().enabled = true;
 			}
 		}
-		Debug.Log(player.GetComponent<PlayerController>().enabled);
+		//Debug.Log(player.GetComponent<PlayerController>().enabled);
 
     }
 }

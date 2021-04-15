@@ -12,12 +12,24 @@ public class PlayerController : MonoBehaviour
     public bool isMoveing = false;
 
     public int R, L, U, D = 0;
+<<<<<<< HEAD
+=======
+    public SpriteRenderer player;
+    public Sprite mae;
+    public Sprite migi;
+    public Sprite hidari;
+    public Sprite usiro;
+
+>>>>>>> 487e0f02ad4849d8002e35002a37e300633fafe2
 
     public int px;
     public int py;
 
     private int BP = 0;
+<<<<<<< HEAD
     private Animator anim = null;
+=======
+>>>>>>> 487e0f02ad4849d8002e35002a37e300633fafe2
     public int AP = 4;
 
     public int attackDamage = 1;
@@ -38,11 +50,18 @@ public class PlayerController : MonoBehaviour
         animator = GetComponent<Animator>();
         //Component取得
         audioSource = GetComponent<AudioSource>();
+<<<<<<< HEAD
         anim = GetComponent<Animator>();
     }
     void Update()
     {
         Debug.Log(HP);
+=======
+
+    }
+    void Update()
+    {
+>>>>>>> 487e0f02ad4849d8002e35002a37e300633fafe2
         if (Time.deltaTime > 0)
         {
             if (GetComponent<PlayerController>().enabled == true)
@@ -50,6 +69,12 @@ public class PlayerController : MonoBehaviour
                 horizontal = (int)Input.GetAxisRaw("Horizontal");
                 vertical = (int)Input.GetAxisRaw("Vertical");
             }
+<<<<<<< HEAD
+=======
+            //int horizontal = (int)Input.GetAxisRaw("Horizontal");
+            //int vertical = (int)Input.GetAxisRaw("Vertical");
+            //Debug.Log("aaaaa");
+>>>>>>> 487e0f02ad4849d8002e35002a37e300633fafe2
             float pos_x = this.gameObject.transform.position.x;
             float pos_y = this.gameObject.transform.position.y;
             px = (int)pos_x;
@@ -143,7 +168,11 @@ public class PlayerController : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
+<<<<<<< HEAD
         if (collision.gameObject.tag == "Enemy")
+=======
+        if (collision.gameObject.tag == "Enemy" || collision.gameObject.tag == "Enemy2")
+>>>>>>> 487e0f02ad4849d8002e35002a37e300633fafe2
         {
             HP -= 1;
         }
@@ -202,14 +231,20 @@ public class PlayerController : MonoBehaviour
             remainingDistance = (transform.position - end).sqrMagnitude;
 
             yield return null;
+<<<<<<< HEAD
 
+=======
+>>>>>>> 487e0f02ad4849d8002e35002a37e300633fafe2
         }
         transform.position = end;
 
         isMoveing = false;
+<<<<<<< HEAD
         //this.transform.position = new Vector2(px, Mathf.Ceil(py));
         //this.transform.position = new Vector2(Mathf.Floor(px), py);
 
+=======
+>>>>>>> 487e0f02ad4849d8002e35002a37e300633fafe2
     }
     public void OncantMove(WallBreak hit)
     {
@@ -224,4 +259,8 @@ public class PlayerController : MonoBehaviour
     {
         moveTime = 0.3f;
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 487e0f02ad4849d8002e35002a37e300633fafe2

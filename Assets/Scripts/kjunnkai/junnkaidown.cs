@@ -19,7 +19,7 @@ public class junnkaidown : MonoBehaviour
     }
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.CompareTag("Wall"))
+        if (collision.gameObject.tag == "Wall" || collision.gameObject.tag == "Enemy")
         {
             flg = true;
             //i += 1;

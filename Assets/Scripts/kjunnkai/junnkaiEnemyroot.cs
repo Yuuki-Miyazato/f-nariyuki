@@ -39,7 +39,7 @@ public class junnkaiEnemyroot : MonoBehaviour
 
     private void Start()
     {
-        Enemyobj = GameObject.Find("Enemy3");
+        Enemyobj = GameObject.Find("junnkaiEnemy");
         jem = Enemyobj.GetComponent<junnkaiEnemymove2>();
 
         leftBox = left.GetComponent<BoxCollider2D>();
@@ -75,7 +75,7 @@ public class junnkaiEnemyroot : MonoBehaviour
         //startY = (int)startpos.y;
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
         if (wallflg == true)
         {
@@ -85,7 +85,7 @@ public class junnkaiEnemyroot : MonoBehaviour
             {
                 timerg += Time.deltaTime;
             }
-            if (timerg >= 0.1f)
+            if (timerg >= 0.2f)
             {
                 timerg = 0.0f;
                 searchflg = true;
@@ -191,7 +191,7 @@ public class junnkaiEnemyroot : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Wall"))
+        if (collision.gameObject.tag == "Wall" || collision.gameObject.tag == "Enemy")
         {
             wallflg = true;
         }
