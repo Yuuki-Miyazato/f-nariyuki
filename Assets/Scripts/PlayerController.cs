@@ -56,7 +56,7 @@ public class PlayerController : MonoBehaviour
             }
             //int horizontal = (int)Input.GetAxisRaw("Horizontal");
             //int vertical = (int)Input.GetAxisRaw("Vertical");
-            Debug.Log("aaaaa");
+            //Debug.Log("aaaaa");
             float pos_x = this.gameObject.transform.position.x;
             float pos_y = this.gameObject.transform.position.y;
             px = (int)pos_x;
@@ -127,7 +127,7 @@ public class PlayerController : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Enemy")
+        if (collision.gameObject.tag == "Enemy" || collision.gameObject.tag == "Enemy2")
         {
             HP -= 1;
         }

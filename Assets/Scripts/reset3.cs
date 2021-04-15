@@ -30,28 +30,37 @@ public class reset3 : MonoBehaviour
 
     }
 
+    private void Update()
+    {
+        if (abc ==false)
+        {
+            waitTime += 0.1f;
+            if (waitTime >= 10f)
+            {
+                SceneManager.LoadScene("Enemymap");
+            }
+        }
+        Debug.Log(waitTime);
+    }
 
-
-    void OnTriggerStay2D(Collider2D collision)
+    void OnTriggerEnter2D(Collider2D collision)
     {
         waitTime += Time.deltaTime;
 
         if (collision.gameObject.tag == "Player")
         {
-            Instantiate(clear);
-            clear.SetActive(true);
+
             if (k.keyflg == true)
             {
+                Instantiate(clear);
+                clear.SetActive(true);
                 if (abc)
                 {
                     //ゴール音を１度だけ鳴らす
                     abc = false;
                     AudioSource.PlayClipAtPoint(sound01, transform.position);
                 }
-                if (waitTime >= 10f)
-                {
-                    SceneManager.LoadScene("Enemymap");
-                }
+
             }
         }
     }

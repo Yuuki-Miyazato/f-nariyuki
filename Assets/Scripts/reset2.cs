@@ -30,29 +30,43 @@ public class reset2 : MonoBehaviour
         
     }
 
-   
-
-    void OnTriggerStay2D(Collider2D collision)
+    private void Update()
     {
-        waitTime += Time.deltaTime;
+        if (abc == false)
+        {
+            waitTime += 0.1f;
+            if (waitTime >= 10)
+            {
+                SceneManager.LoadScene("Title");
+            }
+        }
+        Debug.Log(waitTime);
+    }
 
+
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+
+        
         if (collision.gameObject.tag == "Player")
         {
-            Instantiate(clear);
-            clear.SetActive(true);
+            
+
+
             if (k.keyflg == true)
             {
+                Instantiate(clear);
+                clear.SetActive(true);
+
                 if (abc)
                 {
                     //ゴール音を１度だけ鳴らす
                     abc = false;
                     AudioSource.PlayClipAtPoint(sound01, transform.position);
                 }
-                if (waitTime >= 10f)
-                {
-                    SceneManager.LoadScene("Title");
-                }
+
             }
         }
+        //Debug.Log(waitTime);
     }
 }
