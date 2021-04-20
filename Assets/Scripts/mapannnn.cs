@@ -30,7 +30,7 @@ public class mapannnn : MonoBehaviour
         {-99, -1, -1,  0, -1, -1, -1, -1, -1,  0, -1,  0, -1,  0, -1,  0,-99 },
         {-99,  0,  0,  0, -1,  0,  0,  0, -1,  0,  0,  0, -1,  0,  0,  0,-99 },
         {-99,  0, -1, -1, -1,  0, -1,  0, -1, -1, -1,  0, -1, -1, -1, -1,-99 },
-        {-99,  0, -1,  0,  0,  0, -1,  0,  0,  0,  0,  0,  0,  0,  2,  0,-99 },
+        {-99,  0, -1,  0,  0,  0, -1,  0,  0,  0,  0,  0,  0,  0,  0,  2,-99 },
         {-99,  0, -1,  0, -1, -1, -1,  0, -1,  0, -1, -1, -1, -1, -1,  0,-99 },
         {-99,  1,  0,  0, -1,  0,  0,  0, -1,  0, -1, 10,  0,  0,  0,  0,-99 },
         {-99,-99,-99,-99,-99,-99,-99,-99,-99,-99,-99,-99,-99,-99,-99,-99,-99, },
@@ -84,8 +84,7 @@ public class mapannnn : MonoBehaviour
                     Instantiate(floor, new Vector2(j - 1, -i - 1), Quaternion.identity);
                     GameObject enemyobj2 = Instantiate(enemy2, new Vector2(j - 1, -i - 1), Quaternion.identity);
                     enemyobj2.transform.parent = transform;
-                    enemyobj2.name = "junnkaiEnemy";
-                    //Debug.Log("出た");
+                    enemyobj2.name = "Enemy3";
                 }
                 if (map[i, j] == 10)
                 {

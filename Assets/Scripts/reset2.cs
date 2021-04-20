@@ -29,43 +29,23 @@ public class reset2 : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            private void Update()
+            if (k.keyflg == true)
             {
-                if (abc == false)
+                Instantiate(clear);
+                clear.SetActive(true);
+
+                if (abc)
                 {
-                    waitTime += 0.1f;
-                    if (waitTime >= 10)
-                    {
-                        SceneManager.LoadScene("Title");
-                    }
+                    //ゴール音を１度だけ鳴らす
+                    abc = false;
+                    AudioSource.PlayClipAtPoint(sound01, transform.position);
                 }
-                Debug.Log(waitTime);
-            }
-
-
-            void OnTriggerEnter2D(Collider2D collision)
-            {
-
-
-                if (collision.gameObject.tag == "Player")
-                {
-                    if (k.keyflg == true)
-                    {
-                        Instantiate(clear);
-                        clear.SetActive(true);
-
-                        if (abc)
-                        {
-                            //ゴール音を１度だけ鳴らす
-                            abc = false;
-                            AudioSource.PlayClipAtPoint(sound01, transform.position);
-                        }
-                        Invoke("Return", 3);
-                    }
-                }
-            }
-            void Return()
-            {
-                SceneManager.LoadScene("Enemymap2");
+                Invoke("Return",3);
             }
         }
+    }
+    void Return()
+    {
+        SceneManager.LoadScene("Enemymap2");
+    }
+}

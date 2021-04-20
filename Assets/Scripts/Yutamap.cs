@@ -14,7 +14,6 @@ public class Yutamap : MonoBehaviour
     public GameObject Key;
     public GameObject enemy;
     public GameObject enemy2;
-    public GameObject enemy3;
 
     public int[,] map = new int[,]
     {
@@ -32,13 +31,8 @@ public class Yutamap : MonoBehaviour
         {-99, 0, -1, -1, -1,  0,  0,  0,  0, -1,  0,  0,  0,  0,  0,  0,-99 },
         {-99, 0,  0,  0, -1,  0, -1, -1,  0, -1, -1,  0, -1, -1, -1,  0,-99 },
         {-99, 0, -1,  0,  0,  0, -1, -1,  0, -1, -1,  0,  0,  0, -1,  0,-99 },
-<<<<<<< HEAD
         {-99,98, -1, -1, -1,  0, -1,  0,  0,  0,  0,  0, -1,  0, -1,  0,-99 },
         {-99,99,  0,  0,  0,  0,  0,  0,  0, -1, -1, -1, -1,  0,  0,  0,-99 },
-=======
-        {-99, 0, -1, -1, -1,  0, -1, -1,  0,  0,  0,  0, -1,  0, -1,  0,-99 },
-        {-99,99,  4,  0,  0,  0,  0,  0,  0, -1, -1, -1, -1,  0,  0,  0,-99 },
->>>>>>> 487e0f02ad4849d8002e35002a37e300633fafe2
         {-99,-99,-99,-99,-99,-99,-99,-99,-99,-99,-99,-99,-99,-99,-99,-99,-99 },
     };
 
@@ -89,14 +83,7 @@ public class Yutamap : MonoBehaviour
                     Instantiate(floor, new Vector2(j - 1, -i - 1), Quaternion.identity);
                     GameObject enemyobj2 = Instantiate(enemy2, new Vector2(j - 1, -i - 1), Quaternion.identity);
                     enemyobj2.transform.parent = transform;
-                    enemyobj2.name = "junnkaiEnemy";
-                }
-                if (map[i, j] == 4)
-                {
-                    Instantiate(floor, new Vector2(j - 1, -i - 1), Quaternion.identity);
-                    GameObject enemyobj3 = Instantiate(enemy3, new Vector2(j - 1, -i - 1), Quaternion.identity);
-                    enemyobj3.transform.parent = transform;
-                    enemyobj3.name = "Enemy2";
+                    enemyobj2.name = "Enemy3";
                 }
                 if (map[i, j] == 10)
                 {

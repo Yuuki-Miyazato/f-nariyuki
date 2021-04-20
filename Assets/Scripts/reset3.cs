@@ -25,21 +25,8 @@ public class reset3 : MonoBehaviour
         k = Key.GetComponent<Keyh>();
         sceneName = SceneManager.GetActiveScene().name;
     }
-    void OnTriggerStay2D(Collider2D collision)
-    private void Update()
-    {
-        if (abc ==false)
-        {
-            waitTime += 0.1f;
-            if (waitTime >= 10f)
-            {
-                SceneManager.LoadScene("Enemymap");
-            }
-        }
-        Debug.Log(waitTime);
-    }
 
-    void OnTriggerEnter2D(Collider2D collision)
+    void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Player")
         {
@@ -47,6 +34,7 @@ public class reset3 : MonoBehaviour
             {
                 Instantiate(clear);
                 clear.SetActive(true);
+
                 if (abc)
                 {
                     //ゴール音を１度だけ鳴らす
@@ -54,7 +42,7 @@ public class reset3 : MonoBehaviour
                     AudioSource.PlayClipAtPoint(sound01, transform.position);
                 }
                 Invoke("Return",3);
-         }
+            }
         }
     }
     void Return()

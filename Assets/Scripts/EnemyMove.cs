@@ -106,7 +106,7 @@ public class EnemyMove : MonoBehaviour
             myTransform.position = pos;
         }
     }
-    private void OncollisionEnter2D(Collision2D collision)
+    private void OnCollisionStay2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Player")
         {
@@ -118,9 +118,6 @@ public class EnemyMove : MonoBehaviour
 
             this.transform.position = new Vector2(startX, startY);            //プレイヤーに当たればvoid startで読み込んだ最初の位置に戻る
         }
-    }
-    private void OnCollisionStay2D(Collision2D collision)
-    {
         if (collision.gameObject.tag == "Wall")
         {
             Transform myTransform = this.transform;             //このスクリプトをアタッチしているオブジェクトのトランスフォームを読み込む
