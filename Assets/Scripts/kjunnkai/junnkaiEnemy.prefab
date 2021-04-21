@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8404125767062961748}
   m_Layer: 0
   m_Name: junnkaiEnemy
-  m_TagString: Untagged
+  m_TagString: Enemy2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -106,6 +106,7 @@ MonoBehaviour:
   hidari: {fileID: 21300000, guid: cf0ddc2bf198dd048b6d0d1df720bafc, type: 3}
   usiro: {fileID: 21300000, guid: 25357b8714981b94798db53fde2a30c5, type: 3}
   timemove: 0
+  sound01: {fileID: 0}
 --- !u!1 &2869374557014117097
 GameObject:
   m_ObjectHideFlags: 0
