@@ -109,6 +109,12 @@ MonoBehaviour:
   usiro: {fileID: 21300000, guid: d53a152fb08e90347aed08bfd17148dc, type: 3}
   timemove: 0
   sound01: {fileID: 8300000, guid: b31c24193aadf1f41bba86d638f36e0b, type: 3}
+  effect: {fileID: 7153585186433940935, guid: 7a85c427cc318514abad6fd2931ad5c6, type: 3}
+  RespownTime: 0
+  Respownflg: 0
+  RespownDEffectflg: 0
+  Respowneffect: {fileID: 2264566324825067797, guid: 0ea2a4577d8ef2f49adf8962e1a4d383,
+    type: 3}
 --- !u!61 &6343160611722941915
 BoxCollider2D:
   m_ObjectHideFlags: 0
