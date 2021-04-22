@@ -29,6 +29,11 @@ public class EnemyMove : MonoBehaviour
 
     public AudioClip sound01;      //SE用変数
 
+    public GameObject effect;
+    [SerializeField] private float RespownTime = 0.0f;
+    [SerializeField] private bool Respownflg;
+    [SerializeField] private bool RespownDEffectflg;
+    [SerializeField] public GameObject Respowneffect;
 
     void Start()
     {
@@ -105,18 +110,52 @@ public class EnemyMove : MonoBehaviour
             pos.y -= 1f / moveTime * Time.deltaTime;
             myTransform.position = pos;
         }
+
+        if (Respownflg == true)
+        {
+            RespownTime += 0.02f;
+
+            if (RespownTime > 1.0 && RespownDEffectflg == true)
+            {
+                GameObject Reffect = Instantiate(Respowneffect, new Vector2(startX, startY), Quaternion.identity);
+                Reffect.name = "Ghost R effect";
+                RespownDEffectflg = false;
+            }
+            if (RespownTime > 2.5)
+            {
+                GameObject DDestroy = GameObject.Find("Ghost D effect");
+                GameObject RDestory = GameObject.Find("Ghost R effect");
+                Destroy(DDestroy);
+                Destroy(RDestory);
+                pos.x = startX;
+                pos.y = startY;
+                Respownflg = false;
+                RespownTime = 0.0f;
+                this.transform.position = new Vector2(startX, startY);
+
+            }
+        }
     }
     private void OnCollisionStay2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Player")
         {
+            Vector2 pos = new Vector2(this.transform.position.x, this.transform.position.y);
             AudioSource.PlayClipAtPoint(sound01, transform.position);
             migi = 0;
             hidari = 0;
             mae = 0;
             ushiro = 0;
 
-            this.transform.position = new Vector2(startX, startY);            //プレイヤーに当たればvoid startで読み込んだ最初の位置に戻る
+            GameObject Deffect = Instantiate(effect, this.transform.position, Quaternion.identity);
+            Deffect.name = "Ghost D effect";
+            pos.x = 100000;
+            pos.y = 100000;
+            this.transform.position = new Vector2(pos.x, pos.y);
+            RespownDEffectflg = true;
+            Respownflg = true;
+
+            //this.transform.position = new Vector2(startX, startY);            //プレイヤーに当たればvoid startで読み込んだ最初の位置に戻る
         }
         if (collision.gameObject.tag == "Wall")
         {
