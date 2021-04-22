@@ -153,6 +153,10 @@ MonoBehaviour:
   blockingLayer:
     serializedVersion: 2
     m_Bits: 256
+  Hiteffect: {fileID: 304447538588249662, guid: f51d2f0afc0d38a4180b6736f6d0ef8a,
+    type: 3}
+  hiteffectint: 0
+  effectdeletime: 0
 --- !u!61 &1207470729600518590
 BoxCollider2D:
   m_ObjectHideFlags: 0
