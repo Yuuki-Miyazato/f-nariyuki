@@ -24,6 +24,14 @@ public class junnkaiEnemymove2 : MonoBehaviour
 
     public AudioClip sound01;      //SE用変数
 
+    public GameObject effect;
+
+    [SerializeField] private float RespownTime = 0.0f;
+    [SerializeField] private bool Respownflg;
+    [SerializeField] private bool RespownDEffectflg;
+    [SerializeField] public GameObject Respowneffect;
+
+
     private void Start()
     {
         Enemyobj = GameObject.Find("hanntei");
@@ -54,7 +62,32 @@ public class junnkaiEnemymove2 : MonoBehaviour
                 //timemove = 0.0f;
                 EnemyMove();
             }
-        
+
+
+        if (Respownflg == true)
+        {
+            RespownTime += 0.02f;
+
+            if (RespownTime > 1.0 && RespownDEffectflg == true)
+            {
+                GameObject Reffect = Instantiate(Respowneffect, new Vector2(startX, startY), Quaternion.identity);
+                Reffect.name = "Ghost R effect";
+                RespownDEffectflg = false;
+            }
+            if (RespownTime > 3.0)
+            {
+                GameObject DDestroy = GameObject.Find("Ghost D effect");
+                GameObject RDestory = GameObject.Find("Ghost R effect");
+                Destroy(DDestroy);
+                Destroy(RDestory);
+                pos.x = startX;
+                pos.y = startY;
+                Respownflg = false;
+                RespownTime = 0.0f;
+                my.transform.position = new Vector2(startX, startY);
+
+            }
+        }
     }
 
     private void EnemyMove()
@@ -112,13 +145,19 @@ public class junnkaiEnemymove2 : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             AudioSource.PlayClipAtPoint(sound01, transform.position);           //SE再生
-            Debug.Log("音");
+
             timemove = 0.0f;
             moveflg = false;
-            Debug.Log("ぶつかった");
-            pos.x = startX;
-            pos.y = startY;
-            my.transform.position = new Vector2(startX, startY);
+
+            GameObject Deffect = Instantiate(effect, this.transform.position, Quaternion.identity);
+            Deffect.name = "Ghost D effect";
+            pos.x = 100000;
+            pos.y = 100000;
+            my.transform.position = new Vector2(pos.x, pos.y);
+            RespownDEffectflg = true;
+            Respownflg = true;
+            // Debug.Log("音");
+            //Debug.Log("ぶつかった");
         }
     }
     //private void OnTriggerEnter2D(Collider2D collision)
