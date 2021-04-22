@@ -31,9 +31,11 @@ public class junnkaiEnemymove2 : MonoBehaviour
     [SerializeField] private bool RespownDEffectflg;
     [SerializeField] public GameObject Respowneffect;
 
+    [SerializeField] public Animator anim;
 
     private void Start()
     {
+        anim = GetComponent<Animator>();
         Enemyobj = GameObject.Find("hanntei");
         jer = Enemyobj.GetComponent<junnkaiEnemyroot>();
         my = this.transform;
@@ -112,6 +114,10 @@ public class junnkaiEnemymove2 : MonoBehaviour
             Enemy.sprite = migi;
             pos.x += 3f / 1f * Time.deltaTime;
             my.transform.position = pos;
+            anim.SetBool("ueflg", false);
+            anim.SetBool("sitaflg", false);
+            anim.SetBool("migiflg", true);
+            anim.SetBool("hidariflg", false);
         }
         //上向いてたら
         else if (jer.tote == 90 || jer.tote == -270)
@@ -120,6 +126,10 @@ public class junnkaiEnemymove2 : MonoBehaviour
             Enemy.sprite = usiro;
             pos.y += 3f / 1f * Time.deltaTime;
             my.transform.position = pos;
+            anim.SetBool("ueflg", true);
+            anim.SetBool("sitaflg", false);
+            anim.SetBool("migiflg", false);
+            anim.SetBool("hidariflg", false);
         }
         //左向いてたら
         else if (jer.tote == 180 || jer.tote == -180)
@@ -128,6 +138,10 @@ public class junnkaiEnemymove2 : MonoBehaviour
             Enemy.sprite = hidari;
             pos.x -= 3f / 1f * Time.deltaTime;
             my.transform.position = pos;
+            anim.SetBool("ueflg", false);
+            anim.SetBool("sitaflg", false);
+            anim.SetBool("migiflg", false);
+            anim.SetBool("hidariflg", true);
         }
         //下向いてたら
         else if (jer.tote == 270 || jer.tote == -90)
@@ -136,6 +150,10 @@ public class junnkaiEnemymove2 : MonoBehaviour
             Enemy.sprite = mae;
             pos.y -= 3f / 1f * Time.deltaTime;
             my.transform.position = pos;
+            anim.SetBool("ueflg", false);
+            anim.SetBool("sitaflg", true);
+            anim.SetBool("migiflg", false);
+            anim.SetBool("hidariflg", false);
         }
 
     }
