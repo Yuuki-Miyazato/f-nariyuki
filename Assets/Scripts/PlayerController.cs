@@ -31,6 +31,13 @@ public class PlayerController : MonoBehaviour
     public LayerMask blockingLayer;
     private BoxCollider2D boxCollider;
     private Animator animator;
+
+    //エフェクト↓
+    [SerializeField] public GameObject Hiteffect;
+    [SerializeField] private int hiteffectint = 0;
+    [SerializeField] private float effectdeletime = 0.0f;
+
+
     void Start()
     {
         rd2d = GetComponent<Rigidbody2D>();
@@ -140,11 +147,28 @@ public class PlayerController : MonoBehaviour
                 ATMove(horizontal, vertical);
             }
         }
+
+        //hiteffectデリーと処理
+        if (hiteffectint > 0)
+        {
+            effectdeletime += 0.02f;
+            if (effectdeletime > 1.0)
+            {
+                GameObject effectdeletobj = GameObject.Find("Hit");
+                Destroy(effectdeletobj);
+                effectdeletime = 0.0f;
+                hiteffectint -= 1;
+            }
+        }
+
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Enemy")
         {
+            hiteffectint += 1;
+            GameObject hiteffectobj = Instantiate(Hiteffect, this.transform.position, Quaternion.identity);
+            hiteffectobj.name = "Hit";
             HP -= 1;
         }
     }
