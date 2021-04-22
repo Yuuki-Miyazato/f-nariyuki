@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8404125767062961748}
   - component: {fileID: 6343160611722941915}
   - component: {fileID: 2585838441635316880}
+  - component: {fileID: -4779999096925476544}
   m_Layer: 0
   m_Name: junnkaiEnemy
   m_TagString: Enemy
@@ -115,6 +116,7 @@ MonoBehaviour:
   RespownDEffectflg: 0
   Respowneffect: {fileID: 2264566324825067797, guid: 0ea2a4577d8ef2f49adf8962e1a4d383,
     type: 3}
+  anim: {fileID: -4779999096925476544}
 --- !u!61 &6343160611722941915
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -162,6 +164,25 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 7
+--- !u!95 &-4779999096925476544
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2450102261844140766}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ddcb04a85a967ca459bf79bfcfa32046, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &2869374557014117097
 GameObject:
   m_ObjectHideFlags: 0
