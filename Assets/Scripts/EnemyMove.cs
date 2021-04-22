@@ -35,6 +35,8 @@ public class EnemyMove : MonoBehaviour
     [SerializeField] private bool RespownDEffectflg;
     [SerializeField] public GameObject Respowneffect;
 
+    [SerializeField] public Animator anim;
+
     void Start()
     {
         Player = GameObject.Find("Player");                     //Playerという名前のオブジェクトを探しPlayerに入れる
@@ -56,6 +58,7 @@ public class EnemyMove : MonoBehaviour
             if (step_time >= 1.0f)
             {
                 migi = 1;
+  
             }
         }
         else if (script.px < pos.x && pos.y == script.py && migi == 0 && ushiro == 0 && mae == 0 && hidari == 0)
@@ -64,6 +67,7 @@ public class EnemyMove : MonoBehaviour
             if (step_time >= 1.0f)
             {
                 hidari = 1;
+
             }
         }
         else if (script.py > pos.y && pos.x == script.px && migi == 0 && ushiro == 0 && hidari == 0 && mae == 0)
@@ -72,6 +76,7 @@ public class EnemyMove : MonoBehaviour
             if (step_time >= 1.0f)
             {
                 mae = 1;
+
             }
         }
         else if (script.py < pos.y && pos.x == script.px && migi == 0 && hidari == 0 && mae == 0 && ushiro == 0)
@@ -80,10 +85,15 @@ public class EnemyMove : MonoBehaviour
             if (step_time >= 1.0f)
             {
                 ushiro = 1;
+
             }
         }
         if (migi == 1)
         {
+            anim.SetBool("migiflg", true);
+            anim.SetBool("ueflg", false);
+            anim.SetBool("sitaflg", false);
+            anim.SetBool("hidariflg", false);
             step_time = 0;
             Enemy.sprite = Smigi;
             pos.x += 1f / moveTime * Time.deltaTime;
@@ -91,6 +101,10 @@ public class EnemyMove : MonoBehaviour
         }
         else if (hidari == 1)
         {
+            anim.SetBool("hidariflg", true);
+            anim.SetBool("ueflg", false);
+            anim.SetBool("sitaflg", false);
+            anim.SetBool("migiflg", false);
             step_time = 0;
             Enemy.sprite = Shidari;
             pos.x -= 1f / moveTime * Time.deltaTime;
@@ -98,6 +112,10 @@ public class EnemyMove : MonoBehaviour
         }
         else if (mae == 1)
         {
+            anim.SetBool("sitaflg", false);
+            anim.SetBool("ueflg", true);
+            anim.SetBool("migiflg", false);
+            anim.SetBool("hidariflg", false);
             step_time = 0;
             Enemy.sprite = Susiro;
             pos.y += 1f / moveTime * Time.deltaTime;
@@ -105,6 +123,10 @@ public class EnemyMove : MonoBehaviour
         }
         else if (ushiro == 1)
         {
+            anim.SetBool("ueflg", false);
+            anim.SetBool("sitaflg", true);
+            anim.SetBool("migiflg", false);
+            anim.SetBool("hidariflg", false);
             step_time = 0;
             Enemy.sprite = Smae;
             pos.y -= 1f / moveTime * Time.deltaTime;
