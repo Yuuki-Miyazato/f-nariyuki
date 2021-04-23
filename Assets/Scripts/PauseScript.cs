@@ -8,10 +8,8 @@ public class PauseScript : MonoBehaviour
 	//　ポーズした時に表示するUI
 	[SerializeField]
 	private GameObject pauseUI;
-	//[SerializeField] public GameObject player;
 	public GameObject player;
 
-	// Update is called once per frame
 	void Update()
 	{
 		if (Input.GetKeyDown("q") || Input.GetKeyDown("joystick button 7")) 
@@ -34,6 +32,5 @@ public class PauseScript : MonoBehaviour
 			}
 		}
 		Debug.Log(player.GetComponent<PlayerController>().enabled);
-
     }
 }
