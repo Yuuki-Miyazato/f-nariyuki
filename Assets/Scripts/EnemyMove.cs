@@ -37,8 +37,13 @@ public class EnemyMove : MonoBehaviour
 
     [SerializeField] public Animator anim;
 
+    [SerializeField] private GameObject goal;
+    [SerializeField] private reset3 reset;
+
     void Start()
     {
+        goal=GameObject.FindWithTag("goal");
+        reset = goal.GetComponent<reset3>();
         Player = GameObject.Find("Player");                     //Playerという名前のオブジェクトを探しPlayerに入れる
         script = Player.GetComponent<PlayerController>();       //PlayerControllerというスクリプトの情報をscriptにいれる
         Transform startTransform = this.transform;             //このスクリプトをアタッチしているオブジェクトのトランスフォームを読み込む
@@ -48,6 +53,7 @@ public class EnemyMove : MonoBehaviour
     }
     void Update()
     {
+        if (reset.abc == true) { 
         Transform myTransform = this.transform;             //このスクリプトをアタッチしているオブジェクトのトランスフォームを読み込む
         Vector2 pos = myTransform.position;                 //読み込んだトランスフォームのポジションをVector2 posに入れる
 
@@ -133,32 +139,37 @@ public class EnemyMove : MonoBehaviour
             myTransform.position = pos;
         }
 
-        if (Respownflg == true)
-        {
-            RespownTime += 0.02f;
-
-            if (RespownTime > 1.0 && RespownDEffectflg == true)
+            if (Respownflg == true)
             {
-                GameObject Reffect = Instantiate(Respowneffect, new Vector2(startX, startY), Quaternion.identity);
-                Reffect.name = "Ghost R effect";
-                RespownDEffectflg = false;
-            }
-            if (RespownTime > 2.5)
-            {
-                GameObject DDestroy = GameObject.Find("Ghost D effect");
-                GameObject RDestory = GameObject.Find("Ghost R effect");
-                Destroy(DDestroy);
-                Destroy(RDestory);
-                pos.x = startX;
-                pos.y = startY;
-                Respownflg = false;
-                RespownTime = 0.0f;
-                this.transform.position = new Vector2(startX, startY);
+                RespownTime += 0.02f;
 
+                if (RespownTime > 1.0 && RespownDEffectflg == true)
+                {
+                    GameObject Reffect = Instantiate(Respowneffect, new Vector2(startX, startY), Quaternion.identity);
+                    Reffect.name = "Ghost R effect";
+                    RespownDEffectflg = false;
+                }
+                if (RespownTime > 2.5)
+                {
+                    GameObject DDestroy = GameObject.Find("Ghost D effect");
+                    GameObject RDestory = GameObject.Find("Ghost R effect");
+                    Destroy(DDestroy);
+                    Destroy(RDestory);
+                    pos.x = startX;
+                    pos.y = startY;
+                    Respownflg = false;
+                    RespownTime = 0.0f;
+                    this.transform.position = new Vector2(startX, startY);
+
+                }
             }
         }
+        else
+        {
+            anim.enabled=false;
+        }
     }
-    private void OnCollisionStay2D(Collision2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Player")
         {

@@ -17,16 +17,21 @@ public class reset3 : MonoBehaviour
     public AudioClip sound01;   //SE用変数
 
     //１回入るよう
-    private bool abc = true;
+    public bool abc = true;
+
+    //[SerializeField] public GameObject fead;
+    //[SerializeField] private Animator anim;
 
     void Start()
     {
+        //fead = GameObject.FindWithTag("fead");
+        //anim = fead.GetComponent<Animator>();
         Key = GameObject.Find("Key");
         k = Key.GetComponent<Keyh>();
         sceneName = SceneManager.GetActiveScene().name;
     }
 
-    void OnTriggerStay2D(Collider2D collision)
+    void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Player")
         {
@@ -34,6 +39,7 @@ public class reset3 : MonoBehaviour
             {
                 Instantiate(clear);
                 clear.SetActive(true);
+               // anim.SetBool("goal", true);
 
                 if (abc)
                 {
@@ -47,6 +53,13 @@ public class reset3 : MonoBehaviour
     }
     void Return()
     {
-        SceneManager.LoadScene("Title");
+        if (SceneManager.GetActiveScene().name == "Enemymap")
+        {
+            SceneManager.LoadScene("Enemymap2");
+        }
+        if (SceneManager.GetActiveScene().name == "Enemymap2")
+        {
+            SceneManager.LoadScene("Title");
+        }
     }
 }
