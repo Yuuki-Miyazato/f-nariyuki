@@ -15,6 +15,10 @@ public class mapannnn : MonoBehaviour
     public GameObject enemy;
     public GameObject enemy2;
 
+    //debug用
+    [SerializeField] public Camera cm;
+    int debugn = 0;
+
     public int[,] map = new int[,]
     {
         {-99,-99,-99,-99,-99,-99,-99,-99,-99,-99,-99,-99,-99,-99,-99,-99,-99 },
@@ -70,7 +74,9 @@ public class mapannnn : MonoBehaviour
                 if (map[i, j] == 99)
                 {
 
-                    Instantiate(goal, new Vector2(j - 1, -i - 1), Quaternion.identity);
+                    // Instantiate(goal, new Vector2(j - 1, -i - 1), Quaternion.identity);
+                    GameObject goalobj = Instantiate(goal, new Vector2(j - 1, -i - 1), Quaternion.identity);
+                    goalobj.name = "goal";
                 }
                 if (map[i, j] == 3)
                 {
@@ -89,12 +95,33 @@ public class mapannnn : MonoBehaviour
                 if (map[i, j] == 10)
                 {
                     Instantiate(floor, new Vector2(j - 1, -i - 1), Quaternion.identity);
-                    Instantiate(Key, new Vector2(j - 1, -i - 1), Quaternion.identity);
+                   // Instantiate(Key, new Vector2(j - 1, -i - 1), Quaternion.identity);
                     GameObject Keyobj = Instantiate(Key, new Vector2(j - 1, -i - 1), Quaternion.identity);
                     Keyobj.transform.parent = transform;
                     Keyobj.name = "Key";
                 }
             }
         }
+    }
+
+    //debug用
+    private void Update()
+    {
+        
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            debugn += 1;
+        }
+
+        int ww = debugn % 2;
+        if (ww == 0)
+        {
+            cm.depth = 0;
+        }
+        else if (ww == 1)
+        {
+            cm.depth = 2;
+        }
+        //Debug.Log(debugn);
     }
 }
