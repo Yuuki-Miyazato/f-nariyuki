@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3169903241479350354}
   - component: {fileID: 3169903241479350355}
   - component: {fileID: 3169903241479350359}
+  - component: {fileID: -6707231026165282526}
   - component: {fileID: 3169903241479350352}
   - component: {fileID: 1207470729600518590}
   - component: {fileID: -7307607252852132663}
@@ -128,6 +129,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 7
+--- !u!114 &-6707231026165282526
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3169903241479350364}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30378de3ed35a384fb418ae6d9589676, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Mode: 1
 --- !u!114 &3169903241479350352
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -154,10 +168,13 @@ MonoBehaviour:
   blockingLayer:
     serializedVersion: 2
     m_Bits: 256
+  wall: {fileID: 5881962116831942809, guid: 1c546b6fd4341a24e84728ace612f963, type: 3}
   Hiteffect: {fileID: 304447538588249662, guid: f51d2f0afc0d38a4180b6736f6d0ef8a,
     type: 3}
   hiteffectint: 0
   effectdeletime: 0
+  goal: {fileID: 0}
+  reset: {fileID: 0}
 --- !u!61 &1207470729600518590
 BoxCollider2D:
   m_ObjectHideFlags: 0

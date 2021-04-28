@@ -8,7 +8,7 @@ using UnityEngine.UI;
 public class PlayerController : MonoBehaviour
 {
     private Rigidbody2D rd2d;
-    public float moveTime = 0.1f;
+    public float moveTime;
     public bool isMoveing = false;
 
     public int R, L, U, D = 0;
@@ -32,6 +32,10 @@ public class PlayerController : MonoBehaviour
     private BoxCollider2D boxCollider;
     private Animator animator;
 
+    private ModeChange script;
+    private GameObject Player;
+    public GameObject wall;
+
     //エフェクト↓
     [SerializeField] public GameObject Hiteffect;
     [SerializeField] private int hiteffectint = 0;
@@ -39,8 +43,6 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] private GameObject goal;
     [SerializeField] private reset3 reset;
-
-    [SerializeField] public GameObject kabe;
 
     void Start()
     {
@@ -52,6 +54,9 @@ public class PlayerController : MonoBehaviour
         //Component取得
         audioSource = GetComponent<AudioSource>();
         anim = GetComponent<Animator>();
+  
+        Player = GameObject.Find("Player");                     //Playerという名前のオブジェクトを探しPlayerに入れる
+        script = Player.GetComponent<ModeChange>();
     }
     void Update()
     {
@@ -197,14 +202,7 @@ public class PlayerController : MonoBehaviour
         {
             return;
         }
-
-        WallBreak hitComponent = hit.transform.GetComponent<WallBreak>();
-
-        if (!canMove && hitComponent != null && BP == 1)
-        {
-            OncantMove(hitComponent);
-        }
-    }
+}
     public bool Move(int horizontal, int vertical, out RaycastHit2D hit)
     {
         Vector2 start = transform.position;
@@ -219,13 +217,14 @@ public class PlayerController : MonoBehaviour
 
         if (!isMoveing && hit.transform == null)
         {
-
-            //Instantiate(kabe, transform.position, Quaternion.identity);
-
             StartCoroutine(Movement(end));
 
             audioSource.Play();
 
+            if (script.Mode == 3)
+            {
+                Instantiate(wall, new Vector2(px, py), Quaternion.identity);
+            }
             return true;
         }
         return false;
@@ -249,21 +248,5 @@ public class PlayerController : MonoBehaviour
         transform.position = end;
 
         isMoveing = false;
-        //this.transform.position = new Vector2(px, Mathf.Ceil(py));
-        //this.transform.position = new Vector2(Mathf.Floor(px), py);
-
-    }
-    public void OncantMove(WallBreak hit)
-    {
-        if (BP == 1 && AP > 0)
-        {
-            hit.DamageWall(attackDamage);
-            BP = 0;
-            AP -= 1;
-        }
-    }
-    void speedTime()
-    {
-        moveTime = 0.3f;
     }
 }
