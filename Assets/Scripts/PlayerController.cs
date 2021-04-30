@@ -44,6 +44,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private GameObject goal;
     [SerializeField] private reset3 reset;
 
+    public int houkou=0;
+    [SerializeField] private damegeAnimation dm;
+
     void Start()
     {
         goal = GameObject.FindWithTag("goal");
@@ -57,11 +60,13 @@ public class PlayerController : MonoBehaviour
   
         Player = GameObject.Find("Player");                     //Playerという名前のオブジェクトを探しPlayerに入れる
         script = Player.GetComponent<ModeChange>();
+
+        dm = GetComponent<damegeAnimation>();
     }
     void Update()
     {
         Debug.Log(HP);
-        if (reset.abc == true)
+        if (reset.abc == true&&dm.damege==false)
         {
             if (Time.deltaTime > 0)
             {
@@ -93,6 +98,7 @@ public class PlayerController : MonoBehaviour
                         U = 0;
                         L = 0;
                         D = 0;
+                        houkou = 1;
                         anim.SetBool("walkR", true);
                         anim.SetBool("walkL", false);
                         anim.SetBool("walkB", false);
@@ -104,6 +110,7 @@ public class PlayerController : MonoBehaviour
                         R = 0;
                         U = 0;
                         D = 0;
+                        houkou = 3;
                         anim.SetBool("walkL", true);
                         anim.SetBool("walkR", false);
                         anim.SetBool("walkB", false);
@@ -119,6 +126,7 @@ public class PlayerController : MonoBehaviour
                         R = 0;
                         U = 0;
                         L = 0;
+                        houkou = 2;
                         anim.SetBool("walkF", true);
                         anim.SetBool("walkL", false);
                         anim.SetBool("walkB", false);
@@ -130,6 +138,7 @@ public class PlayerController : MonoBehaviour
                         R = 0;
                         L = 0;
                         D = 0;
+                        houkou = 0;
                         anim.SetBool("walkB", true);
                         anim.SetBool("walkL", false);
                         anim.SetBool("walkR", false);
@@ -202,7 +211,7 @@ public class PlayerController : MonoBehaviour
         {
             return;
         }
-}
+    }
     public bool Move(int horizontal, int vertical, out RaycastHit2D hit)
     {
         Vector2 start = transform.position;
