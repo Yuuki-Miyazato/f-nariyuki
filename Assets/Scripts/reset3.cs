@@ -19,13 +19,13 @@ public class reset3 : MonoBehaviour
     //１回入るよう
     public bool abc = true;
 
-    //[SerializeField] public GameObject fead;
-    //[SerializeField] private Animator anim;
+    [SerializeField] public GameObject fead;
+    [SerializeField] private Animator anim;
 
     void Start()
     {
-        //fead = GameObject.FindWithTag("fead");
-        //anim = fead.GetComponent<Animator>();
+        fead = GameObject.FindWithTag("fead");
+        anim = fead.GetComponent<Animator>();
         Key = GameObject.Find("Key");
         k = Key.GetComponent<Keyh>();
         sceneName = SceneManager.GetActiveScene().name;
@@ -39,7 +39,7 @@ public class reset3 : MonoBehaviour
             {
                 Instantiate(clear);
                 clear.SetActive(true);
-               // anim.SetBool("goal", true);
+                anim.SetBool("goal", true);
 
                 if (abc)
                 {
