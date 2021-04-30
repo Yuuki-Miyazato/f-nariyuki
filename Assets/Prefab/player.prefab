@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 3169903241479350352}
   - component: {fileID: 1207470729600518590}
   - component: {fileID: -7307607252852132663}
+  - component: {fileID: 4121584730757695873}
   m_Layer: 0
   m_Name: player
   m_TagString: Player
@@ -99,7 +100,7 @@ Animator:
   m_GameObject: {fileID: 3169903241479350364}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: bf8a7409ba1e8314eb822da8a9987ee8, type: 2}
+  m_Controller: {fileID: 9100000, guid: 77f9c912f590751458eea607da3f5c06, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -164,7 +165,7 @@ MonoBehaviour:
   py: 0
   AP: 4
   attackDamage: 1
-  HP: 3
+  HP: 100
   blockingLayer:
     serializedVersion: 2
     m_Bits: 256
@@ -175,6 +176,7 @@ MonoBehaviour:
   effectdeletime: 0
   goal: {fileID: 0}
   reset: {fileID: 0}
+  houkou: 0
 --- !u!61 &1207470729600518590
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -297,6 +299,22 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &4121584730757695873
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3169903241479350364}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3f9190a37a8db846b81298f028c1518, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  anim: {fileID: 0}
+  plc: {fileID: 0}
+  damege: 0
 --- !u!1 &3317415554628616644
 GameObject:
   m_ObjectHideFlags: 0
