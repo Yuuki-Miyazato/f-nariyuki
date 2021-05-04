@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 8355797076750686385}
   m_Layer: 0
   m_Name: goal 1
-  m_TagString: Untagged
+  m_TagString: goal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -215,10 +215,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 5021114660515619911}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3c880ba9e047e3249a4b3bf399f81abf, type: 3}
+  m_Script: {fileID: 11500000, guid: d68ef4af58dc58646b5a59227f3d1d6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Key: {fileID: 0}
   k: {fileID: 0}
   clear: {fileID: 1938273880899689617, guid: 6d99a6639fe0aa54a8c66fe31339d5a1, type: 3}
   sound01: {fileID: 8300000, guid: 4e7ae4dcb955ddb4081e67831a94cba6, type: 3}
+  abc: 1

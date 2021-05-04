@@ -7,8 +7,6 @@ TagManager:
   - Wall
   - Enemy
   - Item
-  - Enemy2
-  - FireWall
   layers:
   - Default
   - TransparentFX

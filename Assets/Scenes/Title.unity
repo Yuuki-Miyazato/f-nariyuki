@@ -492,7 +492,7 @@ MonoBehaviour:
   m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 1280, y: 720}
+  m_ReferenceResolution: {x: 1024, y: 724}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -559,7 +559,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: bfda802367ed4714d9becd7e931459e9, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 55f00439b5678b442809e46ee5533923, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

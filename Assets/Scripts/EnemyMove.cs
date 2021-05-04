@@ -21,12 +21,6 @@ public class EnemyMove : MonoBehaviour
 
     private float step_time = 0;
 
-    public SpriteRenderer Enemy;
-    public Sprite Smae;
-    public Sprite Smigi;
-    public Sprite Shidari;
-    public Sprite Susiro;
-
     public AudioClip sound01;      //SE用変数
 
     public GameObject effect;
@@ -37,8 +31,13 @@ public class EnemyMove : MonoBehaviour
 
     [SerializeField] public Animator anim;
 
+    [SerializeField] private GameObject goal;
+    [SerializeField] private reset3 reset;
+
     void Start()
     {
+        goal=GameObject.FindWithTag("goal");
+        reset = goal.GetComponent<reset3>();
         Player = GameObject.Find("Player");                     //Playerという名前のオブジェクトを探しPlayerに入れる
         script = Player.GetComponent<PlayerController>();       //PlayerControllerというスクリプトの情報をscriptにいれる
         Transform startTransform = this.transform;             //このスクリプトをアタッチしているオブジェクトのトランスフォームを読み込む
@@ -48,6 +47,7 @@ public class EnemyMove : MonoBehaviour
     }
     void Update()
     {
+        if (reset.abc == true) { 
         Transform myTransform = this.transform;             //このスクリプトをアタッチしているオブジェクトのトランスフォームを読み込む
         Vector2 pos = myTransform.position;                 //読み込んだトランスフォームのポジションをVector2 posに入れる
 
@@ -58,6 +58,7 @@ public class EnemyMove : MonoBehaviour
             if (step_time >= 1.0f)
             {
                 migi = 1;
+  
             }
         }
         else if (script.px < pos.x && pos.y == script.py && migi == 0 && ushiro == 0 && mae == 0 && hidari == 0)
@@ -66,6 +67,7 @@ public class EnemyMove : MonoBehaviour
             if (step_time >= 1.0f)
             {
                 hidari = 1;
+
             }
         }
         else if (script.py > pos.y && pos.x == script.px && migi == 0 && ushiro == 0 && hidari == 0 && mae == 0)
@@ -93,7 +95,6 @@ public class EnemyMove : MonoBehaviour
             anim.SetBool("sitaflg", false);
             anim.SetBool("hidariflg", false);
             step_time = 0;
-            Enemy.sprite = Smigi;
             pos.x += 1f / moveTime * Time.deltaTime;
             myTransform.position = pos;
         }
@@ -104,7 +105,6 @@ public class EnemyMove : MonoBehaviour
             anim.SetBool("sitaflg", false);
             anim.SetBool("migiflg", false);
             step_time = 0;
-            Enemy.sprite = Shidari;
             pos.x -= 1f / moveTime * Time.deltaTime;
             myTransform.position = pos;
         }
@@ -115,7 +115,6 @@ public class EnemyMove : MonoBehaviour
             anim.SetBool("migiflg", false);
             anim.SetBool("hidariflg", false);
             step_time = 0;
-            Enemy.sprite = Susiro;
             pos.y += 1f / moveTime * Time.deltaTime;
             myTransform.position = pos;
         }
@@ -126,37 +125,41 @@ public class EnemyMove : MonoBehaviour
             anim.SetBool("migiflg", false);
             anim.SetBool("hidariflg", false);
             step_time = 0;
-            Enemy.sprite = Smae;
             pos.y -= 1f / moveTime * Time.deltaTime;
             myTransform.position = pos;
         }
 
-        if (Respownflg == true)
-        {
-            RespownTime += 0.02f;
-
-            if (RespownTime > 1.0 && RespownDEffectflg == true)
+            if (Respownflg == true)
             {
-                GameObject Reffect = Instantiate(Respowneffect, new Vector2(startX, startY), Quaternion.identity);
-                Reffect.name = "Ghost R effect";
-                RespownDEffectflg = false;
-            }
-            if (RespownTime > 2.5)
-            {
-                GameObject DDestroy = GameObject.Find("Ghost D effect");
-                GameObject RDestory = GameObject.Find("Ghost R effect");
-                Destroy(DDestroy);
-                Destroy(RDestory);
-                pos.x = startX;
-                pos.y = startY;
-                Respownflg = false;
-                RespownTime = 0.0f;
-                this.transform.position = new Vector2(startX, startY);
+                RespownTime += 0.02f;
 
+                if (RespownTime > 1.0 && RespownDEffectflg == true)
+                {
+                    GameObject Reffect = Instantiate(Respowneffect, new Vector2(startX, startY), Quaternion.identity);
+                    Reffect.name = "Ghost R effect";
+                    RespownDEffectflg = false;
+                }
+                if (RespownTime > 2.5)
+                {
+                    GameObject DDestroy = GameObject.Find("Ghost D effect");
+                    GameObject RDestory = GameObject.Find("Ghost R effect");
+                    Destroy(DDestroy);
+                    Destroy(RDestory);
+                    pos.x = startX;
+                    pos.y = startY;
+                    Respownflg = false;
+                    RespownTime = 0.0f;
+                    this.transform.position = new Vector2(startX, startY);
+
+                }
             }
         }
+        else
+        {
+            anim.enabled=false;
+        }
     }
-    private void OnCollisionStay2D(Collision2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Player")
         {
@@ -174,9 +177,10 @@ public class EnemyMove : MonoBehaviour
             this.transform.position = new Vector2(pos.x, pos.y);
             RespownDEffectflg = true;
             Respownflg = true;
-            
+
+            //this.transform.position = new Vector2(startX, startY);            //プレイヤーに当たればvoid startで読み込んだ最初の位置に戻る
         }
-        if (collision.gameObject.tag == "Wall"|| collision.gameObject.tag == "FireWall")
+        if (collision.gameObject.tag == "Wall")
         {
             Transform myTransform = this.transform;             //このスクリプトをアタッチしているオブジェクトのトランスフォームを読み込む
             Vector2 pos = myTransform.position;                 //読み込んだトランスフォームのポジションをVector2 posに入れる

@@ -163,6 +163,8 @@ MonoBehaviour:
   wall11: {fileID: 2326588257070454994, guid: 8927dc88f9336d14c8dc2ceed8a9cfbe, type: 3}
   wall12: {fileID: 2772402250067487977, guid: a7d4cf04e51c9e245b5fdcc99131ce5c, type: 3}
   wall13: {fileID: 4892204617167555319, guid: 42385f0dc6d67174ea503d12c6190160, type: 3}
+  canvasUI: {fileID: 4965772589349492872, guid: c54b3fa09d096484ba5bf2e474dda892,
+    type: 3}
   floor: {fileID: 131840870577863376, guid: 9c90e62406a14214fb9c68608e1fecc6, type: 3}
   start: {fileID: 5911598386532400483, guid: 9b3aac7a7a5e0844b94b95a11cbd6743, type: 3}
   goal: {fileID: 5021114660515619911, guid: 3b8f50c779a33b0469b3b51648614b13, type: 3}

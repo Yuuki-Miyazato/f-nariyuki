@@ -17,6 +17,7 @@ public class Yutamap : MonoBehaviour
     public GameObject wall11;
     public GameObject wall12;
     public GameObject wall13;
+    public GameObject canvasUI;
 
     public GameObject floor;
     public GameObject start;
@@ -56,6 +57,7 @@ public class Yutamap : MonoBehaviour
 
     private void Start()
     {
+        Instantiate(canvasUI, new Vector2(0,0), Quaternion.identity);
         for (int i = 0; i < map.GetLength(0); i++)
         {
             for (int j = 0; j < map.GetLength(1); j++)

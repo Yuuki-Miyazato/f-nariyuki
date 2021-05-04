@@ -40,7 +40,7 @@ public class reset3 : MonoBehaviour
                 Instantiate(clear);
                 clear.SetActive(true);
                 anim.SetBool("goal", true);
-
+                
                 if (abc)
                 {
                     //ゴール音を１度だけ鳴らす
