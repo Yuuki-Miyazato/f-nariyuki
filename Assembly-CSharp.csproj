@@ -82,6 +82,7 @@
     <Compile Include="Assets\Scripts\WallBreak.cs" />
     <Compile Include="Assets\Scripts\Yutamap.cs" />
     <Compile Include="Assets\Scripts\YuukiMap.cs" />
+    <Compile Include="Assets\Scripts\exit.cs" />
     <Compile Include="Assets\Scripts\item.cs" />
     <Compile Include="Assets\Scripts\itemlost.cs" />
     <Compile Include="Assets\Scripts\kjunnkai\junnkaiEnemymove2.cs" />

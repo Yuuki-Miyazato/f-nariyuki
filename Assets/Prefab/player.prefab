@@ -165,7 +165,7 @@ MonoBehaviour:
   py: 0
   AP: 4
   attackDamage: 1
-  HP: 100
+  HP: 1
   blockingLayer:
     serializedVersion: 2
     m_Bits: 256
@@ -177,6 +177,7 @@ MonoBehaviour:
   goal: {fileID: 0}
   reset: {fileID: 0}
   houkou: 0
+  dm: {fileID: 0}
 --- !u!61 &1207470729600518590
 BoxCollider2D:
   m_ObjectHideFlags: 0
