@@ -19,19 +19,19 @@ public class ModeChange : MonoBehaviour
 
     void SpeedMode()
     {
-        script.moveTime = 0.2f;
+        script.moveTime = 0.1f;
         Search = 0;
         Firewall = 0;
     }
     void SearchMode()
     {
-        script.moveTime = 0.4f;
+        script.moveTime = 0.3f;
         Search = 1;
         Firewall = 0;
     }
     void FirewallMode()
     {
-        script.moveTime = 0.4f;
+        script.moveTime = 0.3f;
         Firewall = 1;
         Search = 0;
     }

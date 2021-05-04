@@ -41,155 +41,127 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private int hiteffectint = 0;
     [SerializeField] private float effectdeletime = 0.0f;
 
-    [SerializeField] private GameObject goal;
-    [SerializeField] private reset3 reset;
-
-    public int houkou=0;
-    [SerializeField] private damegeAnimation dm;
 
     void Start()
     {
-        goal = GameObject.FindWithTag("goal");
-        reset = goal.GetComponent<reset3>();
         rd2d = GetComponent<Rigidbody2D>();
         boxCollider = GetComponent<BoxCollider2D>();
         animator = GetComponent<Animator>();
         //Component取得
         audioSource = GetComponent<AudioSource>();
         anim = GetComponent<Animator>();
-  
+
         Player = GameObject.Find("Player");                     //Playerという名前のオブジェクトを探しPlayerに入れる
         script = Player.GetComponent<ModeChange>();
-
-        dm = GetComponent<damegeAnimation>();
     }
     void Update()
     {
-        Debug.Log(HP);
-        if (reset.abc == true&&dm.damege==false)
+        if (Time.deltaTime > 0)
         {
-            if (Time.deltaTime > 0)
+            if (GetComponent<PlayerController>().enabled == true)
             {
-                if (GetComponent<PlayerController>().enabled == true)
-                {
-                    horizontal = (int)Input.GetAxisRaw("Horizontal");
-                    vertical = (int)Input.GetAxisRaw("Vertical");
-                }
-                float pos_x = this.gameObject.transform.position.x;
-                float pos_y = this.gameObject.transform.position.y;
-                px = (int)pos_x;
-                py = (int)pos_y;
+                horizontal = (int)Input.GetAxisRaw("Horizontal");
+                vertical = (int)Input.GetAxisRaw("Vertical");
+            }
+            float pos_x = this.gameObject.transform.position.x;
+            float pos_y = this.gameObject.transform.position.y;
+            px = (int)pos_x;
+            py = (int)pos_y;
 
-                //if (moveTime == 0.1f)
-                //{
-                //    Invoke("speedTime", 5);
-                //}
-
-                if (HP == 0)
+            if (HP == 0)
+            {
+                SceneManager.LoadScene("GameOver");
+            }
+            if (horizontal != 0)
+            {
+                vertical = 0;
+                if (horizontal == 1)
                 {
-                    SceneManager.LoadScene("GameOver");
+                    R = 1;
+                    U = 0;
+                    L = 0;
+                    D = 0;
+                    anim.SetBool("walkR", true);
+                    anim.SetBool("walkL", false);
+                    anim.SetBool("walkB", false);
+                    anim.SetBool("walkF", false);
                 }
-                if (horizontal != 0)
+                else if (horizontal == -1)
                 {
-                    vertical = 0;
-                    if (horizontal == 1)
-                    {
-                        R = 1;
-                        U = 0;
-                        L = 0;
-                        D = 0;
-                        houkou = 1;
-                        anim.SetBool("walkR", true);
-                        anim.SetBool("walkL", false);
-                        anim.SetBool("walkB", false);
-                        anim.SetBool("walkF", false);
-                    }
-                    else if (horizontal == -1)
-                    {
-                        L = 1;
-                        R = 0;
-                        U = 0;
-                        D = 0;
-                        houkou = 3;
-                        anim.SetBool("walkL", true);
-                        anim.SetBool("walkR", false);
-                        anim.SetBool("walkB", false);
-                        anim.SetBool("walkF", false);
-                    }
-                }
-                else if (vertical != 0)
-                {
-                    horizontal = 0;
-                    if (vertical == 1)
-                    {
-                        D = 1;
-                        R = 0;
-                        U = 0;
-                        L = 0;
-                        houkou = 2;
-                        anim.SetBool("walkF", true);
-                        anim.SetBool("walkL", false);
-                        anim.SetBool("walkB", false);
-                        anim.SetBool("walkR", false);
-                    }
-                    else if (vertical == -1)
-                    {
-                        U = 1;
-                        R = 0;
-                        L = 0;
-                        D = 0;
-                        houkou = 0;
-                        anim.SetBool("walkB", true);
-                        anim.SetBool("walkL", false);
-                        anim.SetBool("walkR", false);
-                        anim.SetBool("walkF", false);
-                    }
-                }
-                else if (horizontal == 0 && vertical == 0)
-                {
-                    if (R == 1)
-                    {
-                        anim.SetBool("walkR", false);
-                    }
-                    else if (L == 1)
-                    {
-                        anim.SetBool("walkL", false);
-                    }
-                    if (D == 1)
-                    {
-                        anim.SetBool("walkF", false);
-                    }
-                    else if (U == 1)
-                    {
-                        anim.SetBool("walkB", false);
-                    }
-                }
-                if (horizontal != 0 || vertical != 0)
-                {
-                    ATMove(horizontal, vertical);
+                    L = 1;
+                    R = 0;
+                    U = 0;
+                    D = 0;
+                    anim.SetBool("walkL", true);
+                    anim.SetBool("walkR", false);
+                    anim.SetBool("walkB", false);
+                    anim.SetBool("walkF", false);
                 }
             }
-
-            //hiteffectデリーと処理
-            if (hiteffectint > 0)
+            else if (vertical != 0)
             {
-                effectdeletime += 0.02f;
-                if (effectdeletime > 1.0)
+                horizontal = 0;
+                if (vertical == 1)
                 {
-                    GameObject effectdeletobj = GameObject.Find("Hit");
-                    Destroy(effectdeletobj);
-                    effectdeletime = 0.0f;
-                    hiteffectint -= 1;
+                    D = 1;
+                    R = 0;
+                    U = 0;
+                    L = 0;
+                    anim.SetBool("walkF", true);
+                    anim.SetBool("walkL", false);
+                    anim.SetBool("walkB", false);
+                    anim.SetBool("walkR", false);
+                }
+                else if (vertical == -1)
+                {
+                    U = 1;
+                    R = 0;
+                    L = 0;
+                    D = 0;
+                    anim.SetBool("walkB", true);
+                    anim.SetBool("walkL", false);
+                    anim.SetBool("walkR", false);
+                    anim.SetBool("walkF", false);
                 }
             }
+            else if (horizontal == 0 && vertical == 0)
+            {
+                if (R == 1)
+                {
+                    anim.SetBool("walkR", false);
+                }
+                else if (L == 1)
+                {
+                    anim.SetBool("walkL", false);
+                }
+                if (D == 1)
+                {
+                    anim.SetBool("walkF", false);
+                }
+                else if (U == 1)
+                {
+                    anim.SetBool("walkB", false);
+                }
+            }
+            if (horizontal != 0 || vertical != 0)
+            {
+                ATMove(horizontal, vertical);
+            }
         }
-        else
+
+        //hiteffectデリーと処理
+        if (hiteffectint > 0)
         {
-            anim.SetBool("walkF", false);
-            anim.SetBool("walkB", false);
-            anim.SetBool("walkR", false);
-            anim.SetBool("walkL", false);
+            effectdeletime += 0.02f;
+            if (effectdeletime > 1.0)
+            {
+                GameObject effectdeletobj = GameObject.Find("Hit");
+                Destroy(effectdeletobj);
+                effectdeletime = 0.0f;
+                hiteffectint -= 1;
+            }
         }
+
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -210,6 +182,13 @@ public class PlayerController : MonoBehaviour
         if (hit.transform == null)
         {
             return;
+        }
+
+        WallBreak hitComponent = hit.transform.GetComponent<WallBreak>();
+
+        if (!canMove && hitComponent != null && BP == 1)
+        {
+            OncantMove(hitComponent);
         }
     }
     public bool Move(int horizontal, int vertical, out RaycastHit2D hit)
@@ -232,7 +211,7 @@ public class PlayerController : MonoBehaviour
 
             if (script.Mode == 3)
             {
-                Instantiate(wall, new Vector2(px, py), Quaternion.identity);
+                Instantiate(wall, new Vector2(px,py), Quaternion.identity);
             }
             return true;
         }
@@ -257,5 +236,14 @@ public class PlayerController : MonoBehaviour
         transform.position = end;
 
         isMoveing = false;
+    }
+    public void OncantMove(WallBreak hit)
+    {
+        if (BP == 1 && AP > 0)
+        {
+            hit.DamageWall(attackDamage);
+            BP = 0;
+            AP -= 1;
+        }
     }
 }

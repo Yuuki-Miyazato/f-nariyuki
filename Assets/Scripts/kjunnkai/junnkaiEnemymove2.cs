@@ -33,13 +33,8 @@ public class junnkaiEnemymove2 : MonoBehaviour
 
     [SerializeField] public Animator anim;
 
-    [SerializeField] private GameObject goal;
-    [SerializeField] private reset3 reset;
-
     private void Start()
     {
-        goal = GameObject.FindWithTag("goal");
-        reset = goal.GetComponent<reset3>();
         anim = GetComponent<Animator>();
         Enemyobj = GameObject.Find("hanntei");
         jer = Enemyobj.GetComponent<junnkaiEnemyroot>();
@@ -56,7 +51,7 @@ public class junnkaiEnemymove2 : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (reset.abc == true) {
+
             if (timemove <= 1.0f)
             {
                 timemove += Time.deltaTime;
@@ -71,34 +66,29 @@ public class junnkaiEnemymove2 : MonoBehaviour
             }
 
 
-            if (Respownflg == true)
-            {
-                RespownTime += 0.02f;
-
-                if (RespownTime > 1.0 && RespownDEffectflg == true)
-                {
-                    GameObject Reffect = Instantiate(Respowneffect, new Vector2(startX, startY), Quaternion.identity);
-                    Reffect.name = "Ghost R effect";
-                    RespownDEffectflg = false;
-                }
-                if (RespownTime > 3.0)
-                {
-                    GameObject DDestroy = GameObject.Find("Ghost D effect");
-                    GameObject RDestory = GameObject.Find("Ghost R effect");
-                    Destroy(DDestroy);
-                    Destroy(RDestory);
-                    pos.x = startX;
-                    pos.y = startY;
-                    Respownflg = false;
-                    RespownTime = 0.0f;
-                    my.transform.position = new Vector2(startX, startY);
-
-                }
-            }
-        }
-        else
+        if (Respownflg == true)
         {
-            anim.enabled = false;
+            RespownTime += 0.02f;
+
+            if (RespownTime > 1.0 && RespownDEffectflg == true)
+            {
+                GameObject Reffect = Instantiate(Respowneffect, new Vector2(startX, startY), Quaternion.identity);
+                Reffect.name = "Ghost R effect";
+                RespownDEffectflg = false;
+            }
+            if (RespownTime > 3.0)
+            {
+                GameObject DDestroy = GameObject.Find("Ghost D effect");
+                GameObject RDestory = GameObject.Find("Ghost R effect");
+                Destroy(DDestroy);
+                Destroy(RDestory);
+                pos.x = startX;
+                pos.y = startY;
+                Respownflg = false;
+                RespownTime = 0.0f;
+                my.transform.position = new Vector2(startX, startY);
+
+            }
         }
     }
 

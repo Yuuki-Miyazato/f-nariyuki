@@ -191,10 +191,11 @@ public class junnkaiEnemyroot : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Wall"))
+        if (collision.CompareTag("Wall")|| collision.CompareTag("FireWall"))
         {
             wallflg = true;
         }
+
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
