@@ -11,6 +11,15 @@ public class ModeChange : MonoBehaviour
     private int Search = 0;
     private int Firewall = 0;
 
+    //エフェクト
+    public GameObject Fireeffect;
+    public GameObject Fireeffect1;
+    public GameObject windoweffect;
+    [SerializeField] private Vector2 pos;
+    [SerializeField] float deletTime = 0.0f;
+    public AudioClip Fire;
+    public AudioClip Wind;
+
     void Start()
     {
         Player = GameObject.Find("Player");                     //Playerという名前のオブジェクトを探しPlayerに入れる
@@ -61,6 +70,7 @@ public class ModeChange : MonoBehaviour
                 Mode += 1;
 
             }
+            effect();
         }
         if (Input.GetKeyDown("joystick button 4"))
         {
@@ -72,6 +82,45 @@ public class ModeChange : MonoBehaviour
             {
                 Mode -= 1;
             }
+            effect();
+        }
+    }
+    private void FixedUpdate()
+    {
+        if (GameObject.Find("effect"))
+        {
+            deletTime += 0.1f;
+            if (deletTime >= 4.0f)
+            {
+                GameObject DestroyE = GameObject.Find("effect");
+                Destroy(DestroyE);
+                deletTime = 0.0f;
+                //Debug.Log("Destroy");
+
+            }
+            // Debug.Log("eeeeee");
+        }
+    }
+
+    void effect()
+    {
+        float Startx = this.transform.position.x;
+        float Starty = this.transform.position.y;
+        pos.y = Starty - 0.7f;
+        pos.x = Startx - 0.5f;
+        if (Mode == 1)
+        {
+            GameObject windoweffectobj = Instantiate(windoweffect, this.transform.position, Quaternion.identity);
+            windoweffectobj.name = "effect";
+            AudioSource.PlayClipAtPoint(Wind, transform.position);
+        }
+        if (Mode == 3)
+        {
+            GameObject fireeffectobj = Instantiate(Fireeffect, this.transform.position, Quaternion.identity);
+            fireeffectobj.name = "effect";
+            GameObject fireeffectobj1 = Instantiate(Fireeffect1, pos, Quaternion.identity);
+            fireeffectobj1.name = "effect";
+            AudioSource.PlayClipAtPoint(Fire, transform.position);
         }
     }
 }
