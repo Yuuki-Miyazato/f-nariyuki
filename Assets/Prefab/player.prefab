@@ -143,6 +143,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Mode: 1
+  Fireeffect: {fileID: 5858568419859001191, guid: a09d613acac6ecb418e83bff2e4e5d98,
+    type: 3}
+  Fireeffect1: {fileID: 1706856704779243799, guid: a59536b8358359b4b922c3fd9f7976e3,
+    type: 3}
+  windoweffect: {fileID: 7245578737500777712, guid: 7f58c939fb6ca3e4796b1d39cb68e28b,
+    type: 3}
+  pos: {x: 0, y: 0}
+  deletTime: 0
+  Fire: {fileID: 8300000, guid: 6c6c736799594b143bdcb4101f7d8643, type: 3}
+  Wind: {fileID: 8300000, guid: cd325596969bae941bac1b3721680a07, type: 3}
 --- !u!114 &3169903241479350352
 MonoBehaviour:
   m_ObjectHideFlags: 0
