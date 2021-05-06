@@ -20,5 +20,13 @@ public class GameManager : MonoBehaviour
         {
             GC = 2;
         }
+        else if (SceneManager.GetActiveScene().name == "Enemymap3")
+        {
+            GC = 3;
+        }
+        else if (SceneManager.GetActiveScene().name == "Enemymap4")
+        {
+            GC = 4;
+        }
     }
 }
