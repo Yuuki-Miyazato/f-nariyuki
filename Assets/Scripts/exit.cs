@@ -7,7 +7,7 @@ public class exit : MonoBehaviour
     
     public void OnStartButtonClicked()
     {
-        UnityEditor.EditorApplication.isPlaying = false;
+        //UnityEditor.EditorApplication.isPlaying = false;
         UnityEngine.Application.Quit();
     }
 }

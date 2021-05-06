@@ -28,10 +28,11 @@ public class mapannnn : MonoBehaviour
     public GameObject enemy;
     public GameObject enemy2;
 
+    public GameObject gm;
+
     //debug用
     [SerializeField] public Camera cm;
-    int debugn = 0;
-
+    
     public int[,] map = new int[,]
     {
         { -7,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-8 },
@@ -144,7 +145,9 @@ public class mapannnn : MonoBehaviour
                 }
                 if (map[i, j] == 99)
                 {
-                    Instantiate(goal, new Vector2(j - 1, -i - 1), Quaternion.identity);
+                    // Instantiate(goal, new Vector2(j - 1, -i - 1), Quaternion.identity);
+                    GameObject goalobj = Instantiate(goal, new Vector2(j - 1, -i - 1), Quaternion.identity);
+                    goalobj.name = "Goal";
                 }
                 if (map[i, j] == 3)
                 {
@@ -170,6 +173,7 @@ public class mapannnn : MonoBehaviour
                 }
             }
         }
+        Instantiate(gm, this.transform.position, Quaternion.identity);
     }
 
     //debug用

@@ -27,6 +27,8 @@ public class Map3 : MonoBehaviour
     public GameObject enemy;
     public GameObject enemy2;
 
+    public GameObject gm;
+
     public int[,] map = new int[,]
     {
        { -7,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-8 },
@@ -138,7 +140,8 @@ public class Map3 : MonoBehaviour
                 }
                 if (map[i, j] == 99)
                 {
-                    Instantiate(goal, new Vector2(j - 1, -i - 1), Quaternion.identity);
+                    GameObject goalobj = Instantiate(goal, new Vector2(j - 1, -i - 1), Quaternion.identity);
+                    goalobj.name = "Goal";
                 }
                 if (map[i, j] == 3)
                 {
@@ -164,6 +167,8 @@ public class Map3 : MonoBehaviour
                 }
             }
         }
+        Instantiate(gm, this.transform.position, Quaternion.identity);
+
     }
 }
 

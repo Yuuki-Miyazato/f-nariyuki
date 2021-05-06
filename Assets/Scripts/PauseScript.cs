@@ -9,7 +9,11 @@ public class PauseScript : MonoBehaviour
 	[SerializeField]
 	private GameObject pauseUI;
 	public GameObject player;
+    private void Start()
+    {
+		player.GetComponent<PlayerController>().enabled = true;
 
+	}
 	void Update()
 	{
 		if (Input.GetKeyDown("q") || Input.GetKeyDown("joystick button 7")) 

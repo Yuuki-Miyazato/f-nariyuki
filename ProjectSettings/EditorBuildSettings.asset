@@ -9,12 +9,18 @@ EditorBuildSettings:
     path: Assets/Scenes/Title.unity
     guid: 1173f0341775e084ca5e17b997b7256c
   - enabled: 1
+    path: Assets/Scenes/Enemymap.unity
+    guid: 3a6bc2a5d2c6d5d4cbdfc496bea2f462
+  - enabled: 1
     path: Assets/Scenes/Enemymap2.unity
     guid: 81bd9dbd34223e742aabcc18c7b2a0de
   - enabled: 1
+    path: Assets/Scenes/Enemymap3.unity
+    guid: 70a0c81e9ad2252409c287c9db3f10d4
+  - enabled: 1
+    path: Assets/Scenes/Enemymap4.unity
+    guid: 5cdb8d1239bfc1143bc447dd7dce27c5
+  - enabled: 1
     path: Assets/Scenes/GameOver.unity
     guid: 6d81aa4a3e918db439c980e37ae7e73c
-  - enabled: 1
-    path: Assets/Scenes/Enemymap.unity
-    guid: 3a6bc2a5d2c6d5d4cbdfc496bea2f462
   m_configObjects: {}

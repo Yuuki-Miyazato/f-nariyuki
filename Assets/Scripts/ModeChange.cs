@@ -8,9 +8,6 @@ public class ModeChange : MonoBehaviour
     private GameObject Player;
     public int Mode = 1;
 
-    private int Search = 0;
-    private int Firewall = 0;
-
     //エフェクト
     public GameObject Fireeffect;
     public GameObject Fireeffect1;
@@ -29,20 +26,14 @@ public class ModeChange : MonoBehaviour
     void SpeedMode()
     {
         script.moveTime = 0.2f;
-        Search = 0;
-        Firewall = 0;
     }
     void SearchMode()
     {
         script.moveTime = 0.4f;
-        Search = 1;
-        Firewall = 0;
     }
     void FirewallMode()
     {
         script.moveTime = 0.4f;
-        Firewall = 1;
-        Search = 0;
     }
     void Update()
     {

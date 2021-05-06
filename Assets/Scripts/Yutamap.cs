@@ -28,6 +28,8 @@ public class Yutamap : MonoBehaviour
     public GameObject enemy;
     public GameObject enemy2;
 
+    public GameObject gm;
+
     public int[,] map = new int[,]
     {
        { -7,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-4,-8 },
@@ -57,7 +59,7 @@ public class Yutamap : MonoBehaviour
 
     private void Start()
     {
-        Instantiate(canvasUI, new Vector2(0,0), Quaternion.identity);
+        Instantiate(canvasUI, new Vector2(0, 0), Quaternion.identity);
         for (int i = 0; i < map.GetLength(0); i++)
         {
             for (int j = 0; j < map.GetLength(1); j++)
@@ -140,7 +142,8 @@ public class Yutamap : MonoBehaviour
                 }
                 if (map[i, j] == 99)
                 {
-                    Instantiate(goal, new Vector2(j - 1, -i - 1), Quaternion.identity);
+                    GameObject goalobj = Instantiate(goal, new Vector2(j - 1, -i - 1), Quaternion.identity);
+                    goalobj.name = "Goal";
                 }
                 if (map[i, j] == 3)
                 {
@@ -166,5 +169,6 @@ public class Yutamap : MonoBehaviour
                 }
             }
         }
+        Instantiate(gm, this.transform.position, Quaternion.identity);
     }
 }

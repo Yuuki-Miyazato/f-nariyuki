@@ -16,7 +16,6 @@ public class PlayerController : MonoBehaviour
     public int px;
     public int py;
 
-    private int BP = 0;
     private Animator anim = null;
     public int AP = 4;
 
@@ -44,11 +43,12 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private GameObject goal;
     [SerializeField] private reset3 reset;
 
-    public int houkou=0;
+    public int houkou = 0;
     [SerializeField] private damegeAnimation dm;
 
     void Start()
     {
+
         goal = GameObject.FindWithTag("goal");
         reset = goal.GetComponent<reset3>();
         rd2d = GetComponent<Rigidbody2D>();
@@ -57,7 +57,7 @@ public class PlayerController : MonoBehaviour
         //Component取得
         audioSource = GetComponent<AudioSource>();
         anim = GetComponent<Animator>();
-  
+
         Player = GameObject.Find("Player");                     //Playerという名前のオブジェクトを探しPlayerに入れる
         script = Player.GetComponent<ModeChange>();
 
@@ -66,7 +66,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         Debug.Log(HP);
-        if (reset.abc == true&&dm.damege==false)
+        if (reset.abc == true && dm.damege == false)
         {
             if (Time.deltaTime > 0)
             {
