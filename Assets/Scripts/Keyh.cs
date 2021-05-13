@@ -11,15 +11,15 @@ public class Keyh : MonoBehaviour
     //１回入るよう
     private bool abc = true;
 
-    public Sprite chest;
-    SpriteRenderer MainSpriteRenderer;
+    //public Sprite chest;
+    //SpriteRenderer MainSpriteRenderer;
 
     [SerializeField] public GameObject effect;
 
     void Start()
     {
         keyflg = false;
-        MainSpriteRenderer = gameObject.GetComponent<SpriteRenderer>();
+        //MainSpriteRenderer = gameObject.GetComponent<SpriteRenderer>();
         GameObject effectobj = Instantiate(effect, this.transform.position, Quaternion.identity);
         effectobj.transform.parent = transform;
         effectobj.name = "T";
@@ -38,7 +38,7 @@ public class Keyh : MonoBehaviour
                 AudioSource.PlayClipAtPoint(sound01, transform.position);
             }
             keyflg = true;
-            MainSpriteRenderer.sprite = chest;
+           // MainSpriteRenderer.sprite = chest;
         }
     }
 }
