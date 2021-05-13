@@ -19,5 +19,21 @@ public class Button : MonoBehaviour
         {
             SceneManager.LoadScene("Enemymap2");
         }
+        else if (count == 3)
+        {
+            SceneManager.LoadScene("Enemymap3");
+        }
+        else if (count == 4)
+        {
+            SceneManager.LoadScene("Enemymap4");
+        }
+        else if (count == 5)
+        {
+            SceneManager.LoadScene("Enemymap5");
+        }
+        else if (count == 6)
+        {
+            SceneManager.LoadScene("Enemymap6");
+        }
     }
 }

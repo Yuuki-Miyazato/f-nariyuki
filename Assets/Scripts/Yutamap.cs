@@ -28,7 +28,6 @@ public class Yutamap : MonoBehaviour
     public GameObject enemy;
     public GameObject enemy2;
 
-    public GameObject gm;
 
     public int[,] map = new int[,]
     {
@@ -41,8 +40,8 @@ public class Yutamap : MonoBehaviour
        { -5, 0, 0, 0,-1,-1,-1, 0, 0, 0,-1, 0,-1, 0, 0,-1,-6 },
        { -5, 0,-1,-1, 0, 0, 0,-1,-1, 0, 0, 3, 0, 0,-1,-1,-6 },
        { -5, 0,-1, 0, 0,-1, 0, 0, 0, 0,-1, 0,-1, 0, 0, 0,-6 },
-       { -5, 0,-1, 0,-1,-1,-1, 0,-1,-1,-1, 0,-1, 0,-1, 0,-6 },
-       { -5, 0, 0, 0, 0, 0,-1, 0,-1, 0, 0, 0, 0, 0, 0, 0,-6 },
+       { -5, 0,-1, 0,-1,-1,-1, 0,-1,-1,-1, 0,-1,-1,-1, 0,-6 },
+       { -5, 3, 0, 0, 0, 0,-1, 0,-1, 0, 0, 0, 0, 0, 0, 0,-6 },
        { -5,-1,-1,-1,-1, 0, 0, 0, 0, 0,-1,-1, 0,-1,-1,-1,-6 },
        { -5, 0, 0, 0, 0,-1, 0,-1,-1, 0,-1, 0, 0, 0, 0, 0,-6 },
        { -5,-1, 0,-1, 0, 0, 0,-1, 0, 0, 0, 0,-1,-1,-1, 0,-6 },
@@ -169,6 +168,5 @@ public class Yutamap : MonoBehaviour
                 }
             }
         }
-        Instantiate(gm, this.transform.position, Quaternion.identity);
     }
 }
