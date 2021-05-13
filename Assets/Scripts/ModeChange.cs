@@ -12,6 +12,7 @@ public class ModeChange : MonoBehaviour
     public GameObject Fireeffect;
     public GameObject Fireeffect1;
     public GameObject windoweffect;
+    public GameObject searcheffect;
     [SerializeField] private Vector2 pos;
     [SerializeField] float deletTime = 0.0f;
     public AudioClip Fire;
@@ -37,7 +38,7 @@ public class ModeChange : MonoBehaviour
     }
     void Update()
     {
-        Debug.Log(Mode);
+        //Debug.Log(Mode);
         if (Mode == 1)
         {
             SpeedMode();
@@ -50,7 +51,7 @@ public class ModeChange : MonoBehaviour
         {
             FirewallMode();
         }
-        if (Input.GetKeyDown("joystick button 5"))
+        if (Input.GetKeyDown("joystick button 5")||Input.GetKeyDown(KeyCode.X))
         {
             if (Mode == 3)
             {
@@ -63,7 +64,7 @@ public class ModeChange : MonoBehaviour
             }
             effect();
         }
-        if (Input.GetKeyDown("joystick button 4"))
+        if (Input.GetKeyDown("joystick button 4")||Input.GetKeyDown(KeyCode.Z))
         {
             if (Mode == 1)
             {
@@ -104,6 +105,11 @@ public class ModeChange : MonoBehaviour
             GameObject windoweffectobj = Instantiate(windoweffect, this.transform.position, Quaternion.identity);
             windoweffectobj.name = "effect";
             AudioSource.PlayClipAtPoint(Wind, transform.position);
+        }
+        if (Mode == 2)
+        {
+            GameObject searcheffectobj = Instantiate(searcheffect, this.transform.position, Quaternion.identity);
+            searcheffectobj.name = "effect";
         }
         if (Mode == 3)
         {
