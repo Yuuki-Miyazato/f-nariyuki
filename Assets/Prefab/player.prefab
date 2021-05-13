@@ -44,6 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c3d1eadf369ad14da4c40e6407f1864, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Goal: {fileID: 0}
   script: {fileID: 0}
   Player: {fileID: 0}
   hidari: {fileID: 4454318875250325964}
@@ -197,6 +198,8 @@ MonoBehaviour:
   Fireeffect1: {fileID: 1706856704779243799, guid: a59536b8358359b4b922c3fd9f7976e3,
     type: 3}
   windoweffect: {fileID: 7245578737500777712, guid: 7f58c939fb6ca3e4796b1d39cb68e28b,
+    type: 3}
+  searcheffect: {fileID: 553061888604832102, guid: 76adba089d6da214a858e03bfca666db,
     type: 3}
   pos: {x: 0, y: 0}
   deletTime: 0
@@ -613,22 +616,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30b765ddec1c4184f8b095b64a92154f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Key: {fileID: 0}
   script: {fileID: 0}
   Player: {fileID: 0}
   migi: {fileID: 8605486904015009773}
---- !u!114 &2514614413163100001
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8605486904015009773}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 31587448af3919a4fb184e479d047c03, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Goal: {fileID: 0}
 --- !u!114 &660257314283224989
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -642,6 +633,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Key: {fileID: 0}
+--- !u!114 &2514614413163100001
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8605486904015009773}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31587448af3919a4fb184e479d047c03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Goal: {fileID: 0}
 --- !u!1001 &974469020593340962
 PrefabInstance:
   m_ObjectHideFlags: 0
