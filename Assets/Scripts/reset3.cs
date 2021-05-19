@@ -22,6 +22,8 @@ public class reset3 : MonoBehaviour
     [SerializeField] public GameObject fead;
     [SerializeField] private Animator anim;
 
+    [SerializeField] public GameObject effect;
+
     void Start()
     {
         fead = GameObject.FindWithTag("fead");
@@ -29,6 +31,8 @@ public class reset3 : MonoBehaviour
         Key = GameObject.Find("Key");
         k = Key.GetComponent<Keyh>();
         sceneName = SceneManager.GetActiveScene().name;
+        GameObject effectobj = Instantiate(effect, this.transform.position, Quaternion.identity);
+        effect.name = "goaleffect";
     }
 
     void OnTriggerEnter2D(Collider2D collision)
