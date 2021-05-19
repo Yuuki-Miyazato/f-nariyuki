@@ -19,16 +19,21 @@ public class HP : MonoBehaviour
     private void Start()
     {
         keyUI.enabled = false;
-
-    }
-
-    private void Update()
-    {
         Keyobj = GameObject.Find("Key");
         keys = Keyobj.GetComponent<Keyh>();
 
         player = GameObject.Find("Player");
         pl = player.GetComponent<PlayerController>();
+
+    }
+
+    private void Update()
+    {
+        //Keyobj = GameObject.Find("Key");
+        //keys = Keyobj.GetComponent<Keyh>();
+
+        //player = GameObject.Find("Player");
+        //pl = player.GetComponent<PlayerController>();
 
         hp.text=string.Format("×{0}", pl.HP);
 

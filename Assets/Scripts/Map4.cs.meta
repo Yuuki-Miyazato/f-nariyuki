@@ -3,7 +3,30 @@ guid: 77af4a5307309e545a75592c87709cb9
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - wall: {instanceID: 0}
+  - wall2: {instanceID: 0}
+  - wall3: {instanceID: 0}
+  - wall4: {instanceID: 0}
+  - wall5: {instanceID: 0}
+  - wall6: {instanceID: 0}
+  - wall7: {instanceID: 0}
+  - wall8: {instanceID: 0}
+  - wall9: {instanceID: 0}
+  - wall10: {instanceID: 0}
+  - wall11: {instanceID: 0}
+  - wall12: {instanceID: 0}
+  - wall13: {instanceID: 0}
+  - floor: {instanceID: 0}
+  - start: {instanceID: 0}
+  - goal: {instanceID: 0}
+  - goal2: {instanceID: 0}
+  - player: {instanceID: 0}
+  - Key: {instanceID: 0}
+  - enemy: {instanceID: 0}
+  - enemy2: {instanceID: 0}
+  - canvasUI: {fileID: 4965772589349492872, guid: c54b3fa09d096484ba5bf2e474dda892,
+      type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

@@ -26,7 +26,8 @@ public class Map6 : MonoBehaviour
     public GameObject Key;
     public GameObject enemy;
     public GameObject enemy2;
-    
+
+    public GameObject canvasUI;
 
     public int[,] map = new int[,]
     {
@@ -166,5 +167,6 @@ public class Map6 : MonoBehaviour
                 }
             }
         }
+        Instantiate(canvasUI, this.transform.position, Quaternion.identity);
     }
 }

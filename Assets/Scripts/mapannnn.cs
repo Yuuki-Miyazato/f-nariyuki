@@ -28,10 +28,12 @@ public class mapannnn : MonoBehaviour
     public GameObject enemy;
     public GameObject enemy2;
 
-    public GameObject gm;
+    //public GameObject canvaUI;
+
+    //public GameObject gm;
 
     //debug用
-    [SerializeField] public Camera cm;
+    //[SerializeField] public Camera cm;
     
     public int[,] map = new int[,]
     {
@@ -173,7 +175,7 @@ public class mapannnn : MonoBehaviour
                 }
             }
         }
-        Instantiate(gm, this.transform.position, Quaternion.identity);
+       // Instantiate(gm, this.transform.position, Quaternion.identity);
     }
 
     //debug用

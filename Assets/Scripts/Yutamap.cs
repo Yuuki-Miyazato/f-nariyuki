@@ -28,6 +28,7 @@ public class Yutamap : MonoBehaviour
     public GameObject enemy;
     public GameObject enemy2;
 
+    public GameObject cauvasUI;
 
     public int[,] map = new int[,]
     {
@@ -168,5 +169,6 @@ public class Yutamap : MonoBehaviour
                 }
             }
         }
+        Instantiate(canvasUI, this.transform.position, Quaternion.identity);
     }
 }
