@@ -220,6 +220,8 @@ MonoBehaviour:
   Key: {fileID: 4852217455732099853, guid: 6ef636921e66a8e4ab88210f7a7b36a3, type: 3}
   enemy: {fileID: 4267380004830016481, guid: fd3d1472cb8d4f640b9133df37ffab91, type: 3}
   enemy2: {fileID: 2450102261844140766, guid: b1f8d62113e5fac49b01de9210b4646c, type: 3}
+  canvasUI: {fileID: 4965772589349492872, guid: c54b3fa09d096484ba5bf2e474dda892,
+    type: 3}
 --- !u!1 &895116496
 GameObject:
   m_ObjectHideFlags: 0
@@ -366,6 +368,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: canvasUI
+      objectReference: {fileID: 0}
+    - target: {fileID: 4965772589349492872, guid: c54b3fa09d096484ba5bf2e474dda892,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4965772589349492876, guid: c54b3fa09d096484ba5bf2e474dda892,
         type: 3}

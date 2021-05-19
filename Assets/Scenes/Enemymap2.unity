@@ -170,10 +170,11 @@ MonoBehaviour:
   goal: {fileID: 5021114660515619911, guid: 3b8f50c779a33b0469b3b51648614b13, type: 3}
   goal2: {fileID: 8910142314821047448, guid: 171ca58d590558a41a3dd214644bf2b6, type: 3}
   player: {fileID: 3169903241479350364, guid: 5dab6d1440bd13f48b27dfca321e2950, type: 3}
-  Key: {fileID: 5726892383310684746, guid: 66eb4b1abe7c6cf45b93903b412a6f0c, type: 3}
+  Key: {fileID: 4852217455732099853, guid: 6ef636921e66a8e4ab88210f7a7b36a3, type: 3}
   enemy: {fileID: 4267380004830016481, guid: fd3d1472cb8d4f640b9133df37ffab91, type: 3}
   enemy2: {fileID: 2450102261844140766, guid: b1f8d62113e5fac49b01de9210b4646c, type: 3}
-  gm: {fileID: 7704970172772933897, guid: 171a2048c78e41b4c88fc3327f229b93, type: 3}
+  cauvasUI: {fileID: 4965772589349492872, guid: c54b3fa09d096484ba5bf2e474dda892,
+    type: 3}
 --- !u!4 &905286911
 Transform:
   m_ObjectHideFlags: 0
@@ -581,6 +582,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: canvasUI
+      objectReference: {fileID: 0}
+    - target: {fileID: 4965772589349492872, guid: c54b3fa09d096484ba5bf2e474dda892,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4965772589349492876, guid: c54b3fa09d096484ba5bf2e474dda892,
         type: 3}
