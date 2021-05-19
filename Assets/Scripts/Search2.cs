@@ -27,8 +27,5 @@ public class Search2 : MonoBehaviour
         {
             migi.SetActive(false);
         }
-        var pos = Camera.main.WorldToScreenPoint(transform.localPosition);
-        var rotation = Quaternion.LookRotation(Vector3.forward, Key.transform.position - transform.position);
-        transform.localRotation = rotation;
     }
 }

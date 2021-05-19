@@ -28,8 +28,5 @@ public class Search1 : MonoBehaviour
             hidari.SetActive(false);
         }
 
-        var pos = Camera.main.WorldToScreenPoint(transform.localPosition);
-        var rotation = Quaternion.LookRotation(Vector3.forward, Goal.transform.position - transform.position);
-        transform.localRotation = rotation;
     }
 }
