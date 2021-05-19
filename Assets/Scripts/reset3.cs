@@ -79,6 +79,10 @@ public class reset3 : MonoBehaviour
         }
         if (SceneManager.GetActiveScene().name == "Enemymap6")
         {
+            SceneManager.LoadScene("Enemymap7");
+        }
+        if (SceneManager.GetActiveScene().name == "Enemymap7")
+        {
             SceneManager.LoadScene("Title");
         }
     }

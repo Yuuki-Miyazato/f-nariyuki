@@ -36,5 +36,9 @@ public class GameManager : MonoBehaviour
         {
             GC = 6;
         }
+        else if (SceneManager.GetActiveScene().name == "Enemymap7")
+        {
+            GC = 7;
+        }
     }
 }
