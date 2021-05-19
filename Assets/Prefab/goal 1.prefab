@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 763878649333294748}
   - component: {fileID: 4176854585732854759}
   - component: {fileID: 8355797076750686385}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: goal 1
   m_TagString: goal
   m_Icon: {fileID: 0}
@@ -223,3 +223,6 @@ MonoBehaviour:
   clear: {fileID: 1938273880899689617, guid: 6d99a6639fe0aa54a8c66fe31339d5a1, type: 3}
   sound01: {fileID: 8300000, guid: 4e7ae4dcb955ddb4081e67831a94cba6, type: 3}
   abc: 1
+  fead: {fileID: 0}
+  anim: {fileID: 0}
+  effect: {fileID: 4077693611778216036, guid: e7bd12a3ab0f6c84a9dacafcb1f9352f, type: 3}
