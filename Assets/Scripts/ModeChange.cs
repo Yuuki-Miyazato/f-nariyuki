@@ -18,6 +18,8 @@ public class ModeChange : MonoBehaviour
     public AudioClip Fire;
     public AudioClip Wind;
 
+    private float count;
+
     void Start()
     {
         Player = GameObject.Find("Player");                     //Playerという名前のオブジェクトを探しPlayerに入れる
@@ -27,6 +29,7 @@ public class ModeChange : MonoBehaviour
     void SpeedMode()
     {
         script.moveTime = 0.2f;
+
     }
     void SearchMode()
     {
@@ -38,7 +41,7 @@ public class ModeChange : MonoBehaviour
     }
     void Update()
     {
-        //Debug.Log(Mode);
+        count += Time.deltaTime;
         if (Mode == 1)
         {
             SpeedMode();
@@ -51,30 +54,35 @@ public class ModeChange : MonoBehaviour
         {
             FirewallMode();
         }
-        if (Input.GetKeyDown("joystick button 5")||Input.GetKeyDown(KeyCode.X))
+        if (count > 3f)
         {
-            if (Mode == 3)
+            if (Input.GetKeyDown("joystick button 5") || Input.GetKeyDown(KeyCode.X))
             {
-                Mode = 1;
-            }
-            else
-            {
-                Mode += 1;
+                count = 0f;
 
+                if (Mode == 3)
+                {
+                    Mode = 1;
+                }
+                else
+                {
+                    Mode += 1;
+
+                }
+                effect();
             }
-            effect();
-        }
-        if (Input.GetKeyDown("joystick button 4")||Input.GetKeyDown(KeyCode.Z))
-        {
-            if (Mode == 1)
+            if (Input.GetKeyDown("joystick button 4") || Input.GetKeyDown(KeyCode.Z))
             {
-                Mode = 3;
+                if (Mode == 1)
+                {
+                    Mode = 3;
+                }
+                else
+                {
+                    Mode -= 1;
+                }
+                effect();
             }
-            else
-            {
-                Mode -= 1;
-            }
-            effect();
         }
     }
     private void FixedUpdate()

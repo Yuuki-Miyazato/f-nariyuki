@@ -66,6 +66,7 @@
   <ItemGroup>
     <Compile Include="Assets\Animation\playerdamegeAnimtion\damegeAnimation.cs" />
     <Compile Include="Assets\Scripts\Button.cs" />
+    <Compile Include="Assets\Scripts\Create.cs" />
     <Compile Include="Assets\Scripts\Dfire.cs" />
     <Compile Include="Assets\Scripts\EnemyMove.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
@@ -75,6 +76,9 @@
     <Compile Include="Assets\Scripts\MakeDungeon.cs" />
     <Compile Include="Assets\Scripts\Map3.cs" />
     <Compile Include="Assets\Scripts\Map4.cs" />
+    <Compile Include="Assets\Scripts\Map5.cs" />
+    <Compile Include="Assets\Scripts\Map6.cs" />
+    <Compile Include="Assets\Scripts\Map7.cs" />
     <Compile Include="Assets\Scripts\ModeChange.cs" />
     <Compile Include="Assets\Scripts\MovingObject.cs" />
     <Compile Include="Assets\Scripts\PauseScript.cs" />
@@ -82,6 +86,7 @@
     <Compile Include="Assets\Scripts\SEscripts.cs" />
     <Compile Include="Assets\Scripts\Search1.cs" />
     <Compile Include="Assets\Scripts\Search2.cs" />
+    <Compile Include="Assets\Scripts\Search22.cs" />
     <Compile Include="Assets\Scripts\Start.cs" />
     <Compile Include="Assets\Scripts\WallBreak.cs" />
     <Compile Include="Assets\Scripts\Yutamap.cs" />
@@ -94,9 +99,12 @@
     <Compile Include="Assets\Scripts\kjunnkai\junnkaidown.cs" />
     <Compile Include="Assets\Scripts\mapannnn.cs" />
     <Compile Include="Assets\Scripts\reset3.cs" />
+    <Compile Include="Assets\Scripts\search12.cs" />
     <Compile Include="Assets\Scripts\stage.cs" />
     <Compile Include="Assets\Scripts\tenmetu.cs" />
     <Compile Include="Assets\Scripts\tuibi.cs" />
+    <None Include="Assets\Hovl Studio\Procedural fire\Shaders\FireSphere.shader" />
+    <None Include="Assets\Hovl Studio\Procedural fire\Demo scene\Readme.txt" />
     <Reference Include="UnityEngine">
       <HintPath>D:/unity/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>
