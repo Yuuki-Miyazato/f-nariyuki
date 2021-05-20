@@ -21,6 +21,18 @@ EditorBuildSettings:
     path: Assets/Scenes/Enemymap4.unity
     guid: 5cdb8d1239bfc1143bc447dd7dce27c5
   - enabled: 1
+    path: Assets/Scenes/Enemymap5.unity
+    guid: d709cdf268b1ded4abe4139e019b8ef1
+  - enabled: 1
+    path: Assets/Scenes/Enemymap6.unity
+    guid: dee76ae7b4cf96d45839cedf8da25ecc
+  - enabled: 1
+    path: Assets/Scenes/Enemymap7.unity
+    guid: 73d3ceaa1bee0be478faf5896eef3061
+  - enabled: 1
+    path: Assets/Scenes/Enemymap8.unity
+    guid: b36f5d2f93dfaca40a964a91e5f4fbb9
+  - enabled: 1
     path: Assets/Scenes/GameOver.unity
     guid: 6d81aa4a3e918db439c980e37ae7e73c
   m_configObjects: {}

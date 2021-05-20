@@ -72,6 +72,7 @@
     <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\GameManager2.cs" />
     <Compile Include="Assets\Scripts\HP.cs" />
+    <Compile Include="Assets\Scripts\Help.cs" />
     <Compile Include="Assets\Scripts\Keyh.cs" />
     <Compile Include="Assets\Scripts\MakeDungeon.cs" />
     <Compile Include="Assets\Scripts\Map3.cs" />
@@ -79,6 +80,7 @@
     <Compile Include="Assets\Scripts\Map5.cs" />
     <Compile Include="Assets\Scripts\Map6.cs" />
     <Compile Include="Assets\Scripts\Map7.cs" />
+    <Compile Include="Assets\Scripts\Map8.cs" />
     <Compile Include="Assets\Scripts\ModeChange.cs" />
     <Compile Include="Assets\Scripts\MovingObject.cs" />
     <Compile Include="Assets\Scripts\PauseScript.cs" />
