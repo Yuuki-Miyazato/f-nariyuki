@@ -39,5 +39,9 @@ public class Button : MonoBehaviour
         {
             SceneManager.LoadScene("Enemymap7");
         }
+        else if (count == 8)
+        {
+            SceneManager.LoadScene("Enemymap8");
+        }
     }
 }

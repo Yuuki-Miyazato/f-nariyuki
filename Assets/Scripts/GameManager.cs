@@ -40,5 +40,9 @@ public class GameManager : MonoBehaviour
         {
             GC = 7;
         }
+        else if (SceneManager.GetActiveScene().name == "Enemymap8")
+        {
+            GC = 8;
+        }
     }
 }
