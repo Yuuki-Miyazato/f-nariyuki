@@ -20,6 +20,9 @@ public class ModeChange : MonoBehaviour
 
     private float count;
 
+    bool kirakira;
+    public GameObject kirakiraobj;
+
     void Start()
     {
         Player = GameObject.Find("Player");                     //Playerという名前のオブジェクトを探しPlayerに入れる
@@ -42,6 +45,7 @@ public class ModeChange : MonoBehaviour
     void Update()
     {
         count += Time.deltaTime;
+        turn();
         if (Mode == 1)
         {
             SpeedMode();
@@ -60,6 +64,8 @@ public class ModeChange : MonoBehaviour
             {
                 count = 0f;
 
+                kirakira = false;
+
                 if (Mode == 3)
                 {
                     Mode = 1;
@@ -73,6 +79,9 @@ public class ModeChange : MonoBehaviour
             }
             if (Input.GetKeyDown("joystick button 4") || Input.GetKeyDown(KeyCode.Z))
             {
+                count = 0f;
+
+                kirakira = false;
                 if (Mode == 1)
                 {
                     Mode = 3;
@@ -127,5 +136,18 @@ public class ModeChange : MonoBehaviour
             fireeffectobj1.name = "effect";
             AudioSource.PlayClipAtPoint(Fire, transform.position);
         }
+    }
+
+    void turn()
+    {
+
+        if (count > 3 && kirakira == false)
+        {
+            GameObject obj = Instantiate(kirakiraobj, this.transform.position, Quaternion.identity);
+            obj.name = "effect";
+            //Debug.Log("true");
+            kirakira = true;
+        }
+        //return kirakira;
     }
 }
