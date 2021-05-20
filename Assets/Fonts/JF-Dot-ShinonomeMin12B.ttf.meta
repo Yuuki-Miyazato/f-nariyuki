@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: ebbfdeacc4604bf43a03e1390e5ab61e
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: JF Dot Shinonome Mincho 12
+  fontNames:
+  - JF Dot Shinonome Mincho 12
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 9af310e5a05c2b24cbef5238969b853b, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

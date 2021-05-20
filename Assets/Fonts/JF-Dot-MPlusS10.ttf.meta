@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: ddce8afce61b70244ac7620dfffcf994
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: JF Dot M+S 10
+  fontNames:
+  - JF Dot M+S 10
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 2df2f501d635a9e42872780487df2b1b, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

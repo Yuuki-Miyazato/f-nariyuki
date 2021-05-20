@@ -84,6 +84,7 @@
     <Compile Include="Assets\Scripts\PauseScript.cs" />
     <Compile Include="Assets\Scripts\PlayerController.cs" />
     <Compile Include="Assets\Scripts\SEscripts.cs" />
+    <Compile Include="Assets\Scripts\SOUND.cs" />
     <Compile Include="Assets\Scripts\Search1.cs" />
     <Compile Include="Assets\Scripts\Search2.cs" />
     <Compile Include="Assets\Scripts\Search22.cs" />
@@ -103,7 +104,14 @@
     <Compile Include="Assets\Scripts\stage.cs" />
     <Compile Include="Assets\Scripts\tenmetu.cs" />
     <Compile Include="Assets\Scripts\tuibi.cs" />
+    <None Include="Assets\Fonts\doc\Hibiya24\README_khdotfont.txt" />
+    <None Include="Assets\Fonts\doc\Ayu Bitmap Fonts\README.txt" />
+    <None Include="Assets\Fonts\doc\readme_jfdotfont.txt" />
+    <None Include="Assets\Fonts\doc\SONY\readme.txt" />
+    <None Include="Assets\Fonts\doc\k6x8\k6x8b02.txt" />
+    <None Include="Assets\Fonts\doc\Kanamecho\SIL_Open_Font_License_1.1.txt" />
     <None Include="Assets\Hovl Studio\Procedural fire\Shaders\FireSphere.shader" />
+    <None Include="Assets\Fonts\doc\k12x10\readme.txt" />
     <None Include="Assets\Hovl Studio\Procedural fire\Demo scene\Readme.txt" />
     <Reference Include="UnityEngine">
       <HintPath>D:/unity/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
