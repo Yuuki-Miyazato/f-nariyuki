@@ -230,20 +230,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77af4a5307309e545a75592c87709cb9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wall: {fileID: 4134305087115784723, guid: eb55549bc3949e34bb09481aababe6e3, type: 3}
-  wall2: {fileID: 1261411559048253885, guid: cd0ef905962826c47a9572635b17cb01, type: 3}
-  wall3: {fileID: 3755497055336042526, guid: c550e9935a83fa24aa7b363274338d8c, type: 3}
-  wall4: {fileID: 8182093960286827329, guid: 592d3049954b3d84188a9545b069006c, type: 3}
-  wall5: {fileID: 1009275636398674631, guid: 1287da216f78c534bbf6f340fd4e21cf, type: 3}
-  wall6: {fileID: 7944205190335728322, guid: fe778904697872345b6844889dfc3ce9, type: 3}
-  wall7: {fileID: 8064335935307761543, guid: a789085c36a16fb4b9762923832c479c, type: 3}
+  wall: {fileID: 4025964969740433225, guid: 9d8349be8f85a3b43ab14748419311fa, type: 3}
+  wall2: {fileID: 6411804315759854279, guid: 0040bc96cf640af42be1479b15eb81ea, type: 3}
+  wall3: {fileID: 4911563993467565208, guid: 8122a7349e388f24e826bdcb4e31192c, type: 3}
+  wall4: {fileID: 1002360075412142565, guid: 00e6e2c9c0b39f4499f1b2b18f80b0f3, type: 3}
+  wall5: {fileID: 5990543336194537467, guid: 5d57f82db5918644a92fdf1031fb4f20, type: 3}
+  wall6: {fileID: 5990543336194537467, guid: 5d57f82db5918644a92fdf1031fb4f20, type: 3}
+  wall7: {fileID: 9134171880789073305, guid: c196616b754a79742aebed98ffb25546, type: 3}
   wall8: {fileID: 2212064133547655417, guid: 886fca8bd8bcae344bb3fb67bb8c6280, type: 3}
-  wall9: {fileID: 3157488182148924555, guid: 882c918b1648ef4449ddc04aa12abffd, type: 3}
-  wall10: {fileID: 212175270582626047, guid: 7390dd57a9329ce4587d07b0aab6075c, type: 3}
-  wall11: {fileID: 2326588257070454994, guid: 8927dc88f9336d14c8dc2ceed8a9cfbe, type: 3}
-  wall12: {fileID: 2772402250067487977, guid: a7d4cf04e51c9e245b5fdcc99131ce5c, type: 3}
-  wall13: {fileID: 4892204617167555319, guid: 42385f0dc6d67174ea503d12c6190160, type: 3}
-  floor: {fileID: 131840870577863376, guid: 9c90e62406a14214fb9c68608e1fecc6, type: 3}
+  wall9: {fileID: 6827480715296960394, guid: 03076ecf0a33097409acb4e3c868db42, type: 3}
+  wall10: {fileID: 5990543336194537467, guid: 5d57f82db5918644a92fdf1031fb4f20, type: 3}
+  wall11: {fileID: 5990543336194537467, guid: 5d57f82db5918644a92fdf1031fb4f20, type: 3}
+  wall12: {fileID: 5990543336194537467, guid: 5d57f82db5918644a92fdf1031fb4f20, type: 3}
+  wall13: {fileID: 3840020237945230257, guid: ee31de1ce83b2a146a7534bb496ca6b9, type: 3}
+  floor: {fileID: 2757645915149596732, guid: d0f583548924bab4688a2d01ba57db23, type: 3}
   start: {fileID: 5911598386532400483, guid: 9b3aac7a7a5e0844b94b95a11cbd6743, type: 3}
   goal: {fileID: 5021114660515619911, guid: 3b8f50c779a33b0469b3b51648614b13, type: 3}
   goal2: {fileID: 8910142314821047448, guid: 171ca58d590558a41a3dd214644bf2b6, type: 3}
@@ -402,7 +402,7 @@ PrefabInstance:
     - target: {fileID: 3570215340403008659, guid: 4b42e02f19422cc448400adc93d692f2,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6559530288210964037, guid: 4b42e02f19422cc448400adc93d692f2,
         type: 3}
