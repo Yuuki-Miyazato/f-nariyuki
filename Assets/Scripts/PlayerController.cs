@@ -13,8 +13,8 @@ public class PlayerController : MonoBehaviour
 
     public int R, L, U, D = 0;
 
-    public int px;
-    public int py;
+    public float px;
+    public float py;
 
     private Animator anim = null;
     public int AP = 4;
@@ -77,8 +77,8 @@ public class PlayerController : MonoBehaviour
                 }
                 float pos_x = this.gameObject.transform.position.x;
                 float pos_y = this.gameObject.transform.position.y;
-                px = (int)pos_x;
-                py = (int)pos_y;
+                px = (float)pos_x;
+                py = (float)pos_y;
 
                 if (HP == 0)
                 {

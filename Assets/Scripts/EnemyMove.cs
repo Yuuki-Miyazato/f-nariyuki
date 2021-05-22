@@ -11,8 +11,8 @@ public class EnemyMove : MonoBehaviour
     private PlayerController script;
     private GameObject Player;
     private Rigidbody rb;
-    private int startX;
-    private int startY;
+    private float startX;
+    private float startY;
 
     private int migi = 0;
     private int hidari = 0;
@@ -42,8 +42,8 @@ public class EnemyMove : MonoBehaviour
         script = Player.GetComponent<PlayerController>();       //PlayerControllerというスクリプトの情報をscriptにいれる
         Transform startTransform = this.transform;             //このスクリプトをアタッチしているオブジェクトのトランスフォームを読み込む
         Vector2 startpos = startTransform.position;                 //読み込んだトランスフォームのポジションをVector2 posに入れる
-        startX = (int)startpos.x;
-        startY = (int)startpos.y;
+        startX = (float)startpos.x;
+        startY = (float)startpos.y;
     }
     void Update()
     {
@@ -52,7 +52,7 @@ public class EnemyMove : MonoBehaviour
         Vector2 pos = myTransform.position;                 //読み込んだトランスフォームのポジションをVector2 posに入れる
 
         //script.px(プレイヤーのx座標)よりpos.x(敵のx座標)が小さい場合、尚且つ敵のy座標とプレイヤーのy座標が同じ場合敵を右に進める
-        if (script.px > pos.x && pos.y == script.py && mae == 0 && migi == 0 && ushiro == 0 && hidari == 0)
+        if ((float)script.px > pos.x && pos.y <= script.py+0.5f&&pos.y>=script.py-0.5f && mae == 0 && migi == 0 && ushiro == 0 && hidari == 0)
         {
             step_time += Time.deltaTime;
             if (step_time >= 1.0f)
@@ -61,7 +61,7 @@ public class EnemyMove : MonoBehaviour
   
             }
         }
-        else if (script.px < pos.x && pos.y == script.py && migi == 0 && ushiro == 0 && mae == 0 && hidari == 0)
+        else if (script.px < pos.x && pos.y <= script.py + 0.5f && pos.y >= script.py - 0.5f && migi == 0 && ushiro == 0 && mae == 0 && hidari == 0)
         {
             step_time += Time.deltaTime;
             if (step_time >= 1.0f)
@@ -158,6 +158,8 @@ public class EnemyMove : MonoBehaviour
         {
             anim.enabled=false;
         }
+        Debug.Log((float)script.py);
+        Debug.Log(this.transform.position.y-0.5f);
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -188,6 +190,7 @@ public class EnemyMove : MonoBehaviour
             if (migi == 1)
             {
                 this.transform.position = new Vector2(Mathf.Floor(pos.x), pos.y);
+                //this.transform.position = new Vector2(pos.x, pos.y);
                 migi = 0;
                 hidari = 0;
                 mae = 0;
@@ -196,6 +199,7 @@ public class EnemyMove : MonoBehaviour
             if (hidari == 1)
             {
                 this.transform.position = new Vector2(Mathf.Ceil(pos.x), pos.y);
+                //this.transform.position = new Vector2(pos.x , pos.y) ;
                 migi = 0;
                 hidari = 0;
                 mae = 0;
@@ -203,7 +207,8 @@ public class EnemyMove : MonoBehaviour
             }
             if (mae == 1)
             {
-                this.transform.position = new Vector2(pos.x, Mathf.Floor(pos.y));
+                //this.transform.position = new Vector2(pos.x, Mathf.Floor(pos.y));
+                this.transform.position = new Vector2(pos.x, pos.y- (1- 0.82222222f));
                 migi = 0;
                 hidari = 0;
                 mae = 0;
@@ -211,7 +216,8 @@ public class EnemyMove : MonoBehaviour
             }
             if (ushiro == 1)
             {
-                this.transform.position = new Vector2(pos.x, Mathf.Ceil(pos.y));
+                //this.transform.position = new Vector2(pos.x, Mathf.Ceil(pos.y));
+                this.transform.position = new Vector2(pos.x, pos.y+(1-0.82222222f));
                 migi = 0;
                 hidari = 0;
                 mae = 0;
