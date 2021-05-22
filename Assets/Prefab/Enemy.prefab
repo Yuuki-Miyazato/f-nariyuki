@@ -71,8 +71,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -1757319041
-  m_SortingLayer: 1
+  m_SortingLayerID: 177053877
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 1f45bd033640c5540982a0fe698f10fa, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -98,7 +98,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.06}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -109,7 +109,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.3, y: 0.3}
+  m_Size: {x: 0.25, y: 0.24}
   m_EdgeRadius: 0
 --- !u!114 &5758677648495425878
 MonoBehaviour:
@@ -124,11 +124,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveTime: 0.3
-  Enemy: {fileID: 4267380004830016482}
-  Smae: {fileID: 21300000, guid: d31ba873b7bd4084fbe4d4cc73f6387a, type: 3}
-  Smigi: {fileID: 21300000, guid: fae253b057dbd0f48abf888bc06b42c6, type: 3}
-  Shidari: {fileID: 21300000, guid: cf0ddc2bf198dd048b6d0d1df720bafc, type: 3}
-  Susiro: {fileID: 21300000, guid: d53a152fb08e90347aed08bfd17148dc, type: 3}
   sound01: {fileID: 8300000, guid: b31c24193aadf1f41bba86d638f36e0b, type: 3}
   effect: {fileID: 7153585186433940935, guid: 7a85c427cc318514abad6fd2931ad5c6, type: 3}
   RespownTime: 0
