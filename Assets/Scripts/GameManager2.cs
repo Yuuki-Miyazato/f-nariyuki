@@ -11,10 +11,15 @@ public class GameManager2 : MonoBehaviour
 
     int ver;
 
-    // Start is called before the first frame update
-    void Start()
-    {
+    //private SysFps m_SysFpsCounter = null;
 
+    // Start is called before the first frame update
+    private void Awake()
+    {
+        //フレームレート固定
+        Application.targetFrameRate = 60;
+
+        //m_SysFpsCounter = new SysFpsCounter();
     }
 
     private void FixedUpdate()
@@ -28,5 +33,6 @@ public class GameManager2 : MonoBehaviour
             GC = -1;
         }
         Debug.Log(GC);
+        Debug.Log(Application.targetFrameRate);
     }
 }

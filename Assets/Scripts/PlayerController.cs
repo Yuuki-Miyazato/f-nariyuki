@@ -65,7 +65,7 @@ public class PlayerController : MonoBehaviour
     }
     void Update()
     {
-        Debug.Log(HP);
+        //Debug.Log(HP);
         if (reset.abc == true && dm.damege == false)
         {
             if (Time.deltaTime > 0)
@@ -80,7 +80,7 @@ public class PlayerController : MonoBehaviour
                 px = (float)pos_x;
                 py = (float)pos_y;
 
-                if (HP == 0)
+                if (HP <= 0)
                 {
                     SceneManager.LoadScene("GameOver");
                 }

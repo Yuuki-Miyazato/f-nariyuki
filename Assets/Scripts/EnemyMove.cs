@@ -158,8 +158,8 @@ public class EnemyMove : MonoBehaviour
         {
             anim.enabled=false;
         }
-        Debug.Log((float)script.py);
-        Debug.Log(this.transform.position.y-0.5f);
+        //Debug.Log((float)script.py);
+       // Debug.Log(this.transform.position.y-0.5f);
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {

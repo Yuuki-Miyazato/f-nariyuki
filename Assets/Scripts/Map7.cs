@@ -161,7 +161,7 @@ public class Map7 : MonoBehaviour
                 {
                     Instantiate(floor, new Vector2(j - 1, -i - 1), Quaternion.identity);
                     //Instantiate(Key, new Vector2(j - 1, -i - 1), Quaternion.identity);
-                    GameObject Keyobj = Instantiate(Key, new Vector2(j - 1, -i - 1), Quaternion.identity);
+                    GameObject Keyobj = Instantiate(Key, new Vector2(j - 1, -i - 0.8f), Quaternion.identity);
                     Keyobj.transform.parent = transform;
                     Keyobj.name = "Key";
                 }

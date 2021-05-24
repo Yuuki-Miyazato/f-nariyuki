@@ -35,6 +35,11 @@ public class HP : MonoBehaviour
         //player = GameObject.Find("Player");
         //pl = player.GetComponent<PlayerController>();
 
+        if (pl.HP<=0)
+        {
+            pl.HP = 0;
+        }
+
         hp.text=string.Format("☓{0}", pl.HP);
 
         if (keys.keyflg == true)
