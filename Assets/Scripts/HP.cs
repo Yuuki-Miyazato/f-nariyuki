@@ -40,7 +40,7 @@ public class HP : MonoBehaviour
             pl.HP = 0;
         }
 
-        hp.text=string.Format("☓{0}", pl.HP);
+        hp.text=string.Format("☓ {0}", pl.HP);
 
         if (keys.keyflg == true)
         {
